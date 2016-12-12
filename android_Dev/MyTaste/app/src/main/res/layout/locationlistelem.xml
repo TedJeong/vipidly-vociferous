@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:descendantFocusability="blocksDescendants">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/iv_listitem"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:id="@+id/tv_name"
+        android:layout_weight="0.36" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:id="@+id/ratingBar"
+        style="@style/myRatingBar"
+        android:isIndicator="true"
+        android:stepSize="1" />
+
+    <!--
+    <ImageButton
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:id="@+id/editBtn"
+        android:src="@drawable/pencil_24"
+        android:focusable="false"
+        android:background="#ffffff" />
+
+    <ImageButton
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:id="@+id/delBtn"
+        android:focusable="false"
+        android:src="@drawable/close_24"
+        android:background="#ffffff" />
+!-->
+</LinearLayout>

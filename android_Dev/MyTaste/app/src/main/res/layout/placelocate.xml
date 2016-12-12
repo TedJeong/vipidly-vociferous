@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:weightSum="1"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:id="@+id/SearchInput"
+            android:hint="# search"
+            android:textAlignment="center"
+            android:inputType="text"
+            android:singleLine="true"
+            android:layout_weight="0.96" />
+
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/search_26"
+            android:id="@+id/SearchButton"
+            android:onClick="onSearchButtonClicked"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:foregroundGravity="center"
+            android:background="@drawable/xml_button_main"
+            android:paddingLeft="10dp"
+            android:layout_margin="2dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/add_24"
+            android:id="@+id/btn_Ok"
+            android:onClick="onOkButtonClicked"
+            android:textAllCaps="false"
+            android:background="@drawable/xml_button_main"
+            android:paddingLeft="10dp"
+            android:layout_margin="2dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="45dp"
+            android:layout_height="fill_parent"
+            android:drawableLeft="@drawable/locateme_24"
+            android:id="@+id/LocateButton"
+            android:textAllCaps="false"
+            android:onClick="onLocateButtonClicked"
+            android:background="@drawable/xml_button_main"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:layout_margin="2dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/more_24"
+            android:id="@+id/MoreButton"
+            android:onClick="onMoreButtonClicked"
+            android:background="@drawable/xml_button_main"
+            android:paddingLeft="10dp"
+            android:layout_margin="2dp" />
+
+    </LinearLayout>
+    <com.example.joo.mytaste.MapWrapperLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map_relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity" >
+
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.google.android.gms.maps.MapFragment" />
+
+
+        <ImageView
+            android:id="@+id/marker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/michelin_gul_24"/>
+    </com.example.joo.mytaste.MapWrapperLayout>
+    <!--
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.google.android.gms.maps.MapFragment" />
+!-->
+</LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="불러오기"
+            android:id="@+id/btn_loadphoto"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="@drawable/xml_button"
+            android:layout_margin="3dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="사진찍기"
+            android:id="@+id/btn_takephoto"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="@drawable/xml_button"
+            android:layout_margin="3dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="선택"
+            android:id="@+id/btn_choosephoto"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="@drawable/xml_button"
+            android:layout_margin="3dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="삭제"
+            android:id="@+id/btn_deletephoto"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="@drawable/xml_button"
+            android:layout_margin="3dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/gv_imagegrid"
+            android:columnWidth="90dp"
+            android:horizontalSpacing="10dp"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth" />
+    </LinearLayout>
+
+</LinearLayout>
