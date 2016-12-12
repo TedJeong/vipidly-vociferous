@@ -1,0 +1,306 @@
+{% extends 'ImageDir/base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block page-header %} Image/Video {% endblock %}
+{% block page-sub-header %} Welcome to Image/Video analytics {% endblock %}
+
+{% block bodycontent %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block cssimport %}
+    <style>
+        .imagewrap {display:inline-block;position:relative;}
+        .button1 {position:absolute;bottom:0;left:0;}
+        .button2 {position:absolute;bottom:0;right:0;}
+        .button3 {position:absolute;right:50%;top:50%;}
+
+        #img_container {
+            display:inline-block;
+            position:relative;
+            text-align:center;
+            border:1px solid red;
+        }
+        .img_container_button {
+            position:absolute;
+            right:50%;
+            top:50%;
+            opacity:0;
+        }
+        .img_container_button:hover{
+            opacity:1;
+        }
+
+        .image-containers {
+            position: relative;
+            width: 200px;
+            height: 300px;
+        }
+        .image-containers .after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            color: #FFF;
+        }
+        .image-containers:hover .after {
+            display: block;
+            background: rgba(0, 0, 0, .6);
+        }
+        .image-containers:hover .after .after_innerbutton{
+            display: block;
+            position :absolute;
+            top: 45%;
+            left: 45%;
+        }
+
+
+        .card-image-containers {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .card-image-containers .card-after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            color: #FFF;
+        }
+        .card-image-containers:hover .card-after {
+            display: block;
+            background: rgba(0, 0, 0, .6);
+        }
+        .card-image-containers:hover .card-after .card-after-innerbutton{
+            display: block;
+            position :absolute;
+            top: 45%;
+            left: 45%;
+        }
+
+
+
+
+
+        .glyphicon.glyphicon-play-circle {
+            font-size: 200%;
+        }
+
+        .colorbrown{color:#9b846b}
+    </style>
+
+{% endblock%}
+
+
+
+
+
+<div class="image-containers">
+    <img src="http://lorempixel.com/300/200" style="height:100%;width:100%"/>
+    <div class="after">This is some content</div>
+</div>
+
+<div class="image-containers">
+    <img src="http://lorempixel.com/300/200" style="height:100%;width:100%"/>
+    <div class="after">
+        <a href="#">
+          <span class="glyphicon glyphicon-play-circle after_innerbutton colorbrown"></span>
+        </a>
+    </div>
+</div>
+
+
+<div class="imagewrap">
+    <img src="https://www.google.com/logos/2012/opening_ceremony-2012-hp.jpg">
+    <input type="button" class="button1" value="Button 1" />
+    <input type="button" class="button2" value="Button 2" />
+    <input type="button" class="button3" value="Button 3" />
+</div>
+
+<a href="#" class="hvr-sweep-to-right btn btn-primary">Add to Basket</a>
+<div id="img_container">
+    <img src="{{albums_all.1.album_logo}}" class="img-overlay"/>
+    <button class="img_container_button">play</button>
+</div>
+<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="{{albums_all.0.album_logo}}" alt="Smiley" width="32" height="32">
+
+<p>The function bigImg() is triggered when the user moves the mouse pointer over the image.</p>
+<p>The function normalImg() is triggered when the mouse pointer is moved out of the image.</p>
+
+<script>
+
+function bigImg(x) {
+    x.style.height = "64px";
+    x.style.width = "64px";
+}
+
+function normalImg(x) {
+    x.style.height = "32px";
+    x.style.width = "32px";
+}
+</script>
+
+    This is Audio view!
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card card-block">
+          <h3 class="card-title">Special title treatment</h3>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card card-block">
+          <h3 class="card-title">Special title treatment</h3>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card">
+            <div class="card-header">
+                This is a card header
+            </div>
+            <img class="card-img-top" src="http://placekitten.com/500/200">
+                <div class="card-block">
+                    <h4 class="card-title">Card title</h4>
+                    <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                </div>
+            <div class="card-block">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+            <div class="card-block">
+                <a href="#" class="btn btn-primary">Button</a>
+            </div>
+            <div class="card-footer text-muted">
+                This is a card footer
+            </div>
+    </div>
+
+
+    {% if albums_all %}
+        <ul>
+            {% for album in albums_all %}
+            <li>
+                <a href="{% url 'audio:detail' album.id %}">{{album.id}},{{ album.album_title}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+
+        {% for album in albums_all %}
+          <div class="col-md-4">
+            <div class="card">
+                <div class="card-image-containers">
+                    <img id="cards" class="card-img-top" src="{{ album.album_logo }}" alt="Card image cap" style="max-width: 300px; height: auto;" >
+                    <div class="card-after">
+                        <a href="#">
+                          <span class="glyphicon glyphicon-play-circle card-after-innerbutton colorbrown"></span>
+                        </a>
+                    </div>
+                </div>
+              <div class="card-block text-xs-center">
+                <h4 class="card-title">{{ album.album_title }}</h4>
+                <p class="card-text">{{ album.artist }}</p>
+                <div class="row">
+                    <a href="{% url 'audio:detail' album.id %}" class="btn btn-primary">Detail</a>
+                    <form action="{% url 'audio:album-delete' album.id %}" method="post" name="deletebuttonclicked">
+                        {% csrf_token %}
+                        <input type="hidden" class="btn btn-secondary" name="Details" value="Details">
+                        <button type="submit" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    {% endif %}
+
+
+
+
+    <p>your current location : <div id="lat_data"></div> , <div id="lng_data"></div></p>
+
+    <!-- Summa JavaScript -->
+    <script src="{% static "jsSumma/client_geoloc.js" %}"></script>
+    <script type="text/javascript">
+        document.getElementById('lat_data').innerHTML= htmllat
+        document.getElementById('lng_data').innerHTML= htmllng
+    </script>
+    <script src="{% static "jsSumma/Summa-Audio.js" %}"/>
+{% endblock %}
+<!--
+        {% for album in albums_all %}
+            {% if album.id|divisibleby:'2' %}
+            <div class="im-centered">
+                <div class="row">
+
+
+                      <div class="col-md-4">
+                        <div class="card">
+                          <img class="card-img-top" src="{{ album.album_logo }}" alt="Card image cap" style="max-width: 300px; height: auto;">
+                          <div class="card-block text-xs-center">
+                            <h4 class="card-title">{{ album.album_title }}</h4>
+                            <p class="card-text">{{ album.artist }}</p>
+                            <div class="row">
+                                <a href="{% url 'audio:detail' album.id %}" class="btn btn-primary">Detail</a>
+                                <form action="{% url 'audio:album-delete' album.id %}" method="post" name="deletebuttonclicked">
+                                    {% csrf_token %}
+                                    <input type="hidden" class="btn btn-secondary" name="Details" value="Details">
+                                    <button type="submit" class="btn btn-default btn-sm">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+            {% else %}
+
+
+                      <div class="col-md-4">
+                        <div class="card">
+                          <img class="card-img-top" src="{{ album.album_logo }}" alt="Card image cap" style="max-width: 300px; height: auto;">
+                          <div class="card-block text-xs-center">
+                            <h4 class="card-title">{{ album.album_title }}</h4>
+                            <p class="card-text">{{ album.artist }}</p>
+                            <div class="row">
+                                <a href="{% url 'audio:detail' album.id %}" class="btn btn-primary">Detail</a>
+
+                                <form action="{% url 'audio:album-delete' album.id %}" method="post" name="deletebuttonclicked">
+                                    {% csrf_token %}
+                                    <input type="hidden" class="btn btn-secondary" name="Details" value="Details">
+                                    <button type="submit" class="btn btn-default btn-sm">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                </div>
+            </div>
+            {% endif %}
+
+        {% endfor %}
+
+-->

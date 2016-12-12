@@ -1,0 +1,12 @@
+{% extends 'ContactDir/base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block page-header %} Contact {% endblock %}
+{% block page-sub-header %} feel free to Contact {% endblock %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block bodycontent%}
+    <a href="{% url 'contact:list' %}" type="button" class="btn btn-primary">Q&A Board</a>
+{% endblock %}

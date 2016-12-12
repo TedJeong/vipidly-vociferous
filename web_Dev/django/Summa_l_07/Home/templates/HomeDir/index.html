@@ -1,0 +1,106 @@
+{% extends 'HomeDir/base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+
+{% block title %} Summa-Home {% endblock %}
+{% block page-header %} Home {% endblock %}
+
+
+
+{% block page-sub-header %} Welcome to data analytics {% endblock %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block cssimport %}
+    <style>
+        #intro-contents{
+            text-align:center;
+        }
+        #detail-contents{
+            text-align:center;
+            background: rgb(229, 251, 252)
+
+        }
+    </style>
+{% endblock %}
+
+{% block bodycontent %}
+    <section id="intro-contents-section">
+        <div id="intro-contents">
+        Human has believed to have five senses with typical notions. <br/>
+        One can expands this senses with externals. <br/>
+        See what one can do with the sense analysis <br/>
+        powered by a bigData analysis and deep-learning methods. <br/>
+        </div>
+    </section>
+    <br/>
+    <br/>
+    <section id="detail-contents-section">
+        <div id="detail-contents" align="center">
+            <table border="1px" cellpadding="10px">
+
+                <thead>
+                    <th>images</th>
+                    <th>names</th>
+                    <th>jobs</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="{% static 'img/profile.png'%}" height="90" width="auto"></td>
+                        <td>Scrapper</td>
+                        <td>scrapes the static web data you want or uploads your image,text,video data and exports xls,json,pandas data formats.<br/></td>
+                    </tr>
+                    <tr>
+                        <td><img src="{% static 'img/profile.png'%}" height="90" width="auto"></td>
+                        <td>Analyer</td>
+                        <td>analyze based on the datas from above .. powered by BigData Hadoop and Spark platform plus ML based deeplearning.<br/></td>
+                    </tr>
+                    <tr>
+                        <td><img img src="{% static 'img/profile.png'%}" height="90" width="auto"></td>
+                        <td>Representer</td>
+                        <td>away from basic represtation of Analyzer, you can do various things you want. espeically for 3d nodes representation<br/></td>
+                    </tr>
+                    <tr>
+                        <td><img img src="{% static 'img/profile.png'%}" height="90" width="auto"></td>
+                        <td>Project Manager</td>
+                        <td>managing projects and resources.<br/></td>
+                    </tr>
+                </tbody>
+
+
+
+
+            </table>
+        </div>
+    </section>
+
+    <section id="search-section">
+        {% if search_results %}
+            <div id="search-result">
+                {% if models == 'Album' %}
+                    {% for elem_results in search_results %}
+                        <p>{{ elem_results.artist }}</p>
+                        <p>{{ elem_results.album_title }}</p>
+                        <p>{{ elem_results.genre }}</p>
+                    {% endfor %}
+                {% endif %}
+                {% if models == 'Song' %}
+                    {% for elem_results in search_results %}
+                        <p>{{ elem_results.song_title }}</p>
+                        <p>{{ elem_results.song_lyrics }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+        {% endif %}
+    </section>
+    <section id="index-footer" style="padding:100px;">
+        <div align="center">
+            powered by &nbsp&nbsp&nbsp
+            <img src="{% static 'img/spark-logo-trademark.png' %}" height="100" width="auto"/>&nbsp
+            <img src="{% static 'img/tensorflow_logo.jpg' %}" height="100" width="auto"/>&nbsp
+            <img src="{% static 'img/opencv-logo.jpg' %}" height="100" width="auto"/>&nbsp&nbsp&nbsp
+            <img src="{% static 'img/django-logo-negative.png' %}" height="100" width="auto"/>
+        </div>
+    </section>
+{% endblock %}

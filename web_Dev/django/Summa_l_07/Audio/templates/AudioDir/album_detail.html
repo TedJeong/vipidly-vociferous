@@ -1,0 +1,18 @@
+{% extends 'AudioDir/base.html' %}
+
+{% block title %} Album Detail {%endblock%}
+{% block page-header %} Audio {% endblock %}
+{% block page-sub-header %} Welcome to Audio analytics {% endblock %}
+
+{% block bodycontent %}
+    <img src="{{ album.album_logo }}">
+    <h2>{{album.album_title}} : {{album.artist}} </h2>
+    {% for song in album.song_set.all %}
+        <!--<li>{{ song.song_title }} - {{ song.file_type }}</li>-->
+    {% endfor %}
+
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- jQuery -->
+    <script src="{% static 'vendor/jquery/jquery.js' %}"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Custom Fonts -->
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+
+    <section>
+        {% if videos %}
+            {% for video in videos %}
+            <p>
+                <source src="{{ video.video_file.path }}">
+            </p>
+            {% endfor %}
+        {% endif %}
+
+    </section>
+
+    <button id="video-form-loader" class="btn btn-primary btn-lg">
+        <i id="video-form-loader-i" class="fa fa-upload" aria-hidden="true"></i>
+    </button>
+
+    <div id= "form-div" style="display:none">
+        <form id="video-upload-form" action="" method="post">
+            {% csrf_token %}
+            <input type="text"/>
+            <input id="video-holder" type="file"/>
+            <input type="image" class=" btn btn-primary fa fa-upload"/>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#video-form-loader').click(function(e){
+                $('#form-div').show();
+            });
+        });
+    </script>
+
+
+
+</body>
+</html>
