@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+{% load bootstrap3 %}
+{% load cache %}
+<html>
+	<head>
+	<!--<script src="{% static 'test/hello.js'%}"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	{% cache 3600 scripts_tags %}
+	<script src="{% static 'vintageJS-master/dist/jquery.vintage.min.js' %}"></script>
+	<script src="{% static 'vintageJS-master/vintage.presets.js' %}"></script>
+	<script src="{% static 'hello.js'%}"></script>
+	{% endcache %}
+	<title>{% block page_title %}Pystagram{% endblock %}</title>
+		{% bootstrap_css %}
+		{% bootstrap_javascript %}
+	</head>
+	<body class="container">
+		<p>{{ request.just_say }}</p>
+		{% block body %}{% endblock %}
+	</body>
+
+</html>

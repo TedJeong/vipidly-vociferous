@@ -1,0 +1,24 @@
+
+
+{% extends 'layout.html' %}
+
+{% load bootstrap3 %}
+{% block body %}
+
+<!--fileupload -> thumbnail -> base64 encoding -> server base 64 decoding -->
+
+<form method="POST" id="form-post" action="" enctype="multipart/form-data">
+	{% csrf_token %}
+	<input type="hidden" name="filtered_image"/>
+	<div id="filter_nav">
+		<img src="" id="preview"/>
+		<button value="vintage">Vintage</button>
+		<button value="sepia">Sepia</button>
+	</div>
+{#	{{ form.as_p }}	#}
+	{% bootstrap_form form %}
+	<p>
+		<button type="submit" class="btn btn-primary btn-lg">저장</button>
+	</p>
+</form>
+{% endblock %}
