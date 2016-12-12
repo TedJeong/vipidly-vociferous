@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="30dp"
+    >
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Camera Load Test"
+        android:id="@+id/button0"
+        android:layout_gravity="center_horizontal"
+        android:onClick="Button0Clicked" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Visual Material"
+        android:id="@+id/button1"
+        android:layout_gravity="center_horizontal"
+        android:onClick="Button1Clicked" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Visual OCR"
+        android:id="@+id/button2"
+        android:layout_gravity="center_horizontal"
+        android:onClick="Button2Clicked" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="PDF OCR"
+        android:id="@+id/button3"
+        android:layout_gravity="center_horizontal"
+        android:onClick="Button3Clicked" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Visual/Audio Language"
+        android:id="@+id/button4"
+        android:layout_gravity="center_horizontal"
+        android:onClick="Button4Clicked" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="BioPrint/QR code"
+        android:id="@+id/button5"
+        android:layout_gravity="center_horizontal"
+        android:onClick="Button5Clicked" />
+
+</LinearLayout>

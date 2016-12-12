@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/xml_border">
+
+    <TextView
+        android:id="@+id/textView_title"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:text="장소 정보"
+        android:textColor="#ffffff"
+
+        android:autoText="false"
+        android:background="@drawable/xml_addtitle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Name"
+
+            />
+
+        <EditText
+            android:id="@+id/ed_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:ems="10"
+            android:singleLine="true">
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_menu"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Menu" />
+
+        <EditText
+            android:id="@+id/ed_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:ems="10"
+            android:singleLine="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_rate"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Rate" />
+
+        <EditText
+            android:id="@+id/ed_rate"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:ems="10"
+            android:singleLine="true"/>
+        <View
+            android:layout_width="50dp"
+            android:layout_height="0dp"/>
+
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:id="@+id/ratingBar"
+            style="@style/myRatingBar"
+            android:stepSize="1"
+            android:numStars="5"
+            android:textAlignment="center" />
+    </LinearLayout>
+    <!--
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_photo"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Photo" />
+
+        <EditText
+            android:id="@+id/ed_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:ems="10"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+!-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Comment" />
+
+        <EditText
+            android:id="@+id/ed_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:ems="10"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv_position"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Position" />
+
+        <EditText
+            android:id="@+id/ed_lat"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:ems="10"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/ed_lng"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:ems="10"
+            android:singleLine="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/locateme_24"
+            android:paddingLeft="5dp"
+            android:id="@+id/btn_Location"
+            android:onClick="onLocationEditButtonClicked"
+            android:background="#ffffff"
+            android:layout_marginRight="2dp"  />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btnConfirm"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btnCancel"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/btnCancel"
+                android:text="확인"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:background="@drawable/xml_button"
+                android:layout_margin="3dp" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:text="취소"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:background="@drawable/xml_button"
+                android:layout_margin="3dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
