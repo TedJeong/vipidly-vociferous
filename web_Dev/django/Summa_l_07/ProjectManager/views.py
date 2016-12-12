@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 
+
+from .models import Project
+from .forms import ProjectForm
 
 def index(request):
     return render(request, 'ProjectManagerDir/index.html')
@@ -23,4 +27,4 @@ def create_project(request):
 def list_project(request, pk):
     project = Project.objects.get(pk=pk)
     if request.method == 'GET':
-        form =
+        pass
