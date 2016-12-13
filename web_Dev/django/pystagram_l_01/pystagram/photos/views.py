@@ -57,6 +57,7 @@ def like_post(request, post_pk):
 													  user=request.user,\
 													  defaults={'post':post, 'user':request.user})
 	return redirect(post)
+
 @login_required
 def create_post(request):
 #	if not request.user.is_authenticated():
