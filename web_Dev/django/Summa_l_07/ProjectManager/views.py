@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.shortcuts import HttpResponse
 
 
 from .models import Project
@@ -51,6 +52,23 @@ def index(request):
 
     return render(request, 'ProjectManagerDir/index.html', ctx)
 
+from django.http import JsonResponse
+def task_graph_added(request):
+    import json
+    import os
+    # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    path = os.path.join(BASE_DIR, 'ProjectManager\\templates\\ProjectManagerDir\\miserables.json')
+    print(path)
+    task_graph_json = open(path)
+    #print(task_graph_json)
+    #task_graph_json = json.load(task_graph_json) # deserialises it
+    task_graph_json = json.dumps(json.load(task_graph_json))  # json formatted string
+    x = {'one': 1, 'two': 2}
+    print(type(task_graph_json))
+    print(task_graph_json)
+    return JsonResponse(task_graph_json, safe=False)
+
 
 def create_project(request):
     if request.method == "GET":
@@ -82,10 +100,3 @@ def list_project(request):
     for project in projects:
         for member in project.project_members.all():
             project_member_names += [member.member_name]
-    # print(projects)
-    # print(projects[0].project_category.category_name)
-    # print(project_workspace_names)
-    # print(project_member_names)
-    ctx['projects'] = projects
-    ctx['project_workspace_names'] = project_workspace_names
-    ctx['project_member_names'] = project_member_names

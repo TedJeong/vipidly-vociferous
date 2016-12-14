@@ -18,8 +18,7 @@ var simulation = d3.forceSimulation()
     .force("center", d3.forceCenter(width / 2, height / 2));
 
 var path = "{{ task_graph_json }}";
-
-d3.json('../ProjectManager' , function(error, graph) {
+d3.json( "api/task-graph-added", function(error, graph) {
 
   if (error) throw error;
   var nodes = graph.nodes,
