@@ -102,10 +102,6 @@
             left: 45%;
         }
 
-
-
-
-
         .glyphicon.glyphicon-play-circle {
             font-size: 200%;
         }
@@ -315,7 +311,7 @@
                         </li>
                         <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">current task Tree</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab_contentR" role="tab" id="profile-tabE" data-toggle="tab" aria-expanded="false">Project task graph</a>
+                        <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Project task graph</a>
                         </li>
                       </ul>
                       <div id="myTabContent" class="tab-content">
@@ -704,6 +700,13 @@
                         <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
                           <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
                             booth letterpress, commodo enim craft beer mlkshk </p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+                          <p> D3.js graph representation with JSON data format </p>
+                          <div id="tab_content4_div">
+                            <svg id="task-graph" width="960" height="600"></svg>
+                            <p id="anws"></p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1260,9 +1263,6 @@
               </div>
             </div>
             <!-- end workspace -->
-
-
-
         </div>
 
 {% endblock %}
@@ -1934,5 +1934,8 @@
     <script>
       $('#top-padding').css('padding-top',30)
     </script>
+
+
+    <script src="{% static 'jsSumma/Summa-ProjectManager.js' %}" ></script>
 
 {% endblock %}

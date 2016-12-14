@@ -30,10 +30,18 @@ def index(request):
         psm_names += [pm_names]
         pm_names = []
 
+    import json
+
+    task_graph_json = open('C:/Users/student/Desktop/gitworkspace/vipidly-vociferous/web_Dev/django/Summa_l_07/static/jsSumma/miserables.json')
+    #task_graph_json = json.load(task_graph_json) # deserialises it
+    task_graph_json = json.dumps(json.load(task_graph_json)) # json formatted string
+
+
     ctx = {
         'projects': projects,
         'projects_workspace_names': psw_names,
         'projects_member_names': psm_names,
+        'task_graph_json': task_graph_json,
     }
 
     return render(request, 'ProjectManagerDir/index.html', ctx)
