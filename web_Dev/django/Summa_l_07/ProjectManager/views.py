@@ -31,8 +31,12 @@ def index(request):
         pm_names = []
 
     import json
+    import os
 
-    task_graph_json = open('C:/Users/student/Desktop/gitworkspace/vipidly-vociferous/web_Dev/django/Summa_l_07/static/jsSumma/miserables.json')
+    # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    path = os.path.join(BASE_DIR, 'ProjectManager/templates/ProjectManagerDir/miserables.json')
+    task_graph_json = open(path)
     #task_graph_json = json.load(task_graph_json) # deserialises it
     task_graph_json = json.dumps(json.load(task_graph_json)) # json formatted string
 
@@ -42,6 +46,7 @@ def index(request):
         'projects_workspace_names': psw_names,
         'projects_member_names': psm_names,
         'task_graph_json': task_graph_json,
+        'filepath': path,
     }
 
     return render(request, 'ProjectManagerDir/index.html', ctx)
