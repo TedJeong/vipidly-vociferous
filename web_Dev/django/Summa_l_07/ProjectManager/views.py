@@ -8,27 +8,32 @@ from .forms import ProjectForm
 def index(request):
 
     projects = Project.objects.all()
-    projects_workspace_names = []
-    project_workspace_names = []
-    project_member_names = []
-    for project in projects:
-        project_workspaces = project.project_workspaces.all()
-        for project_workspace in project_workspaces:
-            project_workspace_names += [project_workspace.workspace_name]
-        projects_workspace_names += project_workspace_names
+    psw_names = []
+    pw_names = []
 
     for project in projects:
-        for member in project.project_members.all():
-            project_member_names += [member.member_name]
+        pws = project.project_workspaces.all()
+        for pw in pws:
+            pw_names += [pw.workspace_name]
+        psw_names += [pw_names]
+        pw_names = []
 
-    # print(projects)
-    # print(projects[0].project_category.category_name)
-    # print(project_workspace_names)
-    # print(project_member_names)
+    #print(pw_names)
+    #print(psw_names)
+
+    psm_names = []
+    pm_names = []
+    for project in projects:
+        pms = project.project_members.all()
+        for pm in pms:
+            pm_names += [pm.member_name]
+        psm_names += [pm_names]
+        pm_names = []
+
     ctx = {
         'projects': projects,
-        'projects_workspace_names': projects_workspace_names,
-        'project_member_names': project_member_names,
+        'projects_workspace_names': psw_names,
+        'projects_member_names': psm_names,
     }
 
     return render(request, 'ProjectManagerDir/index.html', ctx)

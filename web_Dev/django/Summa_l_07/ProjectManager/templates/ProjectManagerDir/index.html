@@ -169,59 +169,25 @@
                     <p> '-' means hierarchy, () means handling objects <br/>Category-Projects-Task(To do list) and Controller(Workspace(projects-category))</p>
 
                     <ul class="nav nav-pills" role="tablist">
+
                       <li role="presentation"><a href="#">Regular link</a>
                       </li>
                       <li role="presentation" class="dropdown">
                         <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                          Dropdown
+                          ControllerFirstDown
                           <span class="caret"></span>
                         </a>
                         <ul id="menu6" class="dropdown-menu animated fadeInDown" role="menu">
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Category Tree</a>
                           </li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a>
-                          </li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Current controller graph</a>
                           </li>
                           <li role="presentation" class="divider"></li>
                           <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
                           </li>
                         </ul>
                       </li>
-                      <li role="presentation" class="dropdown">
-                        <a id="drop5" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                          Dropdown
-                          <span class="caret"></span>
-                        </a>
-                        <ul id="menu2" class="dropdown-menu animated fadeInDown" role="menu" aria-labelledby="drop5">
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
-                          </li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a>
-                          </li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a>
-                          </li>
-                          <li role="presentation" class="divider"></li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li role="presentation" class="dropdown">
-                        <a id="drop6" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                          Dropdown
-                          <span class="caret"></span>
-                        </a>
-                        <ul id="menu3" class="dropdown-menu animated fadeInDown" role="menu" aria-labelledby="drop6">
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
-                          </li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a>
-                          </li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a>
-                          </li>
-                          <li role="presentation" class="divider"></li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
-                          </li>
-                        </ul>
-                      </li>
+
                     </ul>
                     <!-- start controller lists  -->
                     <div class="col-md-12 col-sm-12 col-xs-12" style="overflow:auto;">
@@ -259,6 +225,7 @@
                                   <th>Team members</th>
                                   <th>Start date</th>
                                   <th>Deadline</th>
+                                  <th></th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -266,18 +233,38 @@
                                 <tr>
                                     <td>{{ project.project_category.category_name }}</td>
                                     <td>
-                                      {% for project_workspace_name in projects_workspace_name%}
-                                        {{ project_workspace_name }}
+                                      {% for pw_names in projects_workspace_names %}
+                                        {% if forloop.counter0 == forloop.parentloop.revcounter0 %}
+                                        {% for pw_name in pw_names %}
+                                          {{ pw_name }}
+                                        {% endfor %}
+                                        {% endif %}
                                       {% endfor %}
                                     </td>
                                     <td>{{ project.project_name }}</td>
                                     <td>
-                                      {% for project_member_name in project_member_names %}
-                                        {{ project_member_name }}
+                                      {% for pm_names in projects_member_names %}
+                                        {% if forloop.counter0 == forloop.parentloop.revcounter0 %}
+                                        {% for pm_name in pm_names %}
+                                          {{ pm_name }}
+                                        {% endfor %}
+                                        {% endif %}
                                       {% endfor %}
                                     </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                      {{ project.project_start_date }}
+                                    </td>
+                                    <td>
+                                      {{ project.project_deadline }}
+                                    </td>
+                                    <td>
+                                      <a class="view-project-instance" style="cursor:pointer;"><i class="fa fa-tag"></i>
+                                      view project</a>
+                                      <a class="view-category-instance" style="cursor:pointer;"><i class="fa fa-tags"></i>
+                                      view category</a>
+                                      <a class="view-workspace-instance" style="cursor:pointer;"><i class="fa fa-tasks"></i>
+                                      view workspace</a>
+                                    </td>
                                 </tr>
                                 {% empty %}
                                   <p> 게시물이 없습니다. </p>
@@ -326,7 +313,9 @@
                         </li>
                         <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Previous Projects</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
+                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">current task Tree</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_contentR" role="tab" id="profile-tabE" data-toggle="tab" aria-expanded="false">Project task graph</a>
                         </li>
                       </ul>
                       <div id="myTabContent" class="tab-content">
@@ -340,7 +329,7 @@
                               <!-- proejects controller inside home panel -->
                               <div class="x_panel">
                                 <div class="x_title">
-                                  <h2>Projects</h2>
+                                  <h2>ProjectNames</h2>
                                   <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>

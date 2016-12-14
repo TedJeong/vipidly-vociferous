@@ -17,6 +17,7 @@ class Progress(models.Model):
 
 
 class Task(models.Model):
+    task_related = models.ManyToManyField('self', null=True, blank=True)
     task_name = models.CharField(max_length=100, default="task_")
     task_project = models.ForeignKey('Project')
     task_members = models.ManyToManyField('Member', null=True, blank=True)
@@ -44,7 +45,10 @@ class Project(models.Model):
     project_workspaces = models.ManyToManyField('Workspace')
     project_controller = models.ForeignKey('Controller')
     project_category = models.ForeignKey('Category')
+
     project_start_date = models.DateTimeField(auto_now=True)
+    project_end_date = models.DateTimeField(null=True)
+    project_deadline = models.DateTimeField(null=True)
 
     project_description = models.CharField(max_length=300, null=True,
                                            default="test project_", blank=True)
@@ -67,6 +71,7 @@ class Project(models.Model):
 
 
 class Category(models.Model):
+    category_parent = models.ForeignKey('self', null=True, blank=True)
     category_name = models.CharField(max_length=100, default="category_")
 
     def __str__(self):
