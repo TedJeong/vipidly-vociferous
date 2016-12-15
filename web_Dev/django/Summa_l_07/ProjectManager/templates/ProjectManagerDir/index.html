@@ -40,6 +40,30 @@
   stroke: #fff;
   stroke-width: 1.5px;
 }
+
+.node circle {
+  fill: #999;
+}
+
+.node text {
+  font: 10px sans-serif;
+}
+
+.node--internal circle {
+  fill: #555;
+}
+
+.node--internal text {
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #555;
+  stroke-opacity: 0.4;
+  stroke-width: 1.5px;
+}
+
         .imagewrap {display:inline-block;position:relative;}
         .button1 {position:absolute;bottom:0;left:0;}
         .button2 {position:absolute;bottom:0;right:0;}
@@ -195,7 +219,7 @@
                       </li>
 
                     </ul>
-                    <!-- start controller lists  -->
+                    <!-- start whole project lists  -->
                     <div class="col-md-12 col-sm-12 col-xs-12" style="overflow:auto;">
                         <div class="x_panel">
                           <div class="x_title">
@@ -217,6 +241,8 @@
                             </ul>
                             <div class="clearfix"></div>
                           </div>
+
+
                           <div class="x_content">
 
                             <p class="text-muted font-13 m-b-30">
@@ -280,6 +306,111 @@
                           </div>
                         </div>
                     </div>
+                    <!-- end whole project lists -->
+
+                    <!-- start whole task list -->
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2>TODO Task List <small> for whole </small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Settings 1</a>
+                                  </li>
+                                  <li><a href="#">Settings 2</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="close-link"><i class="fa fa-close"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+
+                            <table id="datatable-checkbox" class="table dt-responsive nowrap table-striped table-bordered bulk_action">
+                              <thead>
+                                <tr>
+                                  <th>&nbsp;&nbsp;<input type="checkbox" id="check-all" class="flat"></th>
+                                  <th>task name</th>
+                                  <th>priority</th>
+                                  <th>task detail</th>
+                                  <th>task submitter</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for task in tasks %}
+                                <tr>
+                                  <td><input type="checkbox" class="flat" name="table_records"></td>
+                                  <td>{{ task.task_name }}</td>
+                                  <td>{{ task.task_priority }}</td>
+                                  <td>{{ task.task_description }}</td>
+                                  <td>{{ task.task_submitter }} </td>
+                                </tr>
+                                {% endfor %}
+                              </tbody>
+                            </table>
+                            <div>
+                              <button class="btn btn-primary btn-sm">POST</button>
+                              <button class="btn btn-danger btn-sm">DELET</button>
+                            </div>
+                            <div class="">
+                              <ul class="to_do">
+                                {% for task in tasks %}
+                                  <li>
+                                  <p>
+                                    <input type="checkbox" class="flat"> {{ task.task_name }} </p>
+                                </li>
+                                {% endfor %}
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- end whole task list -->
+
+                    <!-- start whole task list -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h2> Contribution Ranker <small> for real time </small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="#">Settings 1</a>
+                                  </li>
+                                  <li><a href="#">Settings 2</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a class="close-link"><i class="fa fa-close"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+
+                            <div class="">
+                              <ul class="to_do">
+                                {% for task in tasks %}
+                                  <li>
+                                  <p> user 1 <p>
+                                </li>
+                                {% endfor %}
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- end whole task list -->
+
                   </div>
                 </div>
                 <div class="clearfix"></div>
@@ -710,22 +841,21 @@
                         <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
                           <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
                             booth letterpress, commodo enim craft beer mlkshk </p>
+                          <div id="category-tree"></div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
                           <p> D3.js graph representation with JSON data format </p>
-                          <div id="tab_content4_div">
-                            <svg width="960" height="600"></svg>
-                            <p id="anws"></p>
-                          </div>
+                          <div id="task-graph"></div>
                         </div>
                       </div>
                     </div>
 
                       <div class="clearfix"></div>
+                      <!-- start category projects task list -->
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="x_panel">
                           <div class="x_title">
-                            <h2>To Do List <small>Sample tasks</small></h2>
+                            <h2>TODO Task List <small>under current category</small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                               </li>
@@ -747,37 +877,19 @@
 
                             <div class="">
                               <ul class="to_do">
-                                <li>
+                                {% for task in tasks %}
+                                  <li>
                                   <p>
-                                    <input type="checkbox" class="flat"> Schedule meeting with new client </p>
+                                    <input type="checkbox" class="flat"> {{ task.task_name }} </p>
                                 </li>
-                                <li>
-                                  <p>
-                                    <input type="checkbox" class="flat"> Create email address for new intern</p>
-                                </li>
-                                <li>
-                                  <p>
-                                    <input type="checkbox" class="flat"> Have IT fix the network printer</p>
-                                </li>
-                                <li>
-                                  <p>
-                                    <input type="checkbox" class="flat"> Copy backups to offsite location</p>
-                                </li>
-                                <li>
-                                  <p>
-                                    <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
-                                </li>
-                                <li>
-                                  <p>
-                                    <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
-                                </li>
+                                {% endfor %}
                               </ul>
                             </div>
                           </div>
                         </div>
                       </div>
-
-                      <!-- start whole projects Done list -->
+                      <!-- end category projects task list -->
+                      <!-- start category projects Done list -->
                       <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="x_panel">
                           <div class="x_title">
@@ -832,7 +944,7 @@
                           </div>
                         </div>
                       </div>
-                      <!-- end whole projects Done list -->
+                      <!-- end category projects Done list -->
                     </div>
                     <!-- content end-->
                 </div>
@@ -1091,7 +1203,7 @@
                                   <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div class="x_panel">
                                       <div class="x_title">
-                                        <h2>To Do List <small>pre task lists</small></h2>
+                                        <h2>TODO List <small>pre task lists under current project</small></h2>
                                         <ul class="nav navbar-right panel_toolbox">
                                           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                           </li>
@@ -1944,81 +2056,141 @@
     <script>
       $('#top-padding').css('padding-top',30)
     </script>
-<script>
 
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      //var svg = d3.select("svg"),
+      var svg = d3.select("#task-graph").append("svg").attr("width",700).attr("height",700),
+          width = +svg.attr("width"),
+          height = +svg.attr("height");
 
-var color = d3.scaleOrdinal(d3.schemeCategory20);
+      var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-var simulation = d3.forceSimulation()
-    .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody())
-    .force("center", d3.forceCenter(width / 2, height / 2));
+      var simulation = d3.forceSimulation()
+          .force("link", d3.forceLink().id(function(d) { return d.id; }))
+          .force("charge", d3.forceManyBody())
+          .force("center", d3.forceCenter(width / 2, height / 2));
 
-d3.json("api/task-graph-added", function(error, graph) {
-  if (error) throw error;
+      d3.json("/static/jsSumma/miserables.json", function(error, graph) {
+        if (error) throw error;
+        var pretty = JSON.stringify(graph, null, 2);
+        console.log(pretty);
+        var test = {"nodes":[1,2,3],"b":[3,4,5]}
+        //console.log(graph["nodes"])
+        //console.log(graph["links"])
 
-  var link = svg.append("g")
-      .attr("class", "links")
-    .selectAll("line")
-    .data(graph.links)
-    .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
 
-  var node = svg.append("g")
-      .attr("class", "nodes")
-    .selectAll("circle")
-    .data(graph.nodes)
-    .enter().append("circle")
-      .attr("r", 5)
-      .attr("fill", function(d) { return color(d.group); })
-      .call(d3.drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended));
+        var link = svg.append("g")
+            .attr("class", "links")
+          .selectAll("line")
+          .data(graph.links)
+          .enter().append("line")
+            .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
 
-  node.append("title")
-      .text(function(d) { return d.id; });
+        var node = svg.append("g")
+            .attr("class", "nodes")
+          .selectAll("circle")
+          .data(graph.nodes)
+          .enter().append("circle")
+            .attr("r", 5)
+            .attr("fill", function(d) { return color(d.group); })
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
 
-  simulation
-      .nodes(graph.nodes)
-      .on("tick", ticked);
+        node.append("title")
+            .text(function(d) { return d.id; });
 
-  simulation.force("link")
-      .links(graph.links);
-  alert('here');
-  function ticked() {
-    link
-        .attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+        simulation
+            .nodes(graph.nodes)
+            .on("tick", ticked);
 
-    node
-        .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
-  }
+        simulation.force("link")
+            .links(graph.links);
+
+        function ticked() {
+          link
+              .attr("x1", function(d) { return d.source.x; })
+              .attr("y1", function(d) { return d.source.y; })
+              .attr("x2", function(d) { return d.target.x; })
+              .attr("y2", function(d) { return d.target.y; });
+
+          node
+              .attr("cx", function(d) { return d.x; })
+              .attr("cy", function(d) { return d.y; });
+        }
+      });
+
+      function dragstarted(d) {
+        if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(d) {
+        d.fx = d3.event.x;
+        d.fy = d3.event.y;
+      }
+
+      function dragended(d) {
+        if (!d3.event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
 });
+    </script>
 
-function dragstarted(d) {
-  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-  d.fx = d.x;
-  d.fy = d.y;
-}
 
-function dragged(d) {
-  d.fx = d3.event.x;
-  d.fy = d3.event.y;
-}
+    <script>
+    $(document).ready(function(){
+      //var svg = d3.select("svg[id=category-tree]"),
+      var svg = d3.select("#category-tree").append("svg").attr("width",700).attr("height",700),
+          width = +svg.attr("width"),
+          height = +svg.attr("height"),
+          g = svg.append("g").attr("transform", "translate(40,0)");
 
-function dragended(d) {
-  if (!d3.event.active) simulation.alphaTarget(0);
-  d.fx = null;
-  d.fy = null;
-}
+      var tree = d3.cluster()
+          .size([height, width - 160]);
 
-</script>
+      var stratify = d3.stratify()
+          .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
 
+      d3.csv("/static/jsSumma/flare.csv", function(error, data) {
+        if (error) throw error;
+        console.log(data)
+        var root = stratify(data)
+            .sort(function(a, b) { return (a.height - b.height) || a.id.localeCompare(b.id); });
+
+        tree(root);
+
+        var link = g.selectAll(".link")
+            .data(root.descendants().slice(1))
+          .enter().append("path")
+            .attr("class", "link")
+            .attr("d", function(d) {
+              return "M" + d.y + "," + d.x
+                  + "C" + (d.parent.y + 100) + "," + d.x
+                  + " " + (d.parent.y + 100) + "," + d.parent.x
+                  + " " + d.parent.y + "," + d.parent.x;
+            });
+
+        var node = g.selectAll(".node")
+            .data(root.descendants())
+          .enter().append("g")
+            .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
+            .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+
+        node.append("circle")
+            .attr("r", 2.5);
+
+        node.append("text")
+            .attr("dy", 3)
+            .attr("x", function(d) { return d.children ? -8 : 8; })
+            .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+            .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
+      });
+});
+    </script>
 {% endblock %}

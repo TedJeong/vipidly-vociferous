@@ -1,7 +1,8 @@
 from __future__ import unicode_literals
 from django.db import models
 
-
+# Progress is determined when unitest problem is passed.
+# each problem is assigned a value and it is summed up to progress.
 class Progress(models.Model):
     progress_name = models.CharField(max_length=100, default="progress_")
     progress_project = models.ForeignKey('Project')
@@ -17,10 +18,17 @@ class Progress(models.Model):
 
 
 class Task(models.Model):
+    task_status = models.BooleanField(default=False)
+    task_priority = models.IntegerField(default=1)
     task_related = models.ManyToManyField('self', null=True, blank=True)
     task_name = models.CharField(max_length=100, default="task_")
+    task_description = models.CharField(max_length=300, null=True, blank=True)
     task_project = models.ForeignKey('Project')
+    task_submitter = models.CharField(max_length=100, default="Anonymous", null=True, blank=True)
     task_members = models.ManyToManyField('Member', null=True, blank=True)
+    task_initiated_at = models.DateTimeField(auto_now=True)
+    task_deadline = models.DateTimeField(null=True, blank=True)
+    task_completed_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return '{}-{} : {}'.format(self.task_name, self.task_project, self.task_members)

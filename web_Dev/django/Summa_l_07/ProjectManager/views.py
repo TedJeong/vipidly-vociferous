@@ -4,9 +4,12 @@ from django.shortcuts import HttpResponse
 
 
 from .models import Project
+from .models import Task
 from .forms import ProjectForm
 
 def index(request):
+
+    ctx = {}
 
     projects = Project.objects.all()
     psw_names = []
@@ -42,17 +45,24 @@ def index(request):
     task_graph_json = json.dumps(json.load(task_graph_json)) # json formatted string
 
 
+    # if
+    tasks = Task.objects.all().order_by('-task_priority')
+    print(tasks)
+    #ctx['tasks'] = tasks
+
     ctx = {
         'projects': projects,
         'projects_workspace_names': psw_names,
         'projects_member_names': psm_names,
         'task_graph_json': task_graph_json,
         'filepath': path,
+        'tasks' : tasks
     }
 
     return render(request, 'ProjectManagerDir/index.html', ctx)
 
 from django.http import JsonResponse
+
 def task_graph_added(request):
     import json
     import os
@@ -65,8 +75,8 @@ def task_graph_added(request):
     #task_graph_json = json.load(task_graph_json) # deserialises it
     task_graph_json = json.dumps(json.load(task_graph_json))  # json formatted string
     x = {'one': 1, 'two': 2}
-    print(type(task_graph_json))
-    print(task_graph_json)
+    #print(type(task_graph_json))
+    #print(task_graph_json)
     return JsonResponse(task_graph_json, safe=False)
 
 
