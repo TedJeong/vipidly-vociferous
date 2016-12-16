@@ -47,7 +47,7 @@ def index(request):
 
     # if
     tasks = Task.objects.all().order_by('-task_priority')
-    print(tasks)
+    #print(tasks)
     #ctx['tasks'] = tasks
 
     ctx = {
@@ -69,7 +69,7 @@ def task_graph_added(request):
     # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     path = os.path.join(BASE_DIR, 'ProjectManager\\templates\\ProjectManagerDir\\miserables.json')
-    print(path)
+    #print(path)
     task_graph_json = open(path)
     #print(task_graph_json)
     #task_graph_json = json.load(task_graph_json) # deserialises it

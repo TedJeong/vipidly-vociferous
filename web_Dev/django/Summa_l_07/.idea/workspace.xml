@@ -23,8 +23,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjectManager/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+            <state relative-caret-position="851">
+              <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -33,8 +33,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjectManager/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-66">
-              <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+            <state relative-caret-position="376">
+              <caret line="85" column="24" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="24" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -42,46 +42,72 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-341">
-              <caret line="1815" column="16" selection-start-line="1815" selection-start-column="16" selection-end-line="1815" selection-end-column="16" />
+            <state relative-caret-position="286">
+              <caret line="409" column="56" selection-start-line="409" selection-start-column="56" selection-end-line="409" selection-end-column="56" />
               <folding>
+                <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#table#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-                <element signature="e#14545#14551#0" expanded="true" />
-                <element signature="e#14551#14557#0" expanded="true" />
+                <element signature="e#14840#14846#0" expanded="true" />
+                <element signature="e#14846#14852#0" expanded="true" />
+                <element signature="e#16565#16572#0" expanded="true" />
+                <element signature="e#20244#20251#0" expanded="true" />
                 <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#script#10;n#!!top" expanded="false" />
+                <element signature="n#script#11;n#!!top" expanded="false" />
+                <element signature="n#script#13;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#!!top" expanded="false" />
                 <element signature="n#script#16;n#!!top" expanded="false" />
-                <element signature="n#script#32;n#!!top" expanded="false" />
-                <element signature="n#script#35;n#!!top" expanded="false" />
+                <element signature="n#script#33;n#!!top" expanded="false" />
                 <element signature="n#script#36;n#!!top" expanded="false" />
-                <marker date="1481786732571" expanded="false" signature="16540:18276" ph="..." />
+                <element signature="n#script#37;n#!!top" expanded="false" />
+                <marker date="1481874433566" expanded="false" signature="19752:21061" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.dataTables.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/vendor/datatables.net/js/jquery.dataTables.js">
+      <file leaf-file-name="task-form-django-admin.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/task-form-django-admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-32333">
-              <caret line="131" column="10" selection-start-line="131" selection-start-column="10" selection-end-line="131" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="-770">
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+              <folding>
+                <element signature="e#1920#1925#0" expanded="true" />
+                <element signature="e#1933#1938#0" expanded="true" />
+                <element signature="e#2189#2194#0" expanded="true" />
+                <element signature="e#2202#2207#0" expanded="true" />
+                <element signature="e#2473#2478#0" expanded="true" />
+                <element signature="e#2486#2491#0" expanded="true" />
+                <element signature="e#2760#2765#0" expanded="true" />
+                <element signature="e#2773#2778#0" expanded="true" />
+                <element signature="e#3031#3036#0" expanded="true" />
+                <element signature="e#3044#3049#0" expanded="true" />
+                <element signature="e#3296#3301#0" expanded="true" />
+                <element signature="e#3309#3314#0" expanded="true" />
+                <element signature="e#3572#3577#0" expanded="true" />
+                <element signature="e#3585#3590#0" expanded="true" />
+                <element signature="e#3592#3597#0" expanded="true" />
+                <element signature="e#3605#3610#0" expanded="true" />
+                <element signature="e#5811#5816#0" expanded="true" />
+                <element signature="e#5824#5829#0" expanded="true" />
+                <element signature="e#6038#6043#0" expanded="true" />
+                <element signature="e#6051#6056#0" expanded="true" />
+                <element signature="e#6269#6274#0" expanded="true" />
+                <element signature="e#6282#6287#0" expanded="true" />
+                <element signature="e#6500#6505#0" expanded="true" />
+                <element signature="e#6513#6518#0" expanded="true" />
+                <element signature="e#6738#6743#0" expanded="true" />
+                <element signature="e#6751#6756#0" expanded="true" />
+                <element signature="e#6758#6763#0" expanded="true" />
+                <element signature="e#6771#6776#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,8 +117,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -149,7 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Home/templates/HomeDir/login.html" />
         <option value="$PROJECT_DIR$/Home/templates/HomeDir/registration_form.html" />
         <option value="$PROJECT_DIR$/Home/urls.py" />
         <option value="$PROJECT_DIR$/Home/views.py" />
@@ -182,7 +207,6 @@
         <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/index_second.html" />
         <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/base_error.html" />
         <option value="$PROJECT_DIR$/ProjectManager/forms.py" />
-        <option value="$PROJECT_DIR$/Home/templates/HomeDir/index.html" />
         <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/edit_project.html" />
         <option value="$PROJECT_DIR$/ProjectManager/admin.py" />
         <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/projectmanager.js" />
@@ -196,10 +220,12 @@
         <option value="$PROJECT_DIR$/static/vendor/bootstrap/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/miserables.json" />
         <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/base.html" />
-        <option value="$PROJECT_DIR$/ProjectManager/models.py" />
-        <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/index.html" />
-        <option value="$PROJECT_DIR$/ProjectManager/views.py" />
         <option value="$PROJECT_DIR$/static/vendor/datatables.net/js/jquery.dataTables.js" />
+        <option value="$PROJECT_DIR$/ProjectManager/views.py" />
+        <option value="$PROJECT_DIR$/Home/templates/HomeDir/index.html" />
+        <option value="$PROJECT_DIR$/ProjectManager/models.py" />
+        <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/task-form-django-admin.html" />
+        <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/index.html" />
       </list>
     </option>
   </component>
@@ -234,7 +260,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -290,7 +315,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="datatables.net" />
+              <option name="myItemId" value="bootstrap-select-master" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -312,7 +337,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="datatables.net" />
+              <option name="myItemId" value="bootstrap-select-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -333,40 +362,20 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Summa_l_07" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="bootstrap-select-master" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="less" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Summa_l_07" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jsSumma" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -381,10 +390,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -462,6 +467,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HomeDir" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Contact" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -508,6 +535,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -517,19 +545,19 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Joo\Desktop\gitworkspace\vipidly-vociferous\web_Dev\django\Summa_l_07\ProjectManager\templates\ProjectManagerDir" />
-      <recent name="C:\Users\Joo\Desktop\workspace\WebProgramming_Dev_Stack\django\Summa_l_07\static\img" />
-      <recent name="C:\Users\Joo\Desktop\WebProgramming_Dev_Stack\BackEnd\django\Summa_l_04\MultiMedia\templates\MultiMediaDir" />
-      <recent name="C:\Users\Joo\Desktop\WebProgramming_Dev_Stack\BackEnd\django\Summa\Contact\templates\ContactDir" />
-      <recent name="C:\Users\Joo\Desktop\WebProgramming_Dev_Stack\BackEnd\django\Summa\Home\templates\HomeDir" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\student\Desktop\gitworkspace\vipidly-vociferous\web_Dev\django\Summa_l_07\static\jsSumma" />
       <recent name="C:\Users\student\Desktop\gitworkspace\vipidly-vociferous\web_Dev\django\Summa_l_07\static\js" />
       <recent name="C:\Users\Joo\Desktop\WebProgramming_Dev_Stack\BackEnd\django\Summa_l_06\ProjectManager" />
       <recent name="C:\Users\Joo\Desktop\WebProgramming_Dev_Stack\BackEnd\django\Summa_l_06" />
       <recent name="C:\Users\Joo\Desktop\WebProgramming_Dev_Stack\BackEnd\django\Summa_l_06\projectmanager\templates\ProjectManagerDir" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Joo\Desktop\gitworkspace\vipidly-vociferous\web_Dev\django\Summa_l_07\ProjectManager\templates\ProjectManagerDir" />
+      <recent name="C:\Users\Joo\Desktop\workspace\WebProgramming_Dev_Stack\django\Summa_l_07\static\img" />
+      <recent name="C:\Users\Joo\Desktop\WebProgramming_Dev_Stack\BackEnd\django\Summa_l_04\MultiMedia\templates\MultiMediaDir" />
+      <recent name="C:\Users\Joo\Desktop\WebProgramming_Dev_Stack\BackEnd\django\Summa\Contact\templates\ContactDir" />
+      <recent name="C:\Users\Joo\Desktop\WebProgramming_Dev_Stack\BackEnd\django\Summa\Home\templates\HomeDir" />
     </key>
   </component>
   <component name="RunManager">
@@ -694,7 +722,7 @@
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18521462" sideWeight="0.49561402" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1844197" sideWeight="0.49561402" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328341" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32373273" sideWeight="0.5111288" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938388" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -732,13 +760,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MultiMedia/templates/MultiMediaDir/sidebar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Audio/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -820,13 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/templates/HomeDir/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1011,7 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1033,7 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1041,6 +1053,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/vendor/datatables.net/js/jquery.dataTables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="131" column="10" selection-start-line="131" selection-start-column="10" selection-end-line="131" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1053,51 +1072,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Home/templates/HomeDir/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2456">
+          <caret line="113" column="49" selection-start-line="113" selection-start-column="49" selection-end-line="113" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ProjectManager/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        <state relative-caret-position="851">
+          <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjectManager/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+        <state relative-caret-position="376">
+          <caret line="85" column="24" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="24" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/index.html">
+    <entry file="file://$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/task-form-django-admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-341">
-          <caret line="1815" column="16" selection-start-line="1815" selection-start-column="16" selection-end-line="1815" selection-end-column="16" />
+        <state relative-caret-position="-770">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
           <folding>
-            <element signature="n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#table#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="e#14545#14551#0" expanded="true" />
-            <element signature="e#14551#14557#0" expanded="true" />
-            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#3;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#script#16;n#!!top" expanded="false" />
-            <element signature="n#script#32;n#!!top" expanded="false" />
-            <element signature="n#script#35;n#!!top" expanded="false" />
-            <element signature="n#script#36;n#!!top" expanded="false" />
-            <marker date="1481786732571" expanded="false" signature="16540:18276" ph="..." />
+            <element signature="e#1920#1925#0" expanded="true" />
+            <element signature="e#1933#1938#0" expanded="true" />
+            <element signature="e#2189#2194#0" expanded="true" />
+            <element signature="e#2202#2207#0" expanded="true" />
+            <element signature="e#2473#2478#0" expanded="true" />
+            <element signature="e#2486#2491#0" expanded="true" />
+            <element signature="e#2760#2765#0" expanded="true" />
+            <element signature="e#2773#2778#0" expanded="true" />
+            <element signature="e#3031#3036#0" expanded="true" />
+            <element signature="e#3044#3049#0" expanded="true" />
+            <element signature="e#3296#3301#0" expanded="true" />
+            <element signature="e#3309#3314#0" expanded="true" />
+            <element signature="e#3572#3577#0" expanded="true" />
+            <element signature="e#3585#3590#0" expanded="true" />
+            <element signature="e#3592#3597#0" expanded="true" />
+            <element signature="e#3605#3610#0" expanded="true" />
+            <element signature="e#5811#5816#0" expanded="true" />
+            <element signature="e#5824#5829#0" expanded="true" />
+            <element signature="e#6038#6043#0" expanded="true" />
+            <element signature="e#6051#6056#0" expanded="true" />
+            <element signature="e#6269#6274#0" expanded="true" />
+            <element signature="e#6282#6287#0" expanded="true" />
+            <element signature="e#6500#6505#0" expanded="true" />
+            <element signature="e#6513#6518#0" expanded="true" />
+            <element signature="e#6738#6743#0" expanded="true" />
+            <element signature="e#6751#6756#0" expanded="true" />
+            <element signature="e#6758#6763#0" expanded="true" />
+            <element signature="e#6771#6776#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/vendor/datatables.net/js/jquery.dataTables.js">
+    <entry file="file://$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32333">
-          <caret line="131" column="10" selection-start-line="131" selection-start-column="10" selection-end-line="131" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="286">
+          <caret line="409" column="56" selection-start-line="409" selection-start-column="56" selection-end-line="409" selection-end-column="56" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#tbody#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="e#14840#14846#0" expanded="true" />
+            <element signature="e#14846#14852#0" expanded="true" />
+            <element signature="e#16565#16572#0" expanded="true" />
+            <element signature="e#20244#20251#0" expanded="true" />
+            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#script#10;n#!!top" expanded="false" />
+            <element signature="n#script#11;n#!!top" expanded="false" />
+            <element signature="n#script#13;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#!!top" expanded="false" />
+            <element signature="n#script#16;n#!!top" expanded="false" />
+            <element signature="n#script#33;n#!!top" expanded="false" />
+            <element signature="n#script#36;n#!!top" expanded="false" />
+            <element signature="n#script#37;n#!!top" expanded="false" />
+            <marker date="1481874433566" expanded="false" signature="19752:21061" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

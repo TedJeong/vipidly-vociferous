@@ -1,0 +1,306 @@
+<!-- Content -->
+<div id="content" class="colM">
+
+    <h1>task 추가</h1>
+    <div id="content-main">
+
+
+        <form enctype="multipart/form-data" action="" method="post" id="task_form" novalidate><input type='hidden'
+                                                                                                     name='csrfmiddlewaretoken'
+                                                                                                     value='oOsrZanLtziINtUd9RrM8XnQnB31R90QaKeM67gdR02I8KDascdTgWrmmZU6qnPv'/>
+            <div>
+
+
+                <fieldset class="module aligned ">
+
+
+                    <div class="form-row field-task_status">
+
+
+                        <div class="checkbox-row">
+
+
+                            <input id="id_task_status" name="task_status" type="checkbox"/><label class="vCheckboxLabel"
+                                                                                                  for="id_task_status">Task
+                            status</label>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row field-task_priority">
+
+
+                        <div>
+
+
+                            <label class="required" for="id_task_priority">Task priority:</label>
+
+                            <input class="vIntegerField" id="id_task_priority" name="task_priority" type="text"
+                                   value="1" required/>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row field-task_related">
+
+
+                        <div>
+
+
+                            <label for="id_task_related">Task related:</label>
+
+
+                            <div class="related-widget-wrapper">
+                                <select multiple="multiple" id="id_task_related" name="task_related">
+                                    <option value="1">메인 페이지 다운로드 색 바꾸기-controller_main - [&#39;porfolio&#39;] name:
+                                        summa at 2016-12-13 05:30:19.944600+00:00 : ProjectManager.Member.None
+                                    </option>
+                                    <option value="2">Analyzer 만들기-controller_main - [&#39;porfolio&#39;] name: summa at
+                                        2016-12-13 05:30:19.944600+00:00 : ProjectManager.Member.None
+                                    </option>
+                                    <option value="3">AWS, PythonAnywhere 배포 복습하기-controller_main - [&#39;porfolio&#39;]
+                                        name: pystagram at 2016-12-13 05:30:11.332688+00:00 : ProjectManager.Member.None
+                                    </option>
+                                    <option value="4">Spring framework로 mount 하기-controller_main - [&#39;porfolio&#39;]
+                                        name: myplace at 2016-12-13 06:42:11.022357+00:00 : ProjectManager.Member.None
+                                    </option>
+                                    <option value="5">Scrapper 만들기-controller_main - [&#39;porfolio&#39;] name: summa at
+                                        2016-12-13 05:30:19.944600+00:00 : ProjectManager.Member.None
+                                    </option>
+                                    <option value="6">더미 테스크-subsub_controller - [&#39;dummyWS1&#39;] name:
+                                        project_dummy1 at 2016-12-14 00:34:33.799457+00:00 : ProjectManager.Member.None
+                                    </option>
+                                    <option value="7">더미 테스크 2-subsub_controller - [&#39;dummyWS1&#39;, &#39;dummyWS2&#39;]
+                                        name: project_dummy2 at 2016-12-14 00:35:00.662802+00:00 :
+                                        ProjectManager.Member.None
+                                    </option>
+                                </select>
+
+
+                                <a class="related-widget-wrapper-link add-related" id="add_id_task_related"
+                                   href="/admin/ProjectManager/task/add/?_to_field=id&amp;_popup=1"
+                                   title="task 추가">
+                                    <img src="/static/admin/img/icon-addlink.svg" alt="추가"/>
+                                </a>
+
+
+                            </div>
+
+
+                            <p class="help">하나 이상을 선택하려면 "Control" 키, Mac은 "Command"키를 누르세요.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row field-task_name">
+
+
+                        <div>
+
+
+                            <label class="required" for="id_task_name">Task name:</label>
+
+                            <input class="vTextField" id="id_task_name" maxlength="100" name="task_name" type="text"
+                                   value="task_" required/>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row field-task_description">
+
+
+                        <div>
+
+
+                            <label for="id_task_description">Task description:</label>
+
+                            <input class="vTextField" id="id_task_description" maxlength="300" name="task_description"
+                                   type="text"/>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row field-task_project">
+
+
+                        <div>
+
+
+                            <label class="required" for="id_task_project">Task project:</label>
+
+
+                            <div class="related-widget-wrapper">
+                                <select id="id_task_project" name="task_project" required>
+                                    <option value="" selected="selected">---------</option>
+                                    <option value="1">controller_main - [&#39;porfolio&#39;] name: summa at 2016-12-13
+                                        05:30:19.944600+00:00
+                                    </option>
+                                    <option value="2">controller_main - [&#39;porfolio&#39;] name: pystagram at
+                                        2016-12-13 05:30:11.332688+00:00
+                                    </option>
+                                    <option value="3">controller_main - [&#39;porfolio&#39;] name: myplace at 2016-12-13
+                                        06:42:11.022357+00:00
+                                    </option>
+                                    <option value="4">subsub_controller - [&#39;dummyWS1&#39;] name: project_dummy1 at
+                                        2016-12-14 00:34:33.799457+00:00
+                                    </option>
+                                    <option value="5">subsub_controller - [&#39;dummyWS1&#39;, &#39;dummyWS2&#39;] name:
+                                        project_dummy2 at 2016-12-14 00:35:00.662802+00:00
+                                    </option>
+                                </select>
+
+
+                                <a class="related-widget-wrapper-link change-related" id="change_id_task_project"
+                                   data-href-template="/admin/ProjectManager/project/__fk__/change/?_to_field=id&amp;_popup=1"
+                                   title="선택된 project 변경">
+                                    <img src="/static/admin/img/icon-changelink.svg" alt="변경"/>
+                                </a>
+
+
+                                <a class="related-widget-wrapper-link add-related" id="add_id_task_project"
+                                   href="/admin/ProjectManager/project/add/?_to_field=id&amp;_popup=1"
+                                   title="project 추가">
+                                    <img src="/static/admin/img/icon-addlink.svg" alt="추가"/>
+                                </a>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row field-task_submitter">
+
+
+                        <div>
+
+
+                            <label for="id_task_submitter">Task submitter:</label>
+
+                            <input class="vTextField" id="id_task_submitter" maxlength="100" name="task_submitter"
+                                   type="text" value="Anonymous"/>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row field-task_members">
+
+
+                        <div>
+
+
+                            <label for="id_task_members">Task members:</label>
+
+
+                            <div class="related-widget-wrapper">
+                                <select multiple="multiple" id="id_task_members" name="task_members">
+                                    <option value="1">TedJeong-project manager</option>
+                                    <option value="2">member_dummy-freelancer</option>
+                                    <option value="3">member_dummy2-freelancer</option>
+                                    <option value="4">member_dummy3-freelancer</option>
+                                    <option value="5">member_dummy4-backend programmer</option>
+                                    <option value="6">member_dummy5-frontend programmer</option>
+                                </select>
+
+
+                                <a class="related-widget-wrapper-link add-related" id="add_id_task_members"
+                                   href="/admin/ProjectManager/member/add/?_to_field=id&amp;_popup=1"
+                                   title="member 추가">
+                                    <img src="/static/admin/img/icon-addlink.svg" alt="추가"/>
+                                </a>
+
+
+                            </div>
+
+
+                            <p class="help">하나 이상을 선택하려면 "Control" 키, Mac은 "Command"키를 누르세요.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row field-task_deadline">
+
+
+                        <div>
+
+
+                            <label for="id_task_deadline_0">Task deadline:</label>
+
+                            <p class="datetime">날짜: <input class="vDateField" id="id_task_deadline_0"
+                                                           name="task_deadline_0" size="10" type="text"/><br/>시각: <input
+                                    class="vTimeField" id="id_task_deadline_1" name="task_deadline_1" size="8"
+                                    type="text"/></p>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-row field-task_completed_at">
+
+
+                        <div>
+
+
+                            <label for="id_task_completed_at_0">Task completed at:</label>
+
+                            <p class="datetime">날짜: <input class="vDateField" id="id_task_completed_at_0"
+                                                           name="task_completed_at_0" size="10" type="text"/><br/>시각:
+                                <input class="vTimeField" id="id_task_completed_at_1" name="task_completed_at_1"
+                                       size="8" type="text"/></p>
+
+
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+
+                <div class="submit-row">
+                    <input type="submit" value="저장" class="default" name="_save"/>
+
+
+                    <input type="submit" value="저장 및 다른 이름으로 추가" name="_addanother"/>
+                    <input type="submit" value="저장 및 편집 계속" name="_continue"/>
+                </div>
+
+
+                <script type="text/javascript"
+                        id="django-admin-form-add-constants"
+                        src="/static/admin/js/change_form.js"
+
+                        data-model-name="task"
+                >
+                </script>
+
+
+                <script type="text/javascript"
+                        id="django-admin-prepopulated-fields-constants"
+                        src="/static/admin/js/prepopulate_init.js"
+                        data-prepopulated-fields="[]">
+                </script>
+
+
+            </div>
+        </form>
+    </div>
+
+
+    <br class="clear"/>
+</div>
+<!-- END Content -->
