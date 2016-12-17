@@ -53,8 +53,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/form_block/templates/form_block/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1501">
-              <caret line="70" column="34" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="34" />
+            <state relative-caret-position="325">
+              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -416,7 +416,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2365648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -835,8 +835,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/form_block/templates/form_block/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1501">
-          <caret line="70" column="34" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="34" />
+        <state relative-caret-position="325">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
           <folding />
         </state>
       </provider>
