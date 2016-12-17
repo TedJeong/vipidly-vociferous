@@ -51,12 +51,12 @@ class Project(models.Model):
     project_name = models.CharField(max_length=100, default="project_")
     project_members = models.ManyToManyField('Member')
     project_workspaces = models.ManyToManyField('Workspace')
-    project_controller =    models.ForeignKey('Controller')
+    project_controller = models.ForeignKey('Controller')
     project_category = models.ForeignKey('Category')
 
     project_start_date = models.DateTimeField(auto_now=True)
-    project_end_date = models.DateTimeField(null=True)
-    project_deadline = models.DateTimeField(null=True)
+    project_end_date = models.DateTimeField(null=True, blank=True)
+    project_deadline = models.DateTimeField(null=True, blank=True)
 
     project_description = models.CharField(max_length=300, null=True,
                                            default="test project_", blank=True)

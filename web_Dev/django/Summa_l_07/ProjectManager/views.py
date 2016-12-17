@@ -5,10 +5,20 @@ from django.shortcuts import HttpResponse
 
 from .models import Project
 from .models import Task
+from .models import Member
 from .forms import ProjectForm
 
-def index(request):
+from django.core import serializers
+from rest_framework import serializers as drf_serializers
+from rest_framework import viewsets
 
+def index(request):
+    if request.is_ajax():
+        contents = {}
+        data = serializers.serialize('json', contents)
+
+        print('index call')
+        #return HttpResponse(data)
     ctx = {}
 
     projects = Project.objects.all()
@@ -50,14 +60,20 @@ def index(request):
     #print(tasks)
     #ctx['tasks'] = tasks
 
+    members = Member.objects.all()
+
     ctx = {
         'projects': projects,
         'projects_workspace_names': psw_names,
         'projects_member_names': psm_names,
         'task_graph_json': task_graph_json,
         'filepath': path,
-        'tasks' : tasks
+        'tasks' : tasks,
+        'members': members
     }
+
+    if request.method == 'POST':
+        print('post')
 
     return render(request, 'ProjectManagerDir/index.html', ctx)
 

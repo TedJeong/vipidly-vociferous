@@ -34,6 +34,10 @@
     <link href="{% static 'vendor/bootstrap-select-master/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
 
     <style>
+.controller-form-table > th, td{
+  padding:15px;
+}
+
 
 .links line {
   stroke: #999;
@@ -375,53 +379,7 @@
                                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                                       <h4 class="modal-title">Task Post</h4>
                                     </div>
-
-                                    <div class="modal-body">
-
-                                      <form method="post" action="#" id="ss">
-                                        <div class="form-group">
-                                          <label for="email">Email address:</label>
-                                          <input type="email" class="form-control" id="email">
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="pwd">Password:</label>
-                                          <input type="password" class="form-control" id="pwd">
-                                        </div>
-                                        <div class="checkbox">
-                                          <label><input type="checkbox"> Remember me</label>
-                                        </div>
-
-                                      </form>
-
-                                      <form method="post" action="#" id="controller-task-post-form">
-                                        <div class="form-group">
-                                          <label>task priority :</label>
-                                          <input type="text" class="form-control" id="form-task-priority" maxlength="20" size="10">
-                                        </div>
-                                        <div class="form-group">
-                                          <label>task name :</label>
-                                          <input type="text" class="form-control" id="form-task-name">
-                                        </div>
-                                        <div class="form-group">
-                                          <label>task project :</label>
-                                          <select class="selectpicker" data-live-search="true" name="task-list" form="controller-task-post-form">
-                                            {% for project in projects %}
-                                              <option value="{{project.pk}}">{{ project.project_name }}</option>
-                                            {% endfor %}
-                                          </select>
-                                          </div>
-                                      </form>
-
-                                      {% include 'ProjectManagerDir/task-form-django-admin.html' %}
-
-
-                                    </div>
-
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal"
-                                      data-toggle="modal" data-target="#task-post-modal"
-                                      >Close</button>
-                                    </div>
+                                        {% include 'ProjectManagerDir/task-form-django-admin.html' %}
                                   </div>
 
                                 </div>
@@ -546,9 +504,6 @@
                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                           <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
                             synth. Cosby sweater eu banh mi, qui irure terr.</p>
-
-
-
 
                               <!-- proejects controller inside home panel -->
                               <div class="x_panel">
@@ -2162,7 +2117,7 @@
       d3.json("/static/jsSumma/miserables.json", function(error, graph) {
         if (error) throw error;
         var pretty = JSON.stringify(graph, null, 2);
-        console.log(pretty);
+        //console.log(pretty);
         var test = {"nodes":[1,2,3],"b":[3,4,5]}
         //console.log(graph["nodes"])
         //console.log(graph["links"])
@@ -2245,7 +2200,7 @@
 
       d3.csv("/static/jsSumma/flare.csv", function(error, data) {
         if (error) throw error;
-        console.log(data)
+        //console.log(data)
         var root = stratify(data)
             .sort(function(a, b) { return (a.height - b.height) || a.id.localeCompare(b.id); });
 
@@ -2278,6 +2233,22 @@
             .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
       });
 });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('#controller-task-post-form').on('submit', function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: "http://127.0.0.1:8000/projectmanager/", //this is the submit URL
+                    type: 'POST', //or POST
+                    data: $('#controller-task-post-form').serialize(),
+                    success: function(data){
+                         alert('successfully submitted');
+                    }
+                });
+            });
+        });
     </script>
 
 {% endblock %}

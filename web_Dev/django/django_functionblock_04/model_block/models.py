@@ -36,7 +36,7 @@ class firstmodel(models.Model):
 
     class Meta:
         ordering = ['-modelfield5_1',]
-        get_lastest_by = 'modelfield5_1'
+        get_latest_by = 'modelfield5_1'
         #index_together, db_table, managed
 
 class OneToOneModel(models.Model):

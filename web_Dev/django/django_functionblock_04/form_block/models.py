@@ -7,7 +7,7 @@ from django.db import models
 # BigAutoField	Not represented in the form
 # BigIntegerField	IntegerField with min_value set to -9223372036854775808 and max_value set to 9223372036854775807.
 # BooleanField	BooleanField
-# CharField	CharField with max_length set to the model field’s max_length
+# CharField	CharField with max_length set to the model fields max_length
 # CommaSeparatedIntegerField	CharField
 # DateField	DateField
 # DateTimeField	DateTimeField
