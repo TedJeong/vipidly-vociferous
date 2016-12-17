@@ -33,10 +33,10 @@ from django.db import models
 
 class SampleModel(models.Model):
     modelfield_1 = models.CharField(max_length=100)
-    modelfield_2 = models.IntegerField()
-    modelfield_3 = models.BooleanField()
+    modelfield_2 = models.IntegerField(null=True, blank=True)
+    modelfield_3 = models.BooleanField(default=False)
     modelfield_4_1 = models.DateField(auto_now_add=True)
-    modelfield_4_2 = models.DateField()
-    modelfield_5 = models.DecimalField(decimal_places=5,max_digits=5)
-    modelfield_6 = models.FileField()
-    modelfield_7 = models.EmailField()
+    modelfield_4_2 = models.DateField(null=True, blank=True)
+    modelfield_5 = models.DecimalField(decimal_places=5,max_digits=5,null=True, blank=True)
+    modelfield_6 = models.FileField(null=True, blank=True)
+    modelfield_7 = models.EmailField(null=True, blank=True)

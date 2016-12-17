@@ -2240,9 +2240,10 @@
             $('#controller-task-post-form').on('submit', function(e){
                 e.preventDefault();
                 $.ajax({
-                    url: "http://127.0.0.1:8000/projectmanager/", //this is the submit URL
-                    type: 'POST', //or POST
+                    url: "/projectmanager/", //this is the submit URL
+                    type: "POST", //or POST
                     data: $('#controller-task-post-form').serialize(),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
                     success: function(data){
                          alert('successfully submitted');
                     }
