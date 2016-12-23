@@ -5,6 +5,7 @@ from .views import index
 from .views import modal_form_index
 from .views import modal_form_result
 
+
 app_name = 'form_block'
 
 urlpatterns = [
