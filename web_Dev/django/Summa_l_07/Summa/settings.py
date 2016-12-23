@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'MultiMedia',
     'Contact',
     'ProjectManager',
+    'Analyzer',
     'bootstrap3',
 ]
 
