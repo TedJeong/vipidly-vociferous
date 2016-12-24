@@ -21,4 +21,8 @@ def kdsprp(request):
     return render(request, 'AnalyzerDir/kaggle-demo-santander-product-recommendation-problem.html'
                   ,ctx)
 
-
+#kaggle-the-nature-conservancy-fisheries-monitoring-problem
+def ktncfmp(request):
+    ctx={}
+    return render(request, 'AnalyzerDir/kaggle-the-nature-conservancy-fisheries-monitoring-problem.html'
+                  ,ctx)
