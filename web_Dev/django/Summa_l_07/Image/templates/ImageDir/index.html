@@ -134,15 +134,15 @@
 
 <script>
 
-function bigImg(x) {
-    x.style.height = "64px";
-    x.style.width = "64px";
-}
+    function bigImg(x) {
+        x.style.height = "64px";
+        x.style.width = "64px";
+    }
 
-function normalImg(x) {
-    x.style.height = "32px";
-    x.style.width = "32px";
-}
+    function normalImg(x) {
+        x.style.height = "32px";
+        x.style.width = "32px";
+    }
 </script>
 
     This is Audio view!
@@ -238,69 +238,10 @@ function normalImg(x) {
     <p>your current location : <div id="lat_data"></div> , <div id="lng_data"></div></p>
 
     <!-- Summa JavaScript -->
-    <script src="{% static "jsSumma/client_geoloc.js" %}"></script>
+    <script src="{% static 'jsSumma/client_geoloc.js' %}"></script>
     <script type="text/javascript">
         document.getElementById('lat_data').innerHTML= htmllat
         document.getElementById('lng_data').innerHTML= htmllng
     </script>
-    <script src="{% static "jsSumma/Summa-Audio.js" %}"/>
+    <script src="{% static 'jsSumma/Summa-Audio.js' %}"/>
 {% endblock %}
-<!--
-        {% for album in albums_all %}
-            {% if album.id|divisibleby:'2' %}
-            <div class="im-centered">
-                <div class="row">
-
-
-                      <div class="col-md-4">
-                        <div class="card">
-                          <img class="card-img-top" src="{{ album.album_logo }}" alt="Card image cap" style="max-width: 300px; height: auto;">
-                          <div class="card-block text-xs-center">
-                            <h4 class="card-title">{{ album.album_title }}</h4>
-                            <p class="card-text">{{ album.artist }}</p>
-                            <div class="row">
-                                <a href="{% url 'audio:detail' album.id %}" class="btn btn-primary">Detail</a>
-                                <form action="{% url 'audio:album-delete' album.id %}" method="post" name="deletebuttonclicked">
-                                    {% csrf_token %}
-                                    <input type="hidden" class="btn btn-secondary" name="Details" value="Details">
-                                    <button type="submit" class="btn btn-default btn-sm">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-            {% else %}
-
-
-                      <div class="col-md-4">
-                        <div class="card">
-                          <img class="card-img-top" src="{{ album.album_logo }}" alt="Card image cap" style="max-width: 300px; height: auto;">
-                          <div class="card-block text-xs-center">
-                            <h4 class="card-title">{{ album.album_title }}</h4>
-                            <p class="card-text">{{ album.artist }}</p>
-                            <div class="row">
-                                <a href="{% url 'audio:detail' album.id %}" class="btn btn-primary">Detail</a>
-
-                                <form action="{% url 'audio:album-delete' album.id %}" method="post" name="deletebuttonclicked">
-                                    {% csrf_token %}
-                                    <input type="hidden" class="btn btn-secondary" name="Details" value="Details">
-                                    <button type="submit" class="btn btn-default btn-sm">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-
-
-                </div>
-            </div>
-            {% endif %}
-
-        {% endfor %}
-
--->
