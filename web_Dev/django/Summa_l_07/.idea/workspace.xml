@@ -14,6 +14,9 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Summa" />
@@ -23,61 +26,35 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1512">
-              <caret line="84" column="47" lean-forward="false" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="47" />
-              <folding>
-                <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="kaggle-demo-santander-product-recommendation-problem.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/kaggle-demo-santander-product-recommendation-problem.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="32" column="70" lean-forward="false" selection-start-line="32" selection-start-column="70" selection-end-line="32" selection-end-column="70" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#script#6;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Image/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Image/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+            <state relative-caret-position="1764">
+              <caret line="98" column="45" lean-forward="false" selection-start-line="98" selection-start-column="45" selection-end-line="98" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Image/templates/ImageDir/index.html">
+      <file leaf-file-name="kaggle-demo-santander-product-recommendation-problem.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/kaggle-demo-santander-product-recommendation-problem.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+            <state relative-caret-position="3330">
+              <caret line="185" column="112" lean-forward="false" selection-start-line="185" selection-start-column="112" selection-end-line="185" selection-end-column="112" />
               <folding>
-                <element signature="n#style#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#!!top" expanded="false" />
                 <element signature="n#div#2;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#2;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#6;n#!!top" expanded="true" />
+                <element signature="n#block#4;n#!!top" expanded="false" />
+                <element signature="n#script#10;n#!!top" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Home/templates/HomeDir/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="114" column="14" lean-forward="true" selection-start-line="114" selection-start-column="14" selection-end-line="114" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,23 +62,16 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4590">
-              <caret line="315" column="26" lean-forward="false" selection-start-line="230" selection-start-column="20" selection-end-line="315" selection-end-column="26" />
+            <state relative-caret-position="3636">
+              <caret line="202" column="40" lean-forward="false" selection-start-line="202" selection-start-column="37" selection-end-line="202" selection-end-column="40" />
               <folding>
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="e#2036#4566#0#HTML" expanded="false" />
+                <element signature="e#8431#13253#0#HTML" expanded="false" />
+                <element signature="e#13379#19554#0#HTML" expanded="false" />
+                <element signature="e#19683#21460#0#HTML" expanded="false" />
+                <element signature="e#21737#55822#0#HTML" expanded="false" />
+                <element signature="e#55907#83196#0#HTML" expanded="false" />
                 <marker date="1482587408295" expanded="true" signature="84546:84558" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding>
-                <element signature="n#script#4;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -119,12 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dataTables_flet</find>
-      <find>dataTables</find>
-      <find>categories</find>
-      <find>nav</find>
-      <find>workspace</find>
-      <find>controller`</find>
       <find>Project Titl</find>
       <find>//CURR</find>
       <find>Dropwo</find>
@@ -149,6 +113,12 @@
       <find>package</find>
       <find>packages</find>
       <find>Scatter</find>
+      <find>TODO</find>
+      <find>fix</find>
+      <find>submit</find>
+      <find>Data</find>
+      <find>p</find>
+      <find>logo</find>
     </findStrings>
     <replaceStrings>
       <replace>{% static '</replace>
@@ -195,7 +165,6 @@
         <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/miserables.json" />
         <option value="$PROJECT_DIR$/static/vendor/datatables.net/js/jquery.dataTables.js" />
         <option value="$PROJECT_DIR$/ProjectManager/models.py" />
-        <option value="$PROJECT_DIR$/Home/templates/HomeDir/index.html" />
         <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/task-form-django-admin.html" />
         <option value="$PROJECT_DIR$/ProjectManager/forms.py" />
         <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/index.html" />
@@ -203,24 +172,25 @@
         <option value="$PROJECT_DIR$/ProjectManager/views.py" />
         <option value="$PROJECT_DIR$/Summa/settings.py" />
         <option value="$PROJECT_DIR$/Summa/urls.py" />
-        <option value="$PROJECT_DIR$/Analyzer/forms.py" />
         <option value="$PROJECT_DIR$/Analyzer/templates/index.html" />
-        <option value="$PROJECT_DIR$/Analyzer/models.py" />
-        <option value="$PROJECT_DIR$/Home/templates/HomeDir/base.html" />
         <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/kaggle-demo-state-farm-distracted-farm-problem.html" />
         <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/package-example.html" />
         <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/index_template.html" />
         <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/index.html" />
         <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/kaggle-the-nature-conservancy-fisheries-monitoring-problem.html" />
-        <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/base.html" />
         <option value="$PROJECT_DIR$/Analyzer/urls.py" />
-        <option value="$PROJECT_DIR$/Analyzer/views.py" />
         <option value="$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/base.html" />
         <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/package-examples.html" />
-        <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/kaggle-demo-santander-product-recommendation-problem.html" />
         <option value="$PROJECT_DIR$/Image/templates/ImageDir/index.html" />
         <option value="$PROJECT_DIR$/Image/views.py" />
         <option value="$PROJECT_DIR$/Image/urls.py" />
+        <option value="$PROJECT_DIR$/Home/templates/HomeDir/base.html" />
+        <option value="$PROJECT_DIR$/Analyzer/views.py" />
+        <option value="$PROJECT_DIR$/Analyzer/forms.py" />
+        <option value="$PROJECT_DIR$/Analyzer/models.py" />
+        <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/base.html" />
+        <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/kaggle-demo-santander-product-recommendation-problem.html" />
+        <option value="$PROJECT_DIR$/Home/templates/HomeDir/index.html" />
       </list>
     </option>
   </component>
@@ -231,10 +201,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="52" />
-    <option name="width" value="1855" />
-    <option name="height" value="1028" />
+    <option name="x" value="51" />
+    <option name="y" value="24" />
+    <option name="width" value="1869" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -251,6 +221,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -273,7 +244,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Image" />
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -287,7 +258,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Image" />
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="icons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjectManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjectManager" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -295,21 +320,71 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ImageDir" />
+              <option name="myItemId" value="ProjectManagerDir" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HomeDir" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Summa_l_07" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Analyzer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -328,6 +403,63 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Summa" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Summa" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Summa" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -357,6 +489,22 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <module name="Summa" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -493,17 +641,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="52" width="1855" height="1028" extended-state="0" />
-    <editor active="false" />
+    <frame x="51" y="24" width="1869" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1967655" sideWeight="0.49561402" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1952916" sideWeight="0.49561402" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328341" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32373273" sideWeight="0.5111288" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19917013" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24920969" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2554974" sideWeight="0.48887122" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2543235" sideWeight="0.48887122" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12916006" sideWeight="0.50438595" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -538,13 +686,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/edit_project.html" />
     <entry file="file://$PROJECT_DIR$/ProjectManager/admin.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -658,20 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectManager/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="44" column="21" lean-forward="false" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/templates/HomeDir/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="121" column="100" lean-forward="false" selection-start-line="121" selection-start-column="100" selection-end-line="121" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/vendor/iCheck/icheck.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10140">
@@ -721,13 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analyzer/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Audio/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -742,24 +862,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analyzer/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Summa/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Home/templates/HomeDir/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="112" column="22" lean-forward="true" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -805,13 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analyzer/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/jsSumma/Summa-ProjectManager.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="889">
@@ -833,38 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="84" column="47" lean-forward="false" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="47" />
-          <folding>
-            <element signature="n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="n#script#4;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4590">
-          <caret line="315" column="26" lean-forward="false" selection-start-line="230" selection-start-column="20" selection-end-line="315" selection-end-column="26" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <marker date="1482587408295" expanded="true" signature="84546:84558" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MultiMedia/templates/MultiMediaDir/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -872,15 +939,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Image/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#32#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Image/templates/ImageDir/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#!!top" expanded="false" />
-            <element signature="n#div#2;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -892,24 +964,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Image/urls.py">
+    <entry file="file://$PROJECT_DIR$/Image/templates/ImageDir/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectManager/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="44" column="64" lean-forward="true" selection-start-line="44" selection-start-column="64" selection-end-line="44" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analyzer/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analyzer/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analyzer/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="49" column="48" lean-forward="true" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectManager/templates/ProjectManagerDir/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3636">
+          <caret line="202" column="40" lean-forward="false" selection-start-line="202" selection-start-column="37" selection-end-line="202" selection-end-column="40" />
+          <folding>
+            <element signature="e#2036#4566#0#HTML" expanded="false" />
+            <element signature="e#8431#13253#0#HTML" expanded="false" />
+            <element signature="e#13379#19554#0#HTML" expanded="false" />
+            <element signature="e#19683#21460#0#HTML" expanded="false" />
+            <element signature="e#21737#55822#0#HTML" expanded="false" />
+            <element signature="e#55907#83196#0#HTML" expanded="false" />
+            <marker date="1482587408295" expanded="true" signature="84546:84558" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1764">
+          <caret line="98" column="45" lean-forward="false" selection-start-line="98" selection-start-column="45" selection-end-line="98" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/templates/HomeDir/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="133" column="31" lean-forward="false" selection-start-line="133" selection-start-column="27" selection-end-line="133" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/kaggle-demo-santander-product-recommendation-problem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="32" column="70" lean-forward="false" selection-start-line="32" selection-start-column="70" selection-end-line="32" selection-end-column="70" />
+        <state relative-caret-position="3330">
+          <caret line="185" column="112" lean-forward="false" selection-start-line="185" selection-start-column="112" selection-end-line="185" selection-end-column="112" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#script#6;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#2;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#6;n#!!top" expanded="true" />
+            <element signature="n#block#4;n#!!top" expanded="false" />
+            <element signature="n#script#10;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Home/templates/HomeDir/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="114" column="14" lean-forward="true" selection-start-line="114" selection-start-column="14" selection-end-line="114" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>

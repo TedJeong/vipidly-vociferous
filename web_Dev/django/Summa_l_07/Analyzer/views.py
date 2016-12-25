@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 
-
+from .forms import ControllerForm
 
 def index(request):
     ctx={}
@@ -17,7 +18,16 @@ def kdsfddp(request):
 
 #kaggle-demo-santander-product-recommendation-problem
 def kdsprp(request):
-    ctx={}
+    controllerform = ControllerForm()
+    if request.method == 'post':
+        controllerform = ControllerForm(request.POST, request.FILES)
+        if controllerform.is_valid():
+            controller = controllerform.save(commit=False)
+            controller.save()
+            return redirect('analyzer:kaggle-demo-santander-product-recommendation-problem')
+    ctx={
+        'controllerform': controllerform,
+         }
     return render(request, 'AnalyzerDir/kaggle-demo-santander-product-recommendation-problem.html'
                   ,ctx)
 
