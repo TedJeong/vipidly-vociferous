@@ -49,7 +49,8 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{% url 'home:index' %}" class="site_title"><i class="fa fa-paw"></i> <span>Project Summa</span></a>
+{#                <div>Icons made by <a href="http://www.flaticon.com/authors/zlatko-najdenovski" title="Zlatko Najdenovski">Zlatko Najdenovski</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>#}
+              <a href="{% url 'home:index' %}" class="site_title"><img src="{% static 'img/bear_w.svg' %}" height="40"><span>Project Summa</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -74,34 +75,45 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
 
-                  <li><a><i class="fa fa-video-camera"></i>Python-OpenCV<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-video-camera"></i>Structured Data Analyzer<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{% url 'multimedia:image-analysis' %}">Image Analysis</a></li>
                       <li><a href="{% url 'multimedia:video-analysis' %}">Video Analysis</a></li>
                     </ul>
-                  </li>
+                    </li>
+                    <li><a><i class="fa fa-sort-alpha-asc"></i><i class="icon-sort-by-alphabet"></i>Unstructured Data Analyzer<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li><a href="{% url 'multimedia:image-analysis' %}">Natural language analysis</a></li>
+                        </ul>
+                    </li>
 
-                  <li><a><i class="fa fa-code-fork"></i>Analyzer-Core-Demo<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-code-fork"></i>Analyzer-Core-Demo<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="{% url 'analyzer:package-examples' %}">package-examples</a></li>
                         <li><a href="{% url 'analyzer:kaggle-demo-state-farm-distracted-driver-problem' %}">distracted-driver-detection</a></li>
                         <li><a href="{% url 'analyzer:kaggle-demo-santander-product-recommendation-problem' %}">product-recommendation</a></li>
                         <li><a href="{% url 'analyzer:kaggle-the-nature-conservancy-fisheries-monitoring-problem' %}">the-nature-conservancy-fisheries-monitoring</a></li>
                     </ul>
-                  </li>
+                    </li>
 
-                  <li><a><i class="fa fa-krw"></i>Web-Pytrader<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-krw"></i>Web-Pytrader<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{% url 'multimedia:image-analysis' %}">Image Analysis</a></li>
                     </ul>
-                  </li>
+                    </li>
 
-                  <li><a><i class="fa fa-list"></i>Web-JStrader<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-list"></i>Web-JStrader<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{% url 'multimedia:image-analysis' %}">Image Analysis</a></li>
                     </ul>
-                  </li>
+                    </li>
 
+                    # VASP, pyQuante, Triqs, Alps on virtual env.
+                    <li><a><i class="fa fa-list"></i>Web-Materials<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{% url 'multimedia:image-analysis' %}">Image Analysis</a></li>
+                    </ul>
+                    </li>
                 </ul>
               </div>
               <div class="menu_section">
