@@ -221,3 +221,11 @@ def list_project(request):
     for project in projects:
         for member in project.project_members.all():
             project_member_names += [member.member_name]
+
+
+
+def list_category(request):
+    ctx={
+
+    }
+    return ctx

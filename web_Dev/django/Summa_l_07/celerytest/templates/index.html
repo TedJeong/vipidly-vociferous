@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load bootstrap3 %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+</head>
+<body>
+    This is celerytest example.
+    First let's do ajax request and django form submit independently.<br/>
+
+    <input type="text" id="ajax-x"/>
+    <input type="text" id="ajax-y"/>
+    <button class="btn btn-primary" id="req">ajax request</button>
+    <p id="anwser">Hello!</p>
+
+{#    {% debug %}#}
+
+    <form action="/celerytest/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" name="x"/><br/>
+            <input type="text" name="y"/><br/>
+        </div>
+        <input class="btn btn-warning" type="submit" value="submit">
+    </form>
+
+    <!-- jQuery -->
+    <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function(){
+
+
+            function worker(){
+
+            }
+
+
+
+
+            $('#req').on('click', function(){
+                var csrftoken = $.cookie('csrftoken');
+
+
+
+                function csrfSafeMethod(method) {
+                    // these HTTP methods do not require CSRF protection
+                    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                }
+
+                $.ajaxSetup({
+                    beforeSend: function(xhr, settings) {
+                        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                        }
+                    }
+                });
+
+                var x = $('#ajax-x').val();
+                var y = $('#ajax-y').val();
+
+                $.ajax({
+                    url: '',
+                    method: 'post',
+                    data: {'x':1, 'y':2},
+                    success: function(data){
+                        $('#anwser').html(data);
+                    },
+                    complete: function(data){
+                        //setTimeout(worker, 5000);
+                    },
+                });
+            });
+        });
+
+
+    </script>
+</body>
+</html>

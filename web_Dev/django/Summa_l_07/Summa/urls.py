@@ -30,7 +30,8 @@ urlpatterns = [
     url(r'^multimedia/', include('MultiMedia.urls'), name="multimedia"),
     url(r'^contact/', include('Contact.urls'), name="contact"),
     url(r'^projectmanager/', include('ProjectManager.urls'), name="projectmanager"),
-    url(r'^analyzer/', include('Analyzer.urls'), name='analyzer')
+    url(r'^analyzer/', include('Analyzer.urls'), name='analyzer'),
+    url(r'^celerytest/', include('celerytest.urls'), name='celerytest'),
 ]
 
 
