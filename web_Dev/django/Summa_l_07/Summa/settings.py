@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'ProjectManager',
     'Analyzer',
     'bootstrap3',
-    'djcelery',
     'celerytest',
 ]
 
@@ -145,6 +144,6 @@ LOGIN_REDIRECT_URL = reverse_lazy('home:index')
 LOGOUT_REDIRECT_URL = reverse_lazy('home:index')
 
 
-import djcelery
-djcelery.setup_loader()
-BROKER_URL = "amqp://guest:guest@localhost:5672/"
+#import djcelery
+#djcelery.setup_loader()
+#BROKER_URL = "amqp://guest:guest@localhost:5672/"
