@@ -36,3 +36,8 @@ def ktncfmp(request):
     ctx={}
     return render(request, 'AnalyzerDir/kaggle-the-nature-conservancy-fisheries-monitoring-problem.html'
                   ,ctx)
+
+#kaggle-two-sigma-financial-modeling-challenge-problem
+def ktsfmcp(request):
+    ctx={}
+    return render(request, 'AnalyzerDir/kaggle-two-sigma-financial-modeling-challenge-problem.html')
