@@ -38,14 +38,9 @@
 
     <script>
         $(document).ready(function(){
-
-
             function worker(){
 
             }
-
-
-
 
             $('#req').on('click', function(){
                 var csrftoken = $.cookie('csrftoken');
@@ -73,7 +68,8 @@
                     method: 'post',
                     data: {'x':x, 'y':y},
                     success: function(data){
-                        $('#anwser').html(data);
+                        $('#anwser').append("<br/>");
+                        $('#anwser').append(data);
                     },
                     complete: function(data){
                         //setTimeout(worker, 5000);

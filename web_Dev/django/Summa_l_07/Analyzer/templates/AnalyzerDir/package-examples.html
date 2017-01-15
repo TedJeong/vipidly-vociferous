@@ -42,14 +42,12 @@ on MNIST, Iris, Cifar-10 sample datasets
 
 
 
-
-    <div class="PostProcessor">
-        <!-- PostProcessor Sample -->
-        <!-- Scatter Plot -->
-        <div class="col-md-12 col-sm-12 col-xs-12" style="overflow:auto;">
+    <div class="controller">
+        <!-- Analyzer Controller -->
+        <div class="col-md-6 col-sm-6 col-xs-6" style="overflow:auto;">
             <div class="x_panel">
               <div class="x_title">
-                <h2> Data Visualization <small>whole projects</small></h2>
+                <h2> Analyzer Controller <small>Pre Process/Data Analysis/Post Process</small></h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -72,56 +70,104 @@ on MNIST, Iris, Cifar-10 sample datasets
               <div class="x_content">
 
                 <p class="text-muted font-13 m-b-30">
-                    Whole projects lists.
-                    <a id="g0" class="btn btn-sm btn-success" aria-label="scatter chart"><img src="{% static 'img/icons/fa-scatter-chart-o.png' %}" style="height:1.5em;"></img></a>
-                    <a id="g1" class="btn btn-sm btn-success" aria-label="line chart"><i class="fa fa-line-chart"></i></a>
-                    <a id="g2" class="btn btn-sm btn-success" aria-label="bar chart"><i class="fa fa-bar-chart"></i></a>
-                    <a id="g3" class="btn btn-sm btn-success" aria-label="area chart"><i class="fa fa-area-chart"></i></a>
-                    <a id="g4" class="btn btn-sm btn-success" aria-label="pie chart"><i class="fa fa-pie-chart"></i></a>
+                  Whole projects lists.
                 </p>
-                    <select class="problem">
-                        <option value="">test</option>
-                    </select>
 
-                    <select class="Sample-Problem" name="Problem name">
-                        <optgroup label="sample-problem">
-                            <option value="MNIST">MNIST</option>
-                            <option value="Iris">Iris</option>
-                            <option value="ImageNet">ImageNet,Cifar-10</option>
-                        </optgroup>
-                    </select>
-                   <select class="Sample-Solver">
-                       <optgroup label="MNIST">
-                            <option value="tensorflow">tensorflow</option>
-                           <option value="lasagne">lasagne</option>
-                            <option value="sklearn">sklearn</option>
-                       </optgroup>
-                       <optgroup label="Iris">
-                            <option value="tensorflow">tensorflow</option>
-                            <option value="sklearn">sklearn</option>
-                       </optgroup>
-                       <optgroup label="ImageNet">
-                            <option value="AlexNet">AlexNet</option>
-                            <option value="GoogleNet">GoogleNet,Inception-v3</option>
-                            <option value="VGGNet">VGGNet</option>
-                            <option value="ResNet">ResNet</option>
-                       </optgroup>
-                   </select>
-
-
-                <div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+                <input type="text" id="ajax-x"/>
+                <input type="text" id="ajax-y"/>
+                <button class="btn btn-primary" id="req">ajax request</button>
+                <p id="anwser" style="background-color:black;color: seashell">Hello!</p>
 
               </div>
             </div>
         </div>
     </div>
+    <div class="clearfix"></div>
 
 
 
 
-
-
-
+{##}
+{##}
+{#    <div class="PostProcessor">#}
+{#        <!-- PostProcessor Sample -->#}
+{#        <!-- Scatter Plot -->#}
+{#        <div class="col-md-12 col-sm-12 col-xs-12" style="overflow:auto;">#}
+{#            <div class="x_panel">#}
+{#              <div class="x_title">#}
+{#                <h2> Data Visualization <small>whole projects</small></h2>#}
+{#                <ul class="nav navbar-right panel_toolbox">#}
+{#                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>#}
+{#                  </li>#}
+{#                  <li class="dropdown">#}
+{#                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>#}
+{#                    <ul class="dropdown-menu" role="menu">#}
+{#                      <li><a href="#">Settings 1</a>#}
+{#                      </li>#}
+{#                      <li><a href="#">Settings 2</a>#}
+{#                      </li>#}
+{#                    </ul>#}
+{#                  </li>#}
+{#                  <li><a class="close-link"><i class="fa fa-close"></i></a>#}
+{#                  </li>#}
+{#                </ul>#}
+{#                <div class="clearfix"></div>#}
+{#              </div>#}
+{##}
+{##}
+{#              <div class="x_content">#}
+{##}
+{#                <p class="text-muted font-13 m-b-30">#}
+{#                    Whole projects lists.#}
+{#                    <a id="g0" class="btn btn-sm btn-success" aria-label="scatter chart"><img src="{% static 'img/icons/fa-scatter-chart-o.png' %}" style="height:1.5em;"></img></a>#}
+{#                    <a id="g1" class="btn btn-sm btn-success" aria-label="line chart"><i class="fa fa-line-chart"></i></a>#}
+{#                    <a id="g2" class="btn btn-sm btn-success" aria-label="bar chart"><i class="fa fa-bar-chart"></i></a>#}
+{#                    <a id="g3" class="btn btn-sm btn-success" aria-label="area chart"><i class="fa fa-area-chart"></i></a>#}
+{#                    <a id="g4" class="btn btn-sm btn-success" aria-label="pie chart"><i class="fa fa-pie-chart"></i></a>#}
+{#                </p>#}
+{#                    <select class="problem">#}
+{#                        <option value="">test</option>#}
+{#                    </select>#}
+{##}
+{#                    <select class="Sample-Problem" name="Problem name">#}
+{#                        <optgroup label="sample-problem">#}
+{#                            <option value="MNIST">MNIST</option>#}
+{#                            <option value="Iris">Iris</option>#}
+{#                            <option value="ImageNet">ImageNet,Cifar-10</option>#}
+{#                        </optgroup>#}
+{#                    </select>#}
+{#                   <select class="Sample-Solver">#}
+{#                       <optgroup label="MNIST">#}
+{#                            <option value="tensorflow">tensorflow</option>#}
+{#                           <option value="lasagne">lasagne</option>#}
+{#                            <option value="sklearn">sklearn</option>#}
+{#                       </optgroup>#}
+{#                       <optgroup label="Iris">#}
+{#                            <option value="tensorflow">tensorflow</option>#}
+{#                            <option value="sklearn">sklearn</option>#}
+{#                       </optgroup>#}
+{#                       <optgroup label="ImageNet">#}
+{#                            <option value="AlexNet">AlexNet</option>#}
+{#                            <option value="GoogleNet">GoogleNet,Inception-v3</option>#}
+{#                            <option value="VGGNet">VGGNet</option>#}
+{#                            <option value="ResNet">ResNet</option>#}
+{#                       </optgroup>#}
+{#                   </select>#}
+{##}
+{##}
+{#                <div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>#}
+{##}
+{#              </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
 
 {% endblock %}
 {% block jsimport %}
@@ -130,6 +176,9 @@ on MNIST, Iris, Cifar-10 sample datasets
     <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
     <!-- Bootstrap -->
     <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+    <!-- Cookie -->
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
     <!-- FastClick -->
     <script src="{% static 'vendor/fastclick/lib/fastclick.js' %}"></script>
     <!-- NProgress -->
@@ -141,41 +190,38 @@ on MNIST, Iris, Cifar-10 sample datasets
     <script src="{% static 'build/js/custom.min.js' %}"></script>
 
 
-    <!-- Check Whether user intended to close the x_panel -->
-    <script>
-      $('i[class="fa fa-close"]').on('click',function(e){
-        var r = confirm("Press a button");
-        if (r == true) {
-            x = "";
-        } else {
-            x = "You pressed Cancel!";
-        }
-      });
-    </script>
-
-    <script src="{% static 'vendor/bootstrap-select-master/dist/js/bootstrap-select.min.js' %}"></script>
-    <script>
-
-    $(document).ready(function(){
-        $('.Sample-Solver optgroup').hide();
-        $('.Sample-Problem').change(function(){
-            var text= $(this).val();
-            $('.Sample-Solver optgroup').hide();
-            $('.Sample-Solver').val('');
-            $('.Sample-Solver optgroup[label="'+text+'"]').css({'display':'block'});
-
-        });
-    });
-
-    </script>
-    <script>
-    $(document).ready(function(){
-
-    });
-    </script>
+{##}
+{#    <!-- Check Whether user intended to close the x_panel -->#}
+{#    <script>#}
+{#      $('i[class="fa fa-close"]').on('click',function(e){#}
+{#        var r = confirm("Press a button");#}
+{#        if (r == true) {#}
+{#            x = "";#}
+{#        } else {#}
+{#            x = "You pressed Cancel!";#}
+{#        }#}
+{#      });#}
+{#    </script>#}
+{##}
+{#    <script src="{% static 'vendor/bootstrap-select-master/dist/js/bootstrap-select.min.js' %}"></script>#}
+{#    <script>#}
+{##}
+{#    $(document).ready(function(){#}
+{#        $('.Sample-Solver optgroup').hide();#}
+{#        $('.Sample-Problem').change(function(){#}
+{#            var text= $(this).val();#}
+{#            $('.Sample-Solver optgroup').hide();#}
+{#            $('.Sample-Solver').val('');#}
+{#            $('.Sample-Solver optgroup[label="'+text+'"]').css({'display':'block'});#}
+{##}
+{#        });#}
+{#    });#}
+{##}
+{#    </script>#}
 
 
     <!-- Scatter High Charts -->
+    <!--
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
@@ -734,7 +780,53 @@ on MNIST, Iris, Cifar-10 sample datasets
 
     });
     </script>
+    !-->
 
+
+    <script>
+        $(document).ready(function(){
+            function worker(){
+
+            }
+
+            $('#req').on('click', function(){
+                var csrftoken = $.cookie('csrftoken');
+
+
+
+                function csrfSafeMethod(method) {
+                    // these HTTP methods do not require CSRF protection
+                    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                }
+
+                $.ajaxSetup({
+                    beforeSend: function(xhr, settings) {
+                        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                        }
+                    }
+                });
+
+                var x = $('#ajax-x').val();
+                var y = $('#ajax-y').val();
+
+                $.ajax({
+                    url: '',
+                    method: 'post',
+                    data: {'x':x, 'y':y},
+                    success: function(data){
+                        $('#anwser').append("<br/>");
+                        $('#anwser').append(data);
+                    },
+                    complete: function(data){
+                        //setTimeout(worker, 5000);
+                    },
+                });
+            });
+        });
+
+
+    </script>
 
 
 {% endblock %}
