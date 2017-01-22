@@ -39,79 +39,8 @@ ResNet<br/>
 <br/><br/><br/><br/>
 on MNIST, Iris, Cifar-10 sample datasets
 
-<<<<<<< HEAD
-=======
 
-
-<div id="matplotlib-canvas"></div>
-    <div class="col-md-12 col-sm-12 col-xs-12" style="overflow:auto;">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2> ML Analysis Report </h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <div id="fig_el150531399668241238649982571593"></div>
-
-            </div>
-        </div>
-    </div>
-
-
-
-<script>
-    function mpld3_load_lib(url, callback){
-      var s = document.createElement('script');
-      s.src = url;
-      s.async = true;
-      s.onreadystatechange = s.onload = callback;
-      s.onerror = function(){console.warn("failed to load library " + url);};
-      document.getElementsByTagName("head")[0].appendChild(s);
-    }
-
-    if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
-       // already loaded: just create the figure
-       !function(mpld3){
-
-           mpld3.draw_figure("fig_el150531399668241238649982571593", {"plugins": [{"type": "reset"}, {"button": true, "enabled": false, "type": "zoom"}, {"button": true, "enabled": false, "type": "boxzoom"}], "width": 640.0, "data": {"data01": [[1.0, 2.0], [2.0, 3.0], [3.0, 4.0], [4.0, 1.0], [5.0, 2.0]]}, "height": 480.0, "axes": [{"axesbg": "#FFFFFF", "images": [], "bbox": [0.125, 0.09999999999999998, 0.775, 0.8], "lines": [], "xscale": "linear", "ydomain": [0.5, 4.5], "xdomain": [0.0, 6.0], "axesbgalpha": null, "xlim": [0.0, 6.0], "collections": [{"xindex": 0, "edgewidths": [1.0], "offsets": "data01", "yindex": 1, "edgecolors": ["#000000"], "pathtransforms": [[4.969039949999533, 0.0, 0.0, 4.969039949999533, 0.0, 0.0]], "facecolors": ["#0000FF"], "paths": [[[[0.0, -0.5], [0.13260155, -0.5], [0.25978993539242673, -0.44731684579412084], [0.3535533905932738, -0.3535533905932738], [0.44731684579412084, -0.25978993539242673], [0.5, -0.13260155], [0.5, 0.0], [0.5, 0.13260155], [0.44731684579412084, 0.25978993539242673], [0.3535533905932738, 0.3535533905932738], [0.25978993539242673, 0.44731684579412084], [0.13260155, 0.5], [0.0, 0.5], [-0.13260155, 0.5], [-0.25978993539242673, 0.44731684579412084], [-0.3535533905932738, 0.3535533905932738], [-0.44731684579412084, 0.25978993539242673], [-0.5, 0.13260155], [-0.5, 0.0], [-0.5, -0.13260155], [-0.44731684579412084, -0.25978993539242673], [-0.3535533905932738, -0.3535533905932738], [-0.25978993539242673, -0.44731684579412084], [-0.13260155, -0.5], [0.0, -0.5]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]]], "zorder": 1, "offsetcoordinates": "data", "alphas": [null], "pathcoordinates": "display", "id": "el15053139966428167472"}], "zoomable": true, "yscale": "linear", "ylim": [0.5, 4.5], "sharey": [], "paths": [], "markers": [], "sharex": [], "texts": [], "axes": [{"fontsize": 12.0, "position": "bottom", "nticks": 7, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}, {"fontsize": 12.0, "position": "left", "nticks": 9, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}], "id": "el15053139966497945080"}], "id": "el15053139966824123864"});
-       }(mpld3);
-    }else if(typeof define === "function" && define.amd){
-       // require.js is available: use it to load d3/mpld3
-       require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
-       require(["d3"], function(d3){
-          window.d3 = d3;
-          mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.3.js", function(){
-
-             mpld3.draw_figure("fig_el150531399668241238649982571593", {"plugins": [{"type": "reset"}, {"button": true, "enabled": false, "type": "zoom"}, {"button": true, "enabled": false, "type": "boxzoom"}], "width": 640.0, "data": {"data01": [[1.0, 2.0], [2.0, 3.0], [3.0, 4.0], [4.0, 1.0], [5.0, 2.0]]}, "height": 480.0, "axes": [{"axesbg": "#FFFFFF", "images": [], "bbox": [0.125, 0.09999999999999998, 0.775, 0.8], "lines": [], "xscale": "linear", "ydomain": [0.5, 4.5], "xdomain": [0.0, 6.0], "axesbgalpha": null, "xlim": [0.0, 6.0], "collections": [{"xindex": 0, "edgewidths": [1.0], "offsets": "data01", "yindex": 1, "edgecolors": ["#000000"], "pathtransforms": [[4.969039949999533, 0.0, 0.0, 4.969039949999533, 0.0, 0.0]], "facecolors": ["#0000FF"], "paths": [[[[0.0, -0.5], [0.13260155, -0.5], [0.25978993539242673, -0.44731684579412084], [0.3535533905932738, -0.3535533905932738], [0.44731684579412084, -0.25978993539242673], [0.5, -0.13260155], [0.5, 0.0], [0.5, 0.13260155], [0.44731684579412084, 0.25978993539242673], [0.3535533905932738, 0.3535533905932738], [0.25978993539242673, 0.44731684579412084], [0.13260155, 0.5], [0.0, 0.5], [-0.13260155, 0.5], [-0.25978993539242673, 0.44731684579412084], [-0.3535533905932738, 0.3535533905932738], [-0.44731684579412084, 0.25978993539242673], [-0.5, 0.13260155], [-0.5, 0.0], [-0.5, -0.13260155], [-0.44731684579412084, -0.25978993539242673], [-0.3535533905932738, -0.3535533905932738], [-0.25978993539242673, -0.44731684579412084], [-0.13260155, -0.5], [0.0, -0.5]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]]], "zorder": 1, "offsetcoordinates": "data", "alphas": [null], "pathcoordinates": "display", "id": "el15053139966428167472"}], "zoomable": true, "yscale": "linear", "ylim": [0.5, 4.5], "sharey": [], "paths": [], "markers": [], "sharex": [], "texts": [], "axes": [{"fontsize": 12.0, "position": "bottom", "nticks": 7, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}, {"fontsize": 12.0, "position": "left", "nticks": 9, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}], "id": "el15053139966497945080"}], "id": "el15053139966824123864"});
-          });
-        });
-    }else{
-        // require.js not available: dynamically load d3 & mpld3
-        mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
-             mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.3.js", function(){
-
-                     mpld3.draw_figure("fig_el150531399668241238649982571593", {"plugins": [{"type": "reset"}, {"button": true, "enabled": false, "type": "zoom"}, {"button": true, "enabled": false, "type": "boxzoom"}], "width": 640.0, "data": {"data01": [[1.0, 2.0], [2.0, 3.0], [3.0, 4.0], [4.0, 1.0], [5.0, 2.0]]}, "height": 480.0, "axes": [{"axesbg": "#FFFFFF", "images": [], "bbox": [0.125, 0.09999999999999998, 0.775, 0.8], "lines": [], "xscale": "linear", "ydomain": [0.5, 4.5], "xdomain": [0.0, 6.0], "axesbgalpha": null, "xlim": [0.0, 6.0], "collections": [{"xindex": 0, "edgewidths": [1.0], "offsets": "data01", "yindex": 1, "edgecolors": ["#000000"], "pathtransforms": [[4.969039949999533, 0.0, 0.0, 4.969039949999533, 0.0, 0.0]], "facecolors": ["#0000FF"], "paths": [[[[0.0, -0.5], [0.13260155, -0.5], [0.25978993539242673, -0.44731684579412084], [0.3535533905932738, -0.3535533905932738], [0.44731684579412084, -0.25978993539242673], [0.5, -0.13260155], [0.5, 0.0], [0.5, 0.13260155], [0.44731684579412084, 0.25978993539242673], [0.3535533905932738, 0.3535533905932738], [0.25978993539242673, 0.44731684579412084], [0.13260155, 0.5], [0.0, 0.5], [-0.13260155, 0.5], [-0.25978993539242673, 0.44731684579412084], [-0.3535533905932738, 0.3535533905932738], [-0.44731684579412084, 0.25978993539242673], [-0.5, 0.13260155], [-0.5, 0.0], [-0.5, -0.13260155], [-0.44731684579412084, -0.25978993539242673], [-0.3535533905932738, -0.3535533905932738], [-0.25978993539242673, -0.44731684579412084], [-0.13260155, -0.5], [0.0, -0.5]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]]], "zorder": 1, "offsetcoordinates": "data", "alphas": [null], "pathcoordinates": "display", "id": "el15053139966428167472"}], "zoomable": true, "yscale": "linear", "ylim": [0.5, 4.5], "sharey": [], "paths": [], "markers": [], "sharex": [], "texts": [], "axes": [{"fontsize": 12.0, "position": "bottom", "nticks": 7, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}, {"fontsize": 12.0, "position": "left", "nticks": 9, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}], "id": "el15053139966497945080"}], "id": "el15053139966824123864"});
-                })
-             });
-    }
-</script>
-
->>>>>>> 12f27498f886dc1672c177ca0450c63dff5ccf7b
+    <!-- Controller panel -->
     <div class="controller">
         <!-- Analyzer Controller -->
         <div class="col-md-6 col-sm-6 col-xs-6" style="overflow:auto;">
@@ -146,19 +75,83 @@ on MNIST, Iris, Cifar-10 sample datasets
                 <input type="text" id="ajax-x"/>
                 <input type="text" id="ajax-y"/>
                 <button class="btn btn-primary" id="req">ajax request</button>
-                <p id="anwser" style="background-color:black;color: seashell">Hello!</p>
+                <p class="anwser-console col-md-12 col-sm-12 col-xs-12" id="anwser" style="
+                    white-space: nowrap;
+                    overflow: auto;
+                    background-color:black;
+                    color: seashell;">Hello!</p>
 
               </div>
             </div>
         </div>
     </div>
+    <!-- Analyzer Task -->
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>TODO Task List <small> for whole </small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Settings 1</a>
+                  </li>
+                  <li><a href="#">Settings 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <!-- task-table-wrapper-->
+            <div class="task-table-wrapper">
+              <table class="table table-striped table-bordered bulk_action">
+                <thead>
+                  <tr>
+                    <th>&nbsp;&nbsp;<input type="checkbox" id="check-all" class="flat"></th>
+                    <th>priority</th>
+                    <th style="display:none;"></th>
+                    <th>task name</th>
+                    <th>task submitter</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for task in tasks %}
+                  <tr>
+                    <td><input type="checkbox" class="flat" name="table_records"></td>
+                    <td>{{ task.task_priority }}</td>
+                    <td class="task-pk" style="display:none;">{{task.pk}}</td>
+                    <td>{{ task.task_name }}</td>
+                    <td>{{ task.task_submitter }} </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+              <div>
+                <button class="btn btn-primary btn-sm btn-task-post" data-toggle="modal"
+                        data-target="#task-post-modal">POST</button>
+                <button class="btn btn-danger btn-sm btn-task-delete" data-toggle="modal"
+                        data-target="#task-delete-confirm-modal">DELET</button>
+              </div>
+            </div>
+            <!-- task-table-wrapper ends -->
+
+          </div>
+        </div>
+    </div>
     <div class="clearfix"></div>
 
-    <div id="matplotlib-canvas"></div>
+    <!-- ML Report -->
     <div class="col-md-12 col-sm-12 col-xs-12" style="overflow:auto;">
         <div class="x_panel">
             <div class="x_title">
-                <h2> Report </h2>
+                <h2> ML Analysis Report </h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -177,14 +170,17 @@ on MNIST, Iris, Cifar-10 sample datasets
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <div id="fig_el150531399668241238649982571593"></div>
+                <!-- ml report plot canvas -->
+                <div id="anwser-ml-report">
+                </div>
 
             </div>
         </div>
     </div>
-    <div class="clearfix"></div>
 
 
+
+    <!-- Highcharts plots -->
     <div class="PostProcessor">
         <!-- PostProcessor Sample -->
         <!-- Scatter Plot -->
@@ -249,8 +245,6 @@ on MNIST, Iris, Cifar-10 sample datasets
                             <option value="ResNet">ResNet</option>
                        </optgroup>
                    </select>
-
-
                 <div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 
               </div>
@@ -259,10 +253,7 @@ on MNIST, Iris, Cifar-10 sample datasets
     </div>
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 12f27498f886dc1672c177ca0450c63dff5ccf7b
 {% endblock %}
 {% block jsimport %}
 
@@ -282,7 +273,6 @@ on MNIST, Iris, Cifar-10 sample datasets
 
     <!-- Custom Theme Scripts -->
     <script src="{% static 'build/js/custom.min.js' %}"></script>
-
 
 
     <!-- Check Whether user intended to close the x_panel -->
@@ -873,47 +863,6 @@ on MNIST, Iris, Cifar-10 sample datasets
     });
     </script>
 
-
-
-
-    <script>
-    function mpld3_load_lib(url, callback){
-      var s = document.createElement('script');
-      s.src = url;
-      s.async = true;
-      s.onreadystatechange = s.onload = callback;
-      s.onerror = function(){console.warn("failed to load library " + url);};
-      document.getElementsByTagName("head")[0].appendChild(s);
-    }
-
-    if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
-       // already loaded: just create the figure
-       !function(mpld3){
-
-           mpld3.draw_figure("fig_el150531399668241238649982571593", {"plugins": [{"type": "reset"}, {"button": true, "enabled": false, "type": "zoom"}, {"button": true, "enabled": false, "type": "boxzoom"}], "width": 640.0, "data": {"data01": [[1.0, 2.0], [2.0, 3.0], [3.0, 4.0], [4.0, 1.0], [5.0, 2.0]]}, "height": 480.0, "axes": [{"axesbg": "#FFFFFF", "images": [], "bbox": [0.125, 0.09999999999999998, 0.775, 0.8], "lines": [], "xscale": "linear", "ydomain": [0.5, 4.5], "xdomain": [0.0, 6.0], "axesbgalpha": null, "xlim": [0.0, 6.0], "collections": [{"xindex": 0, "edgewidths": [1.0], "offsets": "data01", "yindex": 1, "edgecolors": ["#000000"], "pathtransforms": [[4.969039949999533, 0.0, 0.0, 4.969039949999533, 0.0, 0.0]], "facecolors": ["#0000FF"], "paths": [[[[0.0, -0.5], [0.13260155, -0.5], [0.25978993539242673, -0.44731684579412084], [0.3535533905932738, -0.3535533905932738], [0.44731684579412084, -0.25978993539242673], [0.5, -0.13260155], [0.5, 0.0], [0.5, 0.13260155], [0.44731684579412084, 0.25978993539242673], [0.3535533905932738, 0.3535533905932738], [0.25978993539242673, 0.44731684579412084], [0.13260155, 0.5], [0.0, 0.5], [-0.13260155, 0.5], [-0.25978993539242673, 0.44731684579412084], [-0.3535533905932738, 0.3535533905932738], [-0.44731684579412084, 0.25978993539242673], [-0.5, 0.13260155], [-0.5, 0.0], [-0.5, -0.13260155], [-0.44731684579412084, -0.25978993539242673], [-0.3535533905932738, -0.3535533905932738], [-0.25978993539242673, -0.44731684579412084], [-0.13260155, -0.5], [0.0, -0.5]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]]], "zorder": 1, "offsetcoordinates": "data", "alphas": [null], "pathcoordinates": "display", "id": "el15053139966428167472"}], "zoomable": true, "yscale": "linear", "ylim": [0.5, 4.5], "sharey": [], "paths": [], "markers": [], "sharex": [], "texts": [], "axes": [{"fontsize": 12.0, "position": "bottom", "nticks": 7, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}, {"fontsize": 12.0, "position": "left", "nticks": 9, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}], "id": "el15053139966497945080"}], "id": "el15053139966824123864"});
-       }(mpld3);
-    }else if(typeof define === "function" && define.amd){
-       // require.js is available: use it to load d3/mpld3
-       require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
-       require(["d3"], function(d3){
-          window.d3 = d3;
-          mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.3.js", function(){
-
-             mpld3.draw_figure("fig_el150531399668241238649982571593", {"plugins": [{"type": "reset"}, {"button": true, "enabled": false, "type": "zoom"}, {"button": true, "enabled": false, "type": "boxzoom"}], "width": 640.0, "data": {"data01": [[1.0, 2.0], [2.0, 3.0], [3.0, 4.0], [4.0, 1.0], [5.0, 2.0]]}, "height": 480.0, "axes": [{"axesbg": "#FFFFFF", "images": [], "bbox": [0.125, 0.09999999999999998, 0.775, 0.8], "lines": [], "xscale": "linear", "ydomain": [0.5, 4.5], "xdomain": [0.0, 6.0], "axesbgalpha": null, "xlim": [0.0, 6.0], "collections": [{"xindex": 0, "edgewidths": [1.0], "offsets": "data01", "yindex": 1, "edgecolors": ["#000000"], "pathtransforms": [[4.969039949999533, 0.0, 0.0, 4.969039949999533, 0.0, 0.0]], "facecolors": ["#0000FF"], "paths": [[[[0.0, -0.5], [0.13260155, -0.5], [0.25978993539242673, -0.44731684579412084], [0.3535533905932738, -0.3535533905932738], [0.44731684579412084, -0.25978993539242673], [0.5, -0.13260155], [0.5, 0.0], [0.5, 0.13260155], [0.44731684579412084, 0.25978993539242673], [0.3535533905932738, 0.3535533905932738], [0.25978993539242673, 0.44731684579412084], [0.13260155, 0.5], [0.0, 0.5], [-0.13260155, 0.5], [-0.25978993539242673, 0.44731684579412084], [-0.3535533905932738, 0.3535533905932738], [-0.44731684579412084, 0.25978993539242673], [-0.5, 0.13260155], [-0.5, 0.0], [-0.5, -0.13260155], [-0.44731684579412084, -0.25978993539242673], [-0.3535533905932738, -0.3535533905932738], [-0.25978993539242673, -0.44731684579412084], [-0.13260155, -0.5], [0.0, -0.5]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]]], "zorder": 1, "offsetcoordinates": "data", "alphas": [null], "pathcoordinates": "display", "id": "el15053139966428167472"}], "zoomable": true, "yscale": "linear", "ylim": [0.5, 4.5], "sharey": [], "paths": [], "markers": [], "sharex": [], "texts": [], "axes": [{"fontsize": 12.0, "position": "bottom", "nticks": 7, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}, {"fontsize": 12.0, "position": "left", "nticks": 9, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}], "id": "el15053139966497945080"}], "id": "el15053139966824123864"});
-          });
-        });
-    }else{
-        // require.js not available: dynamically load d3 & mpld3
-        mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
-             mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.3.js", function(){
-
-                     mpld3.draw_figure("fig_el150531399668241238649982571593", {"plugins": [{"type": "reset"}, {"button": true, "enabled": false, "type": "zoom"}, {"button": true, "enabled": false, "type": "boxzoom"}], "width": 640.0, "data": {"data01": [[1.0, 2.0], [2.0, 3.0], [3.0, 4.0], [4.0, 1.0], [5.0, 2.0]]}, "height": 480.0, "axes": [{"axesbg": "#FFFFFF", "images": [], "bbox": [0.125, 0.09999999999999998, 0.775, 0.8], "lines": [], "xscale": "linear", "ydomain": [0.5, 4.5], "xdomain": [0.0, 6.0], "axesbgalpha": null, "xlim": [0.0, 6.0], "collections": [{"xindex": 0, "edgewidths": [1.0], "offsets": "data01", "yindex": 1, "edgecolors": ["#000000"], "pathtransforms": [[4.969039949999533, 0.0, 0.0, 4.969039949999533, 0.0, 0.0]], "facecolors": ["#0000FF"], "paths": [[[[0.0, -0.5], [0.13260155, -0.5], [0.25978993539242673, -0.44731684579412084], [0.3535533905932738, -0.3535533905932738], [0.44731684579412084, -0.25978993539242673], [0.5, -0.13260155], [0.5, 0.0], [0.5, 0.13260155], [0.44731684579412084, 0.25978993539242673], [0.3535533905932738, 0.3535533905932738], [0.25978993539242673, 0.44731684579412084], [0.13260155, 0.5], [0.0, 0.5], [-0.13260155, 0.5], [-0.25978993539242673, 0.44731684579412084], [-0.3535533905932738, 0.3535533905932738], [-0.44731684579412084, 0.25978993539242673], [-0.5, 0.13260155], [-0.5, 0.0], [-0.5, -0.13260155], [-0.44731684579412084, -0.25978993539242673], [-0.3535533905932738, -0.3535533905932738], [-0.25978993539242673, -0.44731684579412084], [-0.13260155, -0.5], [0.0, -0.5]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]]], "zorder": 1, "offsetcoordinates": "data", "alphas": [null], "pathcoordinates": "display", "id": "el15053139966428167472"}], "zoomable": true, "yscale": "linear", "ylim": [0.5, 4.5], "sharey": [], "paths": [], "markers": [], "sharex": [], "texts": [], "axes": [{"fontsize": 12.0, "position": "bottom", "nticks": 7, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}, {"fontsize": 12.0, "position": "left", "nticks": 9, "grid": {"gridOn": false}, "scale": "linear", "visible": true, "tickformat": null, "tickvalues": null}], "id": "el15053139966497945080"}], "id": "el15053139966824123864"});
-                })
-             });
-    }
-</script>
-
-
     <!-- Ajax request -->
     <script>
         $(document).ready(function(){
@@ -944,12 +893,14 @@ on MNIST, Iris, Cifar-10 sample datasets
 
                 $.ajax({
                     url: '',
+                    dataType: 'json',
                     method: 'post',
                     data: {'x':x, 'y':y},
                     success: function(data){
                         $('#anwser').append("<br/>");
-                        alert(data);
-                        $('#anwser').append(data);
+                        alert(data.consoles);
+                        $('#anwser').append(data.consoles);
+                        $('#anwser-ml-report').append(data.plots);
                     },
                     complete: function(data){
                         //setTimeout(worker, 5000);

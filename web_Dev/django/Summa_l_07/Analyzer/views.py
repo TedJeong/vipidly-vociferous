@@ -5,7 +5,11 @@ from django.shortcuts import HttpResponse
 from .forms import ControllerForm
 from django.forms import Form
 
+import json
+
 from tasks import add
+from tasks_test.tasks import mul
+from tasks_test.tasks import plot_ols
 
 def index(request):
 
@@ -28,9 +32,16 @@ def pe(request):
             if request.is_ajax():
                 print('ajax call!')
                 print(x, y)
-                result = add.delay(x, y)
-                print(result.get())
-                return HttpResponse(result.get())
+                #result = add.delay(x, y)
+                #result = mul.delay(x, y)
+                #result = plot_ols.delay(x,y)
+                result = plot_ols.delay(x, y)
+
+                return HttpResponse(json.dumps({
+                        "consoles": result.get()[0],
+                        "plots": result.get()[1]
+                })
+                )
             #return redirect('celerytest:index')
 
     ctx={}

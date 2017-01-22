@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'Analyzer',
     'bootstrap3',
     'celerytest',
+    'tasks_test',
 ]
 
 MIDDLEWARE = [
