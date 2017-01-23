@@ -35,7 +35,7 @@ def image_analysis(request):
         'images': images,
     }
 
-    return render(request, 'MultiMediaDir/image_analysis.html', ctx)
+    return render(request, 'MultiMediaDir/image_analysis_test.html', ctx)
 
 
 def image_preprocess(request):
