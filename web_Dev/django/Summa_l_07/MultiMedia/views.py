@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 
+from django.views.generic.edit import FormView
+
 from .models import Video
 from .models import Image
 
 from .forms import image_upload_form
 from .forms import image_upload_model_form
 from .forms import video_upload_form
+from .forms import FileFieldForm
+
 
 def index(request):
     ctx = {
@@ -77,3 +81,20 @@ def video_analysis(request):
             return redirect('home:video-anaylsis')
 
     return render(request, 'MultiMediaDir/video_analysis.html', ctx)
+
+
+class FileFieldView(FormView):
+    form_class = FileFieldForm
+    template_name = 'MultiMediaDir/image_analysis_test.html'
+    success_url = 'MultiMediaDir/image_analysis_test.html'
+
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        files = request.FILES.getlist('file_field')
+        if form.is_valid():
+            for f in files:
+                print(f)
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)

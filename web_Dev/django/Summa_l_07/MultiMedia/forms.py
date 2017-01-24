@@ -14,3 +14,7 @@ class image_upload_model_form(forms.ModelForm):
 class video_upload_form(forms.Form):
     video_name = forms.CharField(widget=forms.TextInput())
     video_type = forms.CharField()
+
+class FileFieldForm(forms.Form):
+    file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple':True}))
+

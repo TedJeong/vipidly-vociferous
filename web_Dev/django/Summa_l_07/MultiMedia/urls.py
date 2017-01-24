@@ -6,6 +6,8 @@ from .views import video_analysis
 from .views import image_analysis
 from .views import image_preprocess
 
+from .views import FileFieldView
+
 app_name = 'multimedia'
 
 urlpatterns = [
@@ -14,4 +16,5 @@ urlpatterns = [
     url(r'^image-analysis/$', image_analysis, name="image-analysis"),
     url(r'^video-analysis/$', video_analysis, name="video-analysis"),
     url(r'^image-analysis/image-preprocess/$', image_preprocess, name="image-preprocess"),
+    url(r'^image-analysis/multiple-image-upload-test/$', FileFieldView.as_view(), name="multiple-image-upload-test")
 ]
