@@ -1,26 +1,72 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-</head>
-<body>
+<!DOCTYPE HTML>
+<!--
+	Aerial 1.0 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Summa</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
 
-    <button id="goto" class="btn btn-primary">goto analyzer</button>
 
-    <!-- jQuery -->
-    <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
-    <!-- Bootstrap -->
-    <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-    <script>
-        $('#goto').on('click', function()
-            {
-                window.location.href = "analyzer/"
-            }
-        )
-    </script>
-</body>
+        <!-- Bootstrap Core CSS -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+		<noscript>
+			<link rel="stylesheet" href="{% static 'home/css/skel.css'%}" />
+			<link rel="stylesheet" href="{% static 'home/css/style.css' %}" />
+			<link rel="stylesheet" href="{% static 'home/css/style-wide.css' %}" />
+			<link rel="stylesheet" href="{% static 'home/css/style-noscript.css' %}" />
+		</noscript>
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'home/css/ie/v9.css' %}" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'home/css/ie/v8.css' %}" /><![endif]-->
+	</head>
+	<body class="loading">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Project Summa</h1>
+						<p>Data Analytics &nbsp;&bull;&nbsp; Deep Learning &nbsp;&bull;&nbsp; Django</p>
+						<nav>
+							<ul>
+								<li><a href="#" class="fa fa-sign-in"><span>Login/Signin</span></a></li>
+								<li><a href="{% url 'analyzer:index' %}" class="fa fa-terminal"><span>Analyzer</span></a></li>
+								<li><a href="#" class="fa fa-group"><span>PM</span></a></li>
+								<li><a href="#" class="fa fa-download"><span>Download</span></a></li>
+								<li><a href="#" class="fa fa-envelope-o"><span>Contact</span></a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<span class="copyright">&copy; TedJeong <a href="#" class="fa fa-github"></a></span>
+					</footer>
+
+			</div>
+		</div>
+
+        <!-- init.js folder contains css file path -->
+        <script type="text/javascript" charset="utf-8">
+            var init_style_css = "{% static 'home/css/style.css' %}"
+            var init_style_wide_css = "{% static 'home/css/style-wide.css' %}"
+            var init_style_normal_css = "{% static 'home/css/style-normal.css' %}"
+            var init_style_mobile_css = "{% static 'home/css/style-mobile.css' %}"
+            var init_style_mobilep_css = "{% static 'home/css/style-mobilep.css' %}"
+        </script>
+
+		<!--[if lte IE 8]><script src="{% static 'home/css/ie/html5shiv.js' %}"></script><![endif]-->
+
+		<script src="{% static 'home/js/skel.min.js'%}"></script>
+		<script src="{% static 'home/js/init.js' %}"></script>
+	</body>
 </html>

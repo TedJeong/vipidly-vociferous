@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 
 from django.conf import settings
 
+# ERD is drawn on http://ondras.zarovi.cz/sql/demo/
 
 class Category(models.Model):
     name = models.CharField(max_length=40)
