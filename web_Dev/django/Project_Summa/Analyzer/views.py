@@ -16,17 +16,16 @@ from django.forms import Form
 
 from django.views.generic.edit import FormView
 
+from SummaMLEngine.task_test import plot_ols
+
 
 def index(request):
-
     ctx={
     }
     return render(request, 'AnalyzerDir/index.html', ctx)
 
 
-
-def pe(request):
-
+def ml_core(request):
     if request.method == 'POST':
         form = Form(request.POST, request.FILES)
         print(form.is_valid())
@@ -38,27 +37,22 @@ def pe(request):
             if request.is_ajax():
                 print('ajax call!')
                 print(x, y)
-                #result = add.delay(x, y)
-                #result = mul.delay(x, y)
-                #result = plot_ols.delay(x,y)
-                #result = plot_ols.delay(x, y)
-                """
+                result = plot_ols.delay(x, y)
+
                 return HttpResponse(json.dumps({
                         "consoles": result.get()[0],
                         "plots": result.get()[1]
                 })
                 )
-                """
-                #return HttpResponse(result.get())
-            #return redirect('celerytest:index')
-
     ctx={}
-    return render(request, 'AnalyzerDir/package-examples.html', ctx)
+    return render(request, 'AnalyzerDir/ml-core.html', ctx)
+
 
 def kdsfddp(request):
     ctx = {}
     return render(request, 'AnalyzerDir/kaggle-demo-state-farm-distracted-driver-problem.html'
                   , ctx)
+
 
 #kaggle-demo-santander-product-recommendation-problem
 def kdsprp(request):
@@ -81,11 +75,11 @@ def ktncfmp(request):
     return render(request, 'AnalyzerDir/kaggle-the-nature-conservancy-fisheries-monitoring-problem.html'
                   ,ctx)
 
+
 #kaggle-two-sigma-financial-modeling-challenge-problem
 def ktsfmcp(request):
     ctx={}
     return render(request, 'AnalyzerDir/kaggle-two-sigma-financial-modeling-challenge-problem.html')
-
 
 
 def image_analysis(request):
@@ -112,7 +106,6 @@ def image_analysis(request):
 
 
 def image_preprocess(request):
-
     if request.method == "GET":
         form = image_upload_model_form()
 
@@ -136,6 +129,7 @@ def image_preprocess(request):
     }
 
     return redirect('multimedia:image-analysis')
+
 
 def video_analysis(request):
     videos = Video.objects.all()

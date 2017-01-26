@@ -36,14 +36,14 @@ def pe(request):
                 #result = mul.delay(x, y)
                 #result = plot_ols.delay(x,y)
                 result = plot_ols.delay(x, y)
-                """
+
                 return HttpResponse(json.dumps({
                         "consoles": result.get()[0],
                         "plots": result.get()[1]
                 })
                 )
-                """
-                return HttpResponse(result.get())
+
+                #return HttpResponse(result.get())
             #return redirect('celerytest:index')
 
     ctx={}

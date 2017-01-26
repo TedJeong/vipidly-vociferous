@@ -17,28 +17,17 @@
     <link href="{% static 'vendor/bootstrap-select-master/dist/css/bootstrap-select.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/bootstrap-select-master/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
 
+
+    <!-- iCheck -->
+    <link href="{% static 'vendor/iCheck/skins/flat/green.css' %}" rel="stylesheet">
+
 {% endblock %}
 
 
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% block bodycontent %}
-package examples<br/>
-
 <br/><br/><br/><br/>
-<br/><br/><br/><br/>
-Machine learning and Deep neural net training is built upon<br/>
-tensorflow, theano, scikit-learn, keras, lasagne, nolearn with <br/>
-CUDA backends and skimage and opencv image preprocessing
-<br/><br/><br/><br/>
-<br/><br/><br/><br/>
-ImageNet challenge on <br/>
-AlexNet<br/>
-GoogleNet-Inception-v3<br/>
-ResNet<br/>
-<br/><br/><br/><br/>
-on MNIST, Iris, Cifar-10 sample datasets
-
 
     <!-- Controller panel -->
     <div class="controller">
@@ -90,7 +79,7 @@ on MNIST, Iris, Cifar-10 sample datasets
     <div class="col-md-6 col-sm-6 col-xs-6">
         <div class="x_panel">
           <div class="x_title">
-            <h2>TODO Task List <small> for whole </small></h2>
+            <h2> Task List <small> for whole </small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -272,8 +261,11 @@ on MNIST, Iris, Cifar-10 sample datasets
     <!-- bootstrap-progressbar -->
     <script src="{% static 'vendor/bootstrap-progressbar/bootstrap-progressbar.min.js' %}"></script>
 
+    <!-- iCheck -->
+    <script src="{% static 'vendor/iCheck/icheck.min.js' %}"></script>
+
     <!-- Custom Theme Scripts -->
-    <script src="{% static 'build/js/custom.min.js' %}"></script>
+    <script src="{% static 'build/js/custom.js' %}"></script>
 
 
     <!-- Check Whether user intended to close the x_panel -->
@@ -868,13 +860,10 @@ on MNIST, Iris, Cifar-10 sample datasets
     <script>
         $(document).ready(function(){
             function worker(){
-
             }
 
             $('#req').on('click', function(){
                 var csrftoken = $.cookie('csrftoken');
-
-
 
                 function csrfSafeMethod(method) {
                     // these HTTP methods do not require CSRF protection
@@ -899,7 +888,6 @@ on MNIST, Iris, Cifar-10 sample datasets
                     data: {'x':x, 'y':y},
                     success: function(data){
                         $('#anwser').append("<br/>");
-                        alert(data.consoles);
                         $('#anwser').append(data.consoles);
                         $('#anwser-ml-report').append(data.plots);
                     },

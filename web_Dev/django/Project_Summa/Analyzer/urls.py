@@ -1,7 +1,7 @@
 from django.conf.urls import url
 
 from .views import index
-from .views import pe
+from .views import ml_core
 from .views import kdsfddp
 from .views import kdsprp
 from .views import ktncfmp
@@ -21,7 +21,7 @@ urlpatterns=[
     url(r'^video-analysis/$', video_analysis, name="video-analysis"),
     url(r'^image-analysis/image-preprocess/$', image_preprocess, name="image-preprocess"),
     url(r'^image-analysis/multiple-image-upload-test/$', FileFieldView.as_view(), name="multiple-image-upload-test"),
-    url(r'^package-examples/$', pe, name="package-examples"),
+    url(r'^ml-core/$', ml_core, name="ml-core"),
     url(r'^kaggle-demo-state-farm-distracted-driver-problem/',
         kdsfddp , name="kaggle-demo-state-farm-distracted-driver-problem"),
     url(r'^kaggle-demo-santander-product-recommendation-problem/',
