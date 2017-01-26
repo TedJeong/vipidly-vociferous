@@ -93,7 +93,7 @@ def image_analysis(request):
         if form.is_valid():
             image = form.save()
             image.save()
-        return redirect('multimedia:image-analysis')
+        return redirect('analyzer:image-analysis')
 
     form = image_upload_model_form()
     images = Image.objects.all()
@@ -102,7 +102,7 @@ def image_analysis(request):
         'images': images,
     }
 
-    return render(request, 'MultiMediaDir/image_analysis_test.html', ctx)
+    return render(request, 'AnalyzerDir/image-ml-core.html', ctx)
 
 
 def image_preprocess(request):
@@ -120,7 +120,7 @@ def image_preprocess(request):
             ctx={
                 'imagefile': image_for_preprocess,
             }
-        return render(request, 'MultiMediaDir/image_preprocess.html',ctx)
+        return render(request, 'AnalyzerDir/image_preprocess.html',ctx)
 
     form = image_upload_model_form()
 
@@ -128,7 +128,7 @@ def image_preprocess(request):
         'form': form,
     }
 
-    return redirect('multimedia:image-analysis')
+    return redirect('analyzer:image-analysis')
 
 
 def video_analysis(request):
@@ -143,13 +143,13 @@ def video_analysis(request):
         if form.is_valid():
             return redirect('home:video-anaylsis')
 
-    return render(request, 'MultiMediaDir/video_analysis.html', ctx)
+    return render(request, 'AnalyzerDir/video_analysis.html', ctx)
 
 
 class FileFieldView(FormView):
     form_class = FileFieldForm
-    template_name = 'MultiMediaDir/image_analysis_test.html'
-    success_url = 'MultiMediaDir/image_analysis_test.html'
+    template_name = 'AnalyzerDir/image_analysis_test.html'
+    success_url = 'AnalyzerDir/image_analysis_test.html'
 
     def post(self, request, *args, **kwargs):
         form_class = self.get_form_class()
