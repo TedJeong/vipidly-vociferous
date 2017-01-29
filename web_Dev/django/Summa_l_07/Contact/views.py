@@ -83,6 +83,25 @@ def list_post(request):
     return render(request, 'ContactDir/list.html', ctx)
 
 
+
+def list_post_clean(request):
+    per_page = 15
+    page = request.GET.get('page', 1) ##???
+    posts = Post.objects.all().order_by('-created_at', '-pk')
+    pg = Paginator(posts, per_page)
+    try:
+        contents = pg.page(page)
+    except PageNotAnInteger:
+        contents = pg.page(1)
+    except EmptyPage:
+        contents=[]
+
+    ctx={
+        'posts':contents,
+    }
+    return render(request, 'ContactDir/list_clean.html', ctx)
+
+
 def view_post(request, pk):
     post = Post.objects.get(pk=pk)
 

@@ -49,7 +49,9 @@
           <div class="main_container">
             <!-- page content -->
             <div class="right_col" role="main">
-              <div class="">
+
+
+
                 <div class="page-title">
                   <div class="title_left">
                     <h3>Users <small>Some examples to get you started</small></h3>
@@ -69,65 +71,75 @@
 
                 <div class="clearfix"></div>
 
-                <div class="row">
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
-                      <div class="x_title">
-                        <h2>Default Example <small>Users</small></h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                          </li>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                              <li><a href="#">Settings 1</a>
-                              </li>
-                              <li><a href="#">Settings 2</a>
-                              </li>
-                            </ul>
-                          </li>
-                          <li><a class="close-link"><i class="fa fa-close"></i></a>
-                          </li>
-                            <a href="{% url 'contact:new' %}" type="button" class="btn btn-primary btn-lg">
-                                write
-                            </a>
-                        </ul>
-                        <div class="clearfix"></div>
+
+                <!-- start Q&A lists -->
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2><i class="fa fa-align-left"></i> Q&A <small>to Summa</small>
+                          <a href="{% url 'contact:new' %}" class="btn btn-default">글쓰기</a>
+                      </h2>
+
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                      <!-- start task list element arccordion -->
+                      <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+                          {% for post in posts %}
+                              <div class="panel">
+                                  <a class="panel-heading" role="tab" id="heading{{ post.id }}" data-toggle="collapse" data-parent="#accordion" href="#{{ post.id }}" aria-expanded="true" aria-controls="collapseOne">
+                                    <div>
+                                    <h4 class="panel-title">{{ post.title }} : {{ post.user }}</h4>
+                                    </div>
+                                  </a>
+                                  <div id="{{ post.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ post.id }}">
+                                    <div class="panel-body">
+                                        <p>
+                                            <a href="{% url 'contact:view' post.pk %}" class="fa fa-ellipsis-v" style="text-decoration: none;">
+                                                &nbsp 더보기
+                                            </a>
+                                            &nbsp
+                                            <a href="{% url 'contact:new' %}" class="fa fa-edit" style="text-decoration: none;">
+                                                &nbsp 편집
+                                            </a>
+                                        </p>
+                                      {{ post.created_at }}
+                                    </div>
+                                  </div>
+                              </div>
+                              {% empty %}
+                              <p> 게시물이 없습니다. </p>
+                          {%  endfor %}
+
+
+                        <!-- pagination -->
+                        <div class="text-center">
+                          <ul class="pagination">
+                            <li><a href="">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                          </ul>
+                        </div>
                       </div>
-                      <div class="x_content">
-                        <p class="text-muted font-13 m-b-30">
-                          DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
-                        </p>
-                        <table id="datatable" class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>id</th>
-                                    <th>title</th>
-                                    <th>user</th>
-                                    <th>datetime</th>
-                                </tr>
-                            </thead>
-                            <tbody align="center">
-                                {% for post in posts %}
-                                <tr onclick="document.location = '{% url 'contact:view' post.pk %}';" style="cursor:pointer">
-                                    <td>{{ post.id }}</td>
-                                    <td>{{ post.title }}</td>
-                                    <td>{{ post.user }}</td>
-                                    <td align="right">{{ post.created_at }}</td>
-                                </tr>
-                                {% empty %}
-                                <p>게시물이 없습니다.</p>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                      </div>
+                      <!-- end of accordion -->
+
+
                     </div>
                   </div>
-
                 </div>
-              </div>
+            <!-- end Q&A table -->
+
+
+
+
             </div>
             <!-- /page content -->
+
+
 
             <!-- footer content -->
             <footer>
