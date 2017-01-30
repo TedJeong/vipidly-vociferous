@@ -26,11 +26,23 @@ import base64
 
 
 def index(request):
-    ctx={}
+    per_page = 15
+    page = request.GET.get('page', 1) ##???
+    posts = Post.objects.all().order_by('-created_at', '-pk')
+    pg = Paginator(posts, per_page)
+    try:
+        contents = pg.page(page)
+    except PageNotAnInteger:
+        contents = pg.page(1)
+    except EmptyPage:
+        contents=[]
+
+    ctx={
+        'posts':contents,
+    }
     return render(request, "ContactDir/index.html", ctx)
 
 
-@login_required
 def create_post(request):
     if request.method == "GET":
         form = PostForm()
@@ -81,7 +93,7 @@ def list_post(request):
     ctx={
         'posts':contents,
     }
-    return render(request, 'ContactDir/list.html', ctx)
+    return render(request, 'ContactDir/list_post.html', ctx)
 
 
 def view_post(request, pk):
@@ -102,7 +114,7 @@ def view_post(request, pk):
         'post':post,
         'comment_form':form,
     }
-    return render(request, 'ContactDir/view.html', ctx)
+    return render(request, 'ContactDir/view_post.html', ctx)
 
 
 def delete_comment(request, pk):
