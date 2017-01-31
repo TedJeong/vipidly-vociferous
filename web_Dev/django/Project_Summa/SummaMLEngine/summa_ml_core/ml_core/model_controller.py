@@ -14,20 +14,20 @@ import glob
 
 
 class model_controller(object):
-	""" GridSearchCV extension with model comparision
-	"""
-	def __init__(self):
-		return 1
+    """ GridSearchCV extension with model comparision
+    """
+    def __init__(self):
+        return 1
 
-	def param_edit_pop():
-		self.param_grid.pop()
-	
-	def param_edit_add(additional_params):
-		self.param_grid.append(additional_params)
-	
-	def model_selection_statistics(self):
-		""" In case of TimeSeries Data
-		
-		ARIMA
-		"""
-		return None
+    def param_edit_pop():
+        self.param_grid.pop()
+
+    def param_edit_add(additional_params):
+        self.param_grid.append(additional_params)
+
+    def model_selection_statistics(self):
+        """ In case of TimeSeries Data
+
+        ARIMA
+        """
+        return None

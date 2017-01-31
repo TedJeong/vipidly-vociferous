@@ -9,6 +9,14 @@ from sklearn import datasets, linear_model
 import mpld3
 import json
 
+
+from SummaMLEngine.summa_ml_core.ml_core.pipeline_controller import *
+from SummaMLEngine.summa_ml_core.ml_core.feature_controller import *
+from SummaMLEngine.summa_ml_core.ml_core.pipeline_builder import *
+from SummaMLEngine.summa_ml_core.ml_core.visualization_toolbox import *
+from SummaMLEngine.summa_ml_core.ml_core.data_holder import *
+
+
 @app.task
 def add(x, y):
     return x + y
@@ -91,3 +99,16 @@ def plot_ols(x, y):
     return [aws, mpld3.fig_to_html(fig)]
     #return "test"
     #plt.show()
+
+
+@app.task
+def plot_raw_test(x, y):
+
+    print("test")
+    dh1 = data_holder()
+    dh1.read_data()
+    dh1.print_data_table_info("brain_size.csv")
+
+    vt1 = visualization_toolbox(dh1, 'brain_size.csv')
+    aws, fig = vt1.raw_data_plot(['11','21'])
+    return [aws, fig]

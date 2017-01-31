@@ -1,4 +1,4 @@
-from feature_controller import *
+from .feature_controller import *
 from scipy import stats
 
 

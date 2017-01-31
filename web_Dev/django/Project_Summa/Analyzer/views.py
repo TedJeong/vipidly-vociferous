@@ -17,6 +17,7 @@ from django.forms import Form
 from django.views.generic.edit import FormView
 
 from SummaMLEngine.task_test import plot_ols
+from SummaMLEngine.task_test import plot_raw_test
 
 
 def index(request):
@@ -37,15 +38,24 @@ def ml_core(request):
             if request.is_ajax():
                 print('ajax call!')
                 print(x, y)
-                result = plot_ols.delay(x, y)
-
-                return HttpResponse(json.dumps({
-                        "consoles": result.get()[0],
-                        "plots": result.get()[1]
-                })
-                )
+                #result = plot_ols.delay(x, y)
+                #print(type(result)) # Asyc.celery.result
+                result = plot_raw_test(x, y)
+                if isinstance(result, list):
+                    return HttpResponse(json.dumps({
+                        "consoles": result[0],
+                        "plots": result[1]
+                    }))
+                else:
+                    return HttpResponse(json.dumps({
+                            "consoles": result.get()[0],
+                            "plots": result.get()[1]
+                    })
+                    )
     ctx={}
     return render(request, 'AnalyzerDir/ml-core.html', ctx)
+
+
 
 
 def kdsfddp(request):
