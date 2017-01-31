@@ -1,4 +1,5 @@
 {% load static %}
+{% load bootstrap3 %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,11 +12,23 @@
 The Story Theme
 http://www.templatemo.com/tm-480-story
 -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+
         <!-- load stylesheets -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400">  <!-- Google web font "Open Sans" -->
         <link rel="stylesheet" href="{% static 'contact/css/bootstrap.min.css' %}">                                                <!-- Bootstrap style -->
         <link rel="stylesheet" href="{% static 'contact/css/flexslider.css' %}">                                                   <!-- Flexslider style -->
         <link rel="stylesheet" href="{% static 'contact/css/templatemo-style.css' %}">                                             <!-- Templatemo style -->
+
+
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,10 +43,10 @@ http://www.templatemo.com/tm-480-story
 
             <!-- background images -->
             <div class="page-bg-imgs-list">
-                <img src="{% static 'contact/img/bg-1.jpg' %}" id="page-1-img" class="main-img" alt="About">
+                <img src="{% static 'contact/img/bg-1.jpg' %}" id="page-4-img" class="main-img" alt="About">
                 <img src="{% static 'contact/img/story-bg-2.jpg' %}" id="page-2-img" alt="Gallery">
                 <img src="{% static 'contact/img/story-bg-3.jpg' %}" id="page-3-img" alt="Services">
-                <img src="{% static 'contact/img/story-bg-4.jpg' %}" id="page-4-img" alt="Contact">
+                <img src="{% static 'contact/img/story-bg-4.jpg' %}" id="page-1-img" alt="Contact">
             </div>
 
             <div class="container-fluid">
@@ -54,7 +67,7 @@ http://www.templatemo.com/tm-480-story
                             <nav class="js-nav">
                                 <ul class="nav-items-container">
 
-                                    <li data-nav-item-id="page-1" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-left">
+                                    <li data-nav-item-id="page-4" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-left">
                                         <a href="#page-1" class="block-keep-ratio-content box-nav-item-link">
                                             <span class="box-text box-text-nav-item flexbox-center">TedJeong</span>
                                         </a>
@@ -72,7 +85,7 @@ http://www.templatemo.com/tm-480-story
                                         </a>
                                     </li>
 
-                                    <li data-nav-item-id="page-4" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-right">
+                                    <li data-nav-item-id="page-1" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-right">
                                         <a href="#page-4" class="block-keep-ratio-content box-nav-item-link">
                                             <span class="box-text box-text-nav-item flexbox-center">Contact</span>
                                         </a>
@@ -87,7 +100,7 @@ http://www.templatemo.com/tm-480-story
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
                         <div class="content-wrapper js-content-wrapper">
                             <!-- about -->
-                            <section data-page-id="page-1" class="content js-content">
+                            <section data-page-id="page-4" class="content js-content">
 
                                 <header class="box box-black margin-b-20">
                                     <h2 class="box-text page-title-text">About Ted Jeong</h2>
@@ -155,20 +168,20 @@ http://www.templatemo.com/tm-480-story
                                 </header>
 
                                 <div class="content-text">
-                                    <p>Download the story theme from templatemo. Quisque placerat turpis non tortor fringilla, in ornare magna eleifend. Etiam mattis varius fringilla.
+                                    <p>
                                     </p>
-                                    <h4>Sub Title One</h4>
-                                    <p>Nullam tortor mauris, bibendum ac ex vel, auctor congue est. Aenean quis tellus molestie, laoreet massa a, maximus est. Interdum et malesuada fames ac ante ipsum primis.
+                                    <h4>Anaylzer</h4>
+                                    <p> Machine learning based Analyzer.
                                     </p>
-                                    <h4>Sub Title Two</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut sapien quis ante faucibus tempus. Nam ut dui vitae tellus vehicula porttitor in nec lorem.
+                                    <h4>Project Manager</h4>
+                                    <p>Project progress representer. With D3.js, it shows task based relationship.
                                     </p>
                                 </div>
 
                             </section> <!-- #services -->
 
                             <!-- contact -->
-                            <section data-page-id="page-4" class="content js-content">
+                            <section data-page-id="page-1" class="content js-content">
 
                                 <header class="box box-black margin-b-20">
                                     <h2 class="box-text page-title-text">Contact</h2>
@@ -198,7 +211,7 @@ http://www.templatemo.com/tm-480-story
                                                       <div class="panel">
                                                           <a class="panel-heading" role="tab" id="heading{{ post.id }}" data-toggle="collapse" data-parent="#accordion" href="#{{ post.id }}" aria-expanded="true" aria-controls="collapseOne">
                                                             <div>
-                                                            <h4 class="panel-title">{{ post.title }}. by {{ post.user }}</h4>
+                                                            <h4 class="panel-title">{{ post.id }}. {{ post.title }}. by {{ post.user }}</h4>
                                                             </div>
                                                           </a>
                                                           <div id="{{ post.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ post.id }}">
@@ -220,17 +233,6 @@ http://www.templatemo.com/tm-480-story
                                                       <p> 게시물이 없습니다. </p>
                                                   {%  endfor %}
 
-
-                                                <!-- pagination -->
-                                                <div class="text-center">
-                                                  <ul class="pagination">
-                                                    <li><a href="">1</a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li><a href="#">4</a></li>
-                                                    <li><a href="#">5</a></li>
-                                                  </ul>
-                                                </div>
                                               </div>
                                               <!-- end of accordion -->
 
@@ -239,27 +241,10 @@ http://www.templatemo.com/tm-480-story
                                           </div>
                                       </div>
                                     <!-- end Q&A table -->
-
-
-
-                                    <form action="index.html" method="post" class="contact-form">
-
-                                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 form-group-2-col-left">
-                                            <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name" required/>
-                                        </div>
-                                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 form-group-2-col-right">
-                                            <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email" required/>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="contact_subject" name="contact_subject" class="form-control" placeholder="Subject" required/>
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea id="contact_message" name="contact_message" class="form-control" rows="4" placeholder="Message" required></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary submit-btn">Send</button>
-
-                                    </form>
-
+                                    <div align="center">
+                                    {% bootstrap_pagination posts %}
+                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
 
                             </section> <!-- #contact -->

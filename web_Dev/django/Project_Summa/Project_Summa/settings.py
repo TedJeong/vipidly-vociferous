@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'Analyzer',
     'ProjectManager',
     'Contact',
-    'bootstrap3'
+    'SummaMLEngine',
+    'bootstrap3',
+
 ]
 
 MIDDLEWARE = [

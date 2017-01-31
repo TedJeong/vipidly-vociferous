@@ -26,7 +26,7 @@ import base64
 
 
 def index(request):
-    per_page = 15
+    per_page = 3
     page = request.GET.get('page', 1) ##???
     posts = Post.objects.all().order_by('-created_at', '-pk')
     pg = Paginator(posts, per_page)
@@ -79,7 +79,7 @@ def create_post(request):
 
 
 def list_post(request):
-    per_page = 15
+    per_page = 3
     page = request.GET.get('page', 1) ##???
     posts = Post.objects.all().order_by('-created_at', '-pk')
     pg = Paginator(posts, per_page)
@@ -93,7 +93,7 @@ def list_post(request):
     ctx={
         'posts':contents,
     }
-    return render(request, 'ContactDir/list_post.html', ctx)
+    return render(request, 'ContactDir/index.html', ctx)
 
 
 def view_post(request, pk):

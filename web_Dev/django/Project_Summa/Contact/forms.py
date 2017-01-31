@@ -14,7 +14,7 @@ class CommentForm(forms.ModelForm):
 
 
 class PostForm(forms.ModelForm):
-    tagtext = forms.CharField()
+    tagtext = forms.CharField(required=False)
 
     class Meta:
         model = Post
