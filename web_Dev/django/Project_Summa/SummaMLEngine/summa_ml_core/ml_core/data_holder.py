@@ -142,7 +142,7 @@ class data_holder:
                 print(table.describe())
             else:
                 cr += "continuous features : ".format(continuous_data_columns) + delim
-                cr += table.describe + delim
+                cr += str(table.describe().to_html()) + delim
         if self.native_flag == True:
             print('='*50)
         else:

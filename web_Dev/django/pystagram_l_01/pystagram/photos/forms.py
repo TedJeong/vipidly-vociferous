@@ -19,7 +19,7 @@ class SimpleForm(forms.Form):
 #reload(sys)
 #sys.setdefaultencoding('utf-8')
 
-# Model Forme
+# Model Form
 class PostForm(forms.ModelForm):
 	#content = forms.IntegerField()
 	#tags= forms.CharField(required=False)# model blank=True

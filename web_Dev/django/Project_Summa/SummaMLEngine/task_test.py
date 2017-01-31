@@ -103,12 +103,17 @@ def plot_ols(x, y):
 
 @app.task
 def plot_raw_test(x, y):
-
+    aws = ''
+    fig = ''
     print("test")
     dh1 = data_holder()
     dh1.read_data()
-    dh1.print_data_table_info("brain_size.csv")
+
+    aws += dh1.print_data_table_info("brain_size.csv")
 
     vt1 = visualization_toolbox(dh1, 'brain_size.csv')
-    aws, fig = vt1.raw_data_plot(['11','21'])
+    result = vt1.raw_data_plot(['11','21'])
+
+    aws += result[0]
+    fig += result[1]
     return [aws, fig]
