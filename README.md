@@ -16,3 +16,8 @@
 - Project_Summa
 ### spring project
 - MyPlace/Taste Web
+
+## notes
+### notes on machinelearning
+### notes on algorithm
+### notes on distributed computing
