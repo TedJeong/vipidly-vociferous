@@ -12,7 +12,7 @@ from scipy import linalg
 from sklearn.datasets import (
                 load_iris, load_digits, load_boston,
                 make_circles, make_classification, make_sparse_spd_matrix,
-		fetch_california_housing
+		        fetch_california_housing
         )
 
 # step 0. BUILD THE PIPELINE HOLDER

@@ -116,4 +116,50 @@ def plot_raw_test(x, y):
 
     aws += result[0]
     fig += result[1]
+
+    return [aws, fig]
+
+
+@app.task
+def plot_feature_pair_comparision(x, y):
+    aws = ''
+    fig = ''
+
+    ## feature_pair_comparision
+    # split 80/20 train-test
+    cal_housing = fetch_california_housing()
+    X_train, X_test, y_train, y_test = train_test_split(cal_housing.data,
+                                                        cal_housing.target,
+                                                        test_size=0.2,
+                                                        random_state=1)
+    names = cal_housing.feature_names
+
+    print("Training GBRT...")
+    clf = GradientBoostingRegressor(n_estimators=100, max_depth=4,
+                                    learning_rate=0.1, loss='huber',
+                                    random_state=1)
+    clf.fit(X_train, y_train)
+    result = vt1.pair_feature_comparision(X_train, y_train, names, clf)
+    aws += result[0]
+    fig += result[1]
+
+    return [aws, fig]
+
+
+@app.task
+def plot_all_test(x, y):
+    aws = ''
+    fig = ''
+    print("all test")
+
+    ## plot_raw
+    result = plot_raw_test(x, y)
+    aws += result[0]
+    fig += result[1]
+
+    ## feature_pair_comparision
+    result = plot_feature_pair_comparision(x, y)
+    aws += result[0]
+    fig += result[1]
+
     return [aws, fig]

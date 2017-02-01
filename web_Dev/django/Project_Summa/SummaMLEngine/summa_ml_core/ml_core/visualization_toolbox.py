@@ -110,17 +110,23 @@ class visualization_toolbox:
     def feature_pair_comparision(self, X, y, feature_names, fitted_model):
         """ F-value, mutual Information, for two feature and partial dependence
         """
+        cr = ''
+        delim = '<br/>'
         #TODO: currently only paritial dependence is adapted.
         f_test = f_regression(X, y)
         f_test /= np.max(f_test)
 
         mi = mutual_info_regression(X, y)
         mi /= np.max(mi)
+        if self.native_flag == True:
+            print("f-value : ", f_test)
+            print("mutual info : ", mi)
 
-        print("favlue : ", f_test)
-        print("mutual info : ", mi)
-
-        print('Convenience plot with ``partial_dependence_plots``')
+            print('Convenience plot with ``partial_dependence_plots``')
+        else:
+            cr += "f-value : {}".format(f_test) + delim
+            cr += "mutual info : ".format(mi) + delim
+            cr += 'Convenience plot with ``partial_dependence_plots``' + delim
 
         features = [0, 5, 1, 2, (5, 1)]
         fig, axs = plot_partial_dependence(fitted_model, X, features,
@@ -130,7 +136,10 @@ class visualization_toolbox:
              'for the California housing dataset')
         plt.subplots_adjust(top=0.9)  # tight_layout causes overlap with suptitle
 
-        print('Custom 3d plot via ``partial_dependence``')
+        if self.native_flag == True:
+            print('Custom 3d plot via ``partial_dependence``')
+        else:
+            cr += 'Custom 3d plot via ``partial_dependence``' + delim
         fig = plt.figure()
 
         target_feature = (1, 5)
@@ -149,7 +158,10 @@ class visualization_toolbox:
         plt.suptitle('Partial dependence plot')
         plt.subplots_adjust(top=0.9)
 
-        plt.show()
+        if self.native_flag == True:
+            plt.show()
+        else:
+            return [cr, mpld3.fig_to_html(fig)]
 
 
     #http://scikit-learn.org/stable/auto_examples/covariance/plot_sparse_cov.html#sphx-glr-auto-examples-covariance-plot-sparse-cov-py

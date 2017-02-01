@@ -22,3 +22,10 @@
 # Author
 free to change under MIT license.
 TedJeong
+
+# upto/todo
+anaylzer:
+file upload - user profile
+job to job list
+uesr:
+userprofile

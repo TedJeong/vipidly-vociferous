@@ -84,7 +84,7 @@
     <div class="col-md-6 col-sm-6 col-xs-6">
         <div class="x_panel">
           <div class="x_title">
-            <h2> Task List <small> for whole </small></h2>
+            <h2> Job List <small> for whole </small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -109,20 +109,22 @@
                 <thead>
                   <tr>
                     <th>&nbsp;&nbsp;<input type="checkbox" id="check-all" class="flat"></th>
+                      <th>status</th>
                     <th>priority</th>
                     <th style="display:none;"></th>
-                    <th>task name</th>
-                    <th>task submitter</th>
+                    <th>job name</th>
+                    <th>job submitter</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {% for task in tasks %}
+                  {% for job in jobs %}
                   <tr>
                     <td><input type="checkbox" class="flat" name="table_records"></td>
-                    <td>{{ task.task_priority }}</td>
-                    <td class="task-pk" style="display:none;">{{task.pk}}</td>
-                    <td>{{ task.task_name }}</td>
-                    <td>{{ task.task_submitter }} </td>
+                      <td>{{ job.job_status }}</td>
+                    <td>{{ job.job_priority }}</td>
+                    <td class="task-pk" style="display:none;">{{job.pk}}</td>
+                    <td>{{ job.job_name }}</td>
+                    <td>{{ job.job_submitter }} </td>
                   </tr>
                   {% endfor %}
                 </tbody>
@@ -864,6 +866,9 @@
                         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
                             xhr.setRequestHeader("X-CSRFToken", csrftoken);
                         }
+
+                        alert('before send!')
+
                     }
                 });
 

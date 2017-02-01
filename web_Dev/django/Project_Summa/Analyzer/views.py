@@ -6,6 +6,7 @@ from django.shortcuts import HttpResponse
 
 from .models import Video
 from .models import Image
+from .models import Job
 
 from .forms import ControllerForm
 from .forms import image_upload_model_form
@@ -18,6 +19,7 @@ from django.views.generic.edit import FormView
 
 from SummaMLEngine.task_test import plot_ols
 from SummaMLEngine.task_test import plot_raw_test
+from SummaMLEngine.task_test import plot_all_test
 
 
 def index(request):
@@ -27,6 +29,8 @@ def index(request):
 
 
 def ml_core(request):
+    jobs = Job.objects.all()
+
     if request.method == 'POST':
         form = Form(request.POST, request.FILES)
         print(form.is_valid())
@@ -40,7 +44,8 @@ def ml_core(request):
                 print(x, y)
                 #result = plot_ols.delay(x, y)
                 #print(type(result)) # Asyc.celery.result
-                result = plot_raw_test(x, y)
+                #result = plot_raw_test(x, y)
+                result = plot_all_test(x, y)
                 if isinstance(result, list):
                     return HttpResponse(json.dumps({
                         "consoles": result[0],
@@ -52,7 +57,9 @@ def ml_core(request):
                             "plots": result.get()[1]
                     })
                     )
-    ctx={}
+    ctx={
+        "jobs" : jobs,
+    }
     return render(request, 'AnalyzerDir/ml-core.html', ctx)
 
 

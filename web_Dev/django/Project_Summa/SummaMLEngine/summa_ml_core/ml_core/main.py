@@ -20,7 +20,7 @@ def main():
     dh1.print_data_table_info("brain_size.csv")
 
     vt1 = visualization_toolbox(dh1, 'brain_size.csv')
-    vt1.raw_data_plot(['21'])
+    vt1.raw_data_plot(['11', '21'])
 
     iris = load_iris()
     X = iris.data
