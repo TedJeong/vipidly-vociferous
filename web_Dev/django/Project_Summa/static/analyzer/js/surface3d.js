@@ -1,60 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<style>
-body{
-  font-family: sans;
-  padding: 10px;
-}
-svg path{
-  stroke: #000;
-  stroke-width: 1px;
-  stroke: rgba(0,0,0,0.2);
-}
-svg{
-  border: 1px solid #DED8BF;
-  background-color: #f4f4d9;
-  width: 700px;
-  height: 400px;
-}
-h1{
-  font-weight: normal;
-  margin: 0;
-  padding-left: 5px;
-  color: #53483e;
-}
-p{
-  margin: 0;
-  margin-bottom: 10px;
-  padding-left: 5px;
-  color: #917e6b;
-}
-ul{
-  width: 200px;
-  float: left;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  padding-right: 10px;
-}
-li{
-  cursor: pointer;
-  background-color: #c8ad93;
-  padding: 10px;
-  margin: 2px;
-  color: #fff;
-}
-</style>
-</head>
-<body>
-  <h1>D3.js Surface Plots</h1>
-  <p>Drag graph to change view</p>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
+/**
+ * Created by joo on 17. 2. 3.
+ */
 
-
-  <script>
-     (function(){
+    (function(){
   var Surface=function(node){
     var heightFunction,colorFunction,timer,timer,transformPrecalc=[];
     var displayWidth=300, displayHeight=300, zoom=1;
@@ -194,8 +142,9 @@ li{
     return this;
   };
 })();
-</script>
-  <script>
+
+
+$(document).ready(function(){
   var yaw=0.5,pitch=0.5, width=700, height=400, drag=false;
 
   function dataFromFormular(func){
@@ -225,7 +174,7 @@ li{
          48.37926464,  49.97791099,  48.89471703,  44.68883155,
          37.16219398,  26.45245473,  13.100533  ,  -1.92712343,
         -17.27876079, -31.32994897, -42.36704525, -48.82555555,
-        -49.55267006, 44.05124104],
+        -49.55267006, -44.05124104],
        [-49.55267006, -48.65355867, -41.50974692, -29.41449899,
         -14.16323739,   2.25956202,  17.97162887,  31.42107575,
          41.52825206,  47.73654523,  49.98295952,  48.60971434,
@@ -1376,12 +1325,8 @@ li{
   ];
   var selected=surfaces[0];
 
-  var ul=d3.select('body')
-           .append('ul');
-  var svg=d3.select('body')
-          .append('svg')
-            .attr('height',height)
-            .attr('width',width);
+  var ul=d3.select('#feature-3d').append('ul');
+  var svg=d3.select("#feature-3d").append('svg').attr('height',height).attr('width',width);
 
   var group = svg.append("g");
 
@@ -1424,6 +1369,4 @@ li{
     }
   });
 
-  </script>
-</body>
-</html>
+})

@@ -1,7 +1,7 @@
 from django import forms
 
-
 from .models import Controller
+from .models import Datafile
 from .models import Image
 
 class ControllerForm(forms.ModelForm):
@@ -9,6 +9,10 @@ class ControllerForm(forms.ModelForm):
         model = Controller
         fields = '__all__'
 
+class datafile_upload_model_form(forms.ModelForm):
+    class Meta:
+        model = Datafile
+        fields = '__all__'
 
 class image_upload_form(forms.Form):
     image_name = forms.CharField(widget=forms.TextInput())

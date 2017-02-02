@@ -30,10 +30,17 @@ def index(request):
 
 def ml_core(request):
     jobs = Job.objects.all()
+    datafile_form = image_upload_model_form()
 
     if request.method == 'POST':
         form = Form(request.POST, request.FILES)
-        print(form.is_valid())
+        datafile_form = image_upload_model_form(request.POST, request.FILES)
+        print(form.is_valid(), datafile_form.is_valid())
+
+        if datafile_form.is_valid():
+            datafile = form.save()
+            datafile.save()
+
         if form.is_valid():
             print('post method is called')
             x = int(request.POST.get('x', False))
@@ -50,16 +57,19 @@ def ml_core(request):
                 if isinstance(result, list):
                     return HttpResponse(json.dumps({
                         "consoles": result[0],
-                        "plots": result[1]
+                        "plots": result[1],
+                        "_3dplots": result[2]
                     }))
                 else:
                     return HttpResponse(json.dumps({
                             "consoles": result.get()[0],
-                            "plots": result.get()[1]
+                            "plots": result.get()[1],
+                            "_3dplots": result.get()[2],
                     })
                     )
     ctx={
         "jobs" : jobs,
+        "datafile_form": datafile_form,
     }
     return render(request, 'AnalyzerDir/ml-core.html', ctx)
 

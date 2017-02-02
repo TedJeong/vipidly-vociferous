@@ -147,21 +147,28 @@ class visualization_toolbox:
                        X=X, grid_resolution=50)
         XX, YY = np.meshgrid(axes[0], axes[1])
         Z = pdp[0].reshape(list(map(np.size, axes))).T
-        ax = Axes3D(fig)
-        surf = ax.plot_surface(XX, YY, Z, rstride=1, cstride=1, cmap=plt.cm.BuPu)
-        ax.set_xlabel(feature_names[target_feature[0]])
-        ax.set_ylabel(feature_names[target_feature[1]])
-        ax.set_zlabel('Partial dependence')
-        #  pretty init view
-        ax.view_init(elev=22, azim=122)
-        plt.colorbar(surf)
-        plt.suptitle('Partial dependence plot')
-        plt.subplots_adjust(top=0.9)
 
         if self.native_flag == True:
+            ax = Axes3D(fig)
+            surf = ax.plot_surface(XX, YY, Z, rstride=1, cstride=1, cmap=plt.cm.BuPu)
+            ax.set_xlabel(feature_names[target_feature[0]])
+            ax.set_ylabel(feature_names[target_feature[1]])
+            ax.set_zlabel('Partial dependence')
+            #  pretty init view
+            ax.view_init(elev=22, azim=122)
+            plt.colorbar(surf)
+            plt.suptitle('Partial dependence plot')
+            plt.subplots_adjust(top=0.9)
+
             plt.show()
         else:
-            return [cr, mpld3.fig_to_html(fig)]
+            return [cr, mpld3.fig_to_html(fig),
+                        json.dumps(
+                            {"data": np.c_[XX, YY, Z].tolist(),
+                             "xlabel": feature_names[target_feature[0]],
+                             "ylabel": feature_names[target_feature[1]],
+                             "zlabel": 'partial dependence'
+                             })]
 
 
     #http://scikit-learn.org/stable/auto_examples/covariance/plot_sparse_cov.html#sphx-glr-auto-examples-covariance-plot-sparse-cov-py

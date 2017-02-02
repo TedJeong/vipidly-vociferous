@@ -165,4 +165,4 @@ def plot_all_test(x, y):
     aws += result[0]
     fig += result[1]
 
-    return [aws, fig]
+    return [aws, fig , _]
