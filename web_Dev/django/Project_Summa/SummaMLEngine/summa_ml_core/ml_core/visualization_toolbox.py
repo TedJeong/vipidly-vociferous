@@ -140,7 +140,7 @@ class visualization_toolbox:
             print('Custom 3d plot via ``partial_dependence``')
         else:
             cr += 'Custom 3d plot via ``partial_dependence``' + delim
-        fig = plt.figure()
+        #fig = plt.figure()
 
         target_feature = (1, 5)
         pdp, axes = partial_dependence(fitted_model, target_feature,
