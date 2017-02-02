@@ -38,6 +38,7 @@ def ml_core(request):
             print('post method is called')
             x = int(request.POST.get('x', False))
             y = int(request.POST.get('y', False))
+            status = request.POST.get('ajax-')
             print('in form : ', x+y)
             if request.is_ajax():
                 print('ajax call!')

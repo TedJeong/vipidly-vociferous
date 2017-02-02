@@ -127,6 +127,9 @@ def plot_feature_pair_comparision(x, y):
 
     ## feature_pair_comparision
     # split 80/20 train-test
+    dh1 = data_holder()
+    dh1.read_data()
+    vt1 = visualization_toolbox(dh1, 'brain_size.csv')
     cal_housing = fetch_california_housing()
     X_train, X_test, y_train, y_test = train_test_split(cal_housing.data,
                                                         cal_housing.target,
@@ -139,7 +142,7 @@ def plot_feature_pair_comparision(x, y):
                                     learning_rate=0.1, loss='huber',
                                     random_state=1)
     clf.fit(X_train, y_train)
-    result = vt1.pair_feature_comparision(X_train, y_train, names, clf)
+    result = vt1.feature_pair_comparision(X_train, y_train, names, clf)
     aws += result[0]
     fig += result[1]
 

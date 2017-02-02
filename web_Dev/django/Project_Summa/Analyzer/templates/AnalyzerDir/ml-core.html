@@ -59,6 +59,17 @@
 
                 <input type="text" id="ajax-x"/>
                 <input type="text" id="ajax-y"/>
+                  <select class="" name="">
+                        <optgroup label="priority">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </optgroup>
+                    </select>
+                  <input type="text" id="ajax-status"/>
+                  <input type="text" id="ajax-priority"/>
+                  <input type="text" id="ajax-jobname"/>
+                  <input type="text" id="ajax-jobsubmitter"/>
                 <button class="btn btn-primary" id="req">ajax request</button>
 
                 <div id="form-div">
@@ -116,7 +127,7 @@
                     <th>job submitter</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="joblist">
                   {% for job in jobs %}
                   <tr>
                     <td><input type="checkbox" class="flat" name="table_records"></td>
@@ -861,19 +872,36 @@
                     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
                 }
 
+
+
+                var x = $('#ajax-x').val();
+                var y = $('#ajax-y').val();
+                var status = $('#ajax-status').val();
+                var priority = $('#ajax-priority').val();
+                var jobname = $('#ajax-jobname').val();
+                var jobsubmitter = $('#ajax-jobsubmitter').val();
+
+
                 $.ajaxSetup({
                     beforeSend: function(xhr, settings) {
                         if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
                             xhr.setRequestHeader("X-CSRFToken", csrftoken);
                         }
 
-                        alert('before send!')
-
+                        alert('before send!');
+                        $('#req').on('click', function(){
+                            $('#joblist').append(
+                            "<tr>" +
+                            "<td><input type='checkbox' class='flat' name='table_records'></td>" +
+                            "<td>" + status + "</td>" +
+                            "<td>" + priority + "</td>" +
+                            "<td class='task-pk' style='display:none;'>" + 0 + "</td>" +
+                            "<td>" + jobname + "</td>" +
+                            "<td>" + jobsubmitter + "</td>" +
+                            "</tr>")
+                        });
                     }
                 });
-
-                var x = $('#ajax-x').val();
-                var y = $('#ajax-y').val();
 
                 $.ajax({
                     url: '',

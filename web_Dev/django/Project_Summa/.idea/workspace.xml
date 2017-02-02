@@ -29,12 +29,9 @@
       <file leaf-file-name="ml-core.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/ml-core.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="86" column="20" lean-forward="false" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
-              <folding>
-                <element signature="e#4587#4608#0#HTML" expanded="true" />
-                <element signature="e#12417#40658#0#HTML" expanded="false" />
-              </folding>
+            <state relative-caret-position="342">
+              <caret line="887" column="40" lean-forward="true" selection-start-line="887" selection-start-column="40" selection-end-line="887" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -42,11 +39,9 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Analyzer/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="234">
+              <caret line="40" column="44" lean-forward="false" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,11 +49,21 @@
       <file leaf-file-name="task_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SummaMLEngine/task_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="160" column="42" lean-forward="false" selection-start-line="160" selection-start-column="42" selection-end-line="160" selection-end-column="42" />
+            <state relative-caret-position="211">
+              <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
               <folding>
                 <element signature="e#44#100#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="visualization_toolbox.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/visualization_toolbox.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="91" column="33" lean-forward="false" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -67,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/Analyzer/admin.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="32" lean-forward="true" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+              <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -76,7 +81,7 @@
       <file leaf-file-name="data_holder.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/data_holder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="678">
+            <state relative-caret-position="2736">
               <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
               <folding />
             </state>
@@ -86,8 +91,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Analyzer/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -96,19 +101,12 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="35" column="4" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="feature_controller.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/feature_controller.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="29" column="40" lean-forward="true" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-              <folding />
+            <state relative-caret-position="522">
+              <caret line="36" column="0" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="44" />
+              <folding>
+                <marker date="1485994194228" expanded="true" signature="2103:2197" ph="..." />
+                <marker date="1485994194228" expanded="true" signature="2824:2926" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,8 +115,10 @@
         <entry file="file://$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/pipeline_controller.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="468">
-              <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-              <folding />
+              <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+              <folding>
+                <marker date="1485994194228" expanded="true" signature="2371:2478" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -135,14 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ital</find>
-      <find>copy</find>
-      <find>story-</find>
-      <find>font</find>
-      <find>Project</find>
-      <find>void(0)</find>
-      <find>page-2</find>
-      <find>context</find>
       <find>content-</find>
       <find>BA</find>
       <find>view</find>
@@ -165,6 +157,14 @@
       <find>feature_compar</find>
       <find>task list</find>
       <find>Analyzer</find>
+      <find>pair</find>
+      <find>job list</find>
+      <find>Ajax</find>
+      <find>tbody</find>
+      <find>choice</find>
+      <find>optiio</find>
+      <find>ajax</find>
+      <find>job</find>
     </findStrings>
     <replaceStrings>
       <replace>src=&quot;{% static 'contact/</replace>
@@ -220,8 +220,8 @@
         <option value="$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/visualization_toolbox.py" />
         <option value="$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/main.py" />
         <option value="$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/pipeline_controller.py" />
-        <option value="$PROJECT_DIR$/SummaMLEngine/task_test.py" />
         <option value="$PROJECT_DIR$/Analyzer/admin.py" />
+        <option value="$PROJECT_DIR$/SummaMLEngine/task_test.py" />
         <option value="$PROJECT_DIR$/Analyzer/views.py" />
         <option value="$PROJECT_DIR$/Analyzer/models.py" />
         <option value="$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/ml-core.html" />
@@ -235,9 +235,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="51" />
+    <option name="x" value="65" />
     <option name="y" value="24" />
-    <option name="width" value="1869" />
+    <option name="width" value="1855" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
@@ -674,17 +674,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="51" y="24" width="1869" height="1056" extended-state="6" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18760285" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18960752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.225" sideWeight="0.5041141" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967636" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2495886" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37291667" sideWeight="0.4958859" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37291667" sideWeight="0.4958859" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -917,7 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -933,33 +932,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
           <caret line="32" column="46" lean-forward="true" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#33#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/feature_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="29" column="40" lean-forward="true" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+        <state relative-caret-position="432">
+          <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="35" column="4" lean-forward="false" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/visualization_toolbox.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="136" column="57" lean-forward="false" selection-start-line="136" selection-start-column="57" selection-end-line="136" selection-end-column="57" />
-          <folding />
+        <state relative-caret-position="522">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="44" />
+          <folding>
+            <marker date="1485994194228" expanded="true" signature="2103:2197" ph="..." />
+            <marker date="1485994194228" expanded="true" signature="2824:2926" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -974,8 +965,10 @@
     <entry file="file://$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/pipeline_controller.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
-          <caret line="26" column="39" lean-forward="true" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-          <folding />
+          <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+          <folding>
+            <marker date="1485994194228" expanded="true" signature="2371:2478" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -983,7 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -991,74 +983,74 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SummaMLEngine/task_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="160" column="42" lean-forward="false" selection-start-line="160" selection-start-column="42" selection-end-line="160" selection-end-column="42" />
-          <folding>
-            <element signature="e#44#100#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Analyzer/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="32" lean-forward="true" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+          <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/data_holder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
+        <state relative-caret-position="2736">
           <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analyzer/models.py">
+    <entry file="file://$PROJECT_DIR$/SummaMLEngine/summa_ml_core/ml_core/visualization_toolbox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="396">
+          <caret line="91" column="33" lean-forward="false" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SummaMLEngine/task_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+          <folding>
+            <element signature="e#44#100#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ProjectManager/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="11" column="68" lean-forward="true" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Analyzer/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Analyzer/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="234">
+          <caret line="40" column="44" lean-forward="false" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Analyzer/templates/AnalyzerDir/ml-core.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="86" column="20" lean-forward="false" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
-          <folding>
-            <element signature="e#4587#4608#0#HTML" expanded="true" />
-            <element signature="e#12417#40658#0#HTML" expanded="false" />
-          </folding>
+        <state relative-caret-position="342">
+          <caret line="887" column="40" lean-forward="true" selection-start-line="887" selection-start-column="40" selection-end-line="887" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
