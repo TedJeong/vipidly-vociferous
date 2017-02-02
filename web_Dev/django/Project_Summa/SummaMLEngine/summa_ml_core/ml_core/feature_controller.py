@@ -109,7 +109,7 @@ class feature_controller(object):
 
         if col == None:
             if len(con_col) == 1:
-                return stats.mstats.normaltset(X, axis=0)[1] / 2. <= 0.05
+                return stats.mstats.normaltset(X, axis=0)[1] / 2. > 0.05
             else:
                 print("Input has no continuous features.")
                 raise ValueError("Input has no continuous features.")
