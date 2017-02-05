@@ -17,11 +17,17 @@ from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
 
+from django.contrib.auth.views import login
+from django.contrib.auth.views import logout
+from django.contrib.auth import views as auth_views
+
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+# Do not put $ at the end of url if there's more.
 urlpatterns = [
-    url(r'^$', include('Home.urls'), name="home"),
+    url(r'^', include('Home.urls'), name="home"),
     url(r'^admin/', admin.site.urls),
     url(r'^analyzer/', include('Analyzer.urls'), name="analyzer"),
     url(r'^projectmanager/', include('ProjectManager.urls'), name="projectmanager"),

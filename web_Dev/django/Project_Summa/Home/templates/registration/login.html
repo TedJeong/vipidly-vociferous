@@ -33,26 +33,39 @@
 				<!-- Header -->
 					<header id="header">
 						<h1>Project Summa</h1>
-                        {% if is_authenticated == False %}
-                            <p>Data Analytics &nbsp;&bull;&nbsp; Deep Learning &nbsp;&bull;&nbsp; Django</p>
-                        {% elif is_authenticated == True %}
-                            <p>Welcome! {{ username }}</p>
-                        {% endif %}
-
+						<p> Welcome to Project Summa!</p>
 						<nav>
-							<ul>
-                                {% if is_authenticated == False %}
-                                <li><a id="login-button" href="{% url 'home:login' %}" type="button" class="fa fa-sign-in"\
-                                    value="{{ is_authenticated }}"><span>login</span></a></li>
-                                {% elif is_authenticated == True %}
-                                <li><a id="logout-button" href="{% url 'home:logout' %}" type="button" class="fa fa-sign-in"\
-                                    value="{{ is_authenticated }}"><span>logout</span></a></li>
-                                {% endif %}
-								<li><a href="{% url 'analyzer:index' %}" class="fa fa-terminal"><span>Analyzer</span></a></li>
-								<li><a href="{% url 'projectmanager:index' %}" class="fa fa-group"><span>PM</span></a></li>
-								<li><a href="#" class="fa fa-download"><span>Download</span></a></li>
-								<li><a href="{% url 'contact:index' %}" class="fa fa-envelope-o"><span>Contact</span></a></li>
-							</ul>
+
+
+                            {% if form.errors %}
+                                <p>아이디나 비밀번호가 일치하지 않거나 잘못된 로그인 정보 입니다.</p>
+                            {% endif %}
+                            <form method="POST" action="{% url 'home:login' %}">
+                                {% csrf_token %}
+                                <div align="center">
+                                    <table>
+                                        <!-- for custom design, not using form.as_table -->
+                                        <tbody>
+                                            <tr>
+                                                <td>아이디 : </td>
+                                                <td style="color: #0D3349;">{{ form.username }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>비밀번호 : </td>
+                                                <td style="color: #0D3349;">{{ form.password }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <nav>
+                                        <ul>
+                                            <li><a type="submit"></a></li>
+                                            <li><a href="{% url 'home:signup' %}"></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </form>
+
+
 						</nav>
 					</header>
 

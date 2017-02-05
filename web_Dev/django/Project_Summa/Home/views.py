@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -11,17 +12,17 @@ from .forms import SigninForm
 
 def index(request):
     is_authenticated = request.user.is_authenticated()
+    username = request.user.username
     print('index(request) : ',is_authenticated)
     ctx={
        'is_authenticated': is_authenticated,
+        'username': username,
     }
     return render(request,'HomeDir/index.html',ctx)
 
 
-#@login_required
 def UserLogin(request):
 #TODO: 1.redirect 2.staticfiles
-#    return redirect('HomeDir/login.html')
     form = LoginForm()
 
     if request.POST:
@@ -58,7 +59,7 @@ def UserLogin(request):
     ctx={
         'form': form,
     }
-    return render(request,'HomeDir/login.html', ctx)
+    return render(request, 'registration/login.html', ctx)
 
 
 def UserLogout(request):
@@ -69,7 +70,7 @@ def UserLogout(request):
 # Sign in Form
 class UserSignupView(View):
     form_class = SigninForm
-    template_name = 'HomeDir/signup.html'
+    template_name = 'registration/signup.html'
 
     def get(self, request):
         form = self.form_class(None)

@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'Contact',
     'SummaMLEngine',
     'bootstrap3',
-
 ]
 
 MIDDLEWARE = [
@@ -132,3 +131,8 @@ STATICFILES_DIRS=[
 
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+
+
+# TODO: change it to history(-1) page
+LOGIN_REDIRECT_URL = ''
+LOGOUT_REDIRECT_URL = ''
