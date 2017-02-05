@@ -961,7 +961,10 @@
 
     <!-- Ajax request -->
     <script>
+        var data_plot3d;
         $(document).ready(function(){
+
+
             function worker(){
             }
 
@@ -1013,7 +1016,8 @@
                         $('#anwser').append("<br/>");
                         $('#anwser').append(data.consoles);
                         $('#anwser-ml-report').append(data.plots);
-                        $('#anwser-ml-3d-report').append(data._3dplots);
+                        data_plot3d = data._3dplots.data;
+                        //$('#anwser-ml-3d-report').append(data._3dplots);
                     },
                     complete: function(data){
                         //setTimeout(worker, 5000);

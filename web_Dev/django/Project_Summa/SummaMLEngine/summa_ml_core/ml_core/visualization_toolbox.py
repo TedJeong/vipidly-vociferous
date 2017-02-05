@@ -12,6 +12,7 @@ import pandas as pd
 import numpy as np
 import os
 import glob
+import json
 
 import sklearn.ensemble as ensemble
 
@@ -147,6 +148,7 @@ class visualization_toolbox:
                        X=X, grid_resolution=50)
         XX, YY = np.meshgrid(axes[0], axes[1])
         Z = pdp[0].reshape(list(map(np.size, axes))).T
+        print("Z shape : ", Z.shape)
 
         if self.native_flag == True:
             ax = Axes3D(fig)
@@ -164,7 +166,7 @@ class visualization_toolbox:
         else:
             return [cr, mpld3.fig_to_html(fig),
                         json.dumps(
-                            {"data": np.c_[XX, YY, Z].tolist(),
+                            {"data": Z.tolist(),
                              "xlabel": feature_names[target_feature[0]],
                              "ylabel": feature_names[target_feature[1]],
                              "zlabel": 'partial dependence'

@@ -124,6 +124,7 @@ def plot_raw_test(x, y):
 def plot_feature_pair_comparision(x, y):
     aws = ''
     fig = ''
+    fig3d = ''
 
     ## feature_pair_comparision
     # split 80/20 train-test
@@ -145,14 +146,16 @@ def plot_feature_pair_comparision(x, y):
     result = vt1.feature_pair_comparision(X_train, y_train, names, clf)
     aws += result[0]
     fig += result[1]
+    fig3d += result[2]
 
-    return [aws, fig]
+    return [aws, fig, fig3d]
 
 
 @app.task
 def plot_all_test(x, y):
     aws = ''
     fig = ''
+    fig3d = ''
     print("all test")
 
     ## plot_raw
@@ -164,5 +167,6 @@ def plot_all_test(x, y):
     result = plot_feature_pair_comparision(x, y)
     aws += result[0]
     fig += result[1]
+    fig3d += result[2]
 
-    return [aws, fig , _]
+    return [aws, fig , fig3d]
