@@ -12,10 +12,6 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 
-
-        <!-- Bootstrap Core CSS -->
-        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
 		<noscript>
 			<link rel="stylesheet" href="{% static 'home/css/skel.css'%}" />
 			<link rel="stylesheet" href="{% static 'home/css/style.css' %}" />
@@ -24,6 +20,9 @@
 		</noscript>
 		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'home/css/ie/v9.css' %}" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'home/css/ie/v8.css' %}" /><![endif]-->
+
+        <!-- Bootstrap Core CSS -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 	</head>
 	<body class="loading">
 		<div id="wrapper">
@@ -37,40 +36,12 @@
 						<p>Data Analytics &nbsp;&bull;&nbsp; Deep Learning &nbsp;&bull;&nbsp; Django</p>
 						<nav>
 							<ul>
-								<li><a href="#" data-toggle="modal" data-target=".bs-modal-sm" class="fa fa-sign-in"><span>Login/Signin</span></a></li>
+								<li><a class="fa fa-sign-in" data-toggle="modal" data-target=".bs-modal-sm"><span>Login/Signin</span></a></li>
 								<li><a href="{% url 'analyzer:index' %}" class="fa fa-terminal"><span>Analyzer</span></a></li>
 								<li><a href="{% url 'projectmanager:index' %}" class="fa fa-group"><span>PM</span></a></li>
 								<li><a href="#" class="fa fa-download"><span>Download</span></a></li>
 								<li><a href="{% url 'contact:index' %}" class="fa fa-envelope-o"><span>Contact</span></a></li>
 							</ul>
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 						</nav>
 					</header>
 
@@ -225,6 +196,12 @@
 
 		<script src="{% static 'home/js/skel.min.js'%}"></script>
 		<script src="{% static 'home/js/init.js' %}"></script>
+
+        <!-- jQuery -->
+        <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+        <!-- Bootstrap -->
+        <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        {% block jsimport %}{% endblock %}
 
 	</body>
 </html>
