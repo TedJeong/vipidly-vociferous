@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Analyzer',
     'ProjectManager',
     'Contact',
+    'UserProfile',
     'SummaMLEngine',
     'bootstrap3',
 ]

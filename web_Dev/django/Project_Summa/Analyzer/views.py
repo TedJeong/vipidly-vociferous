@@ -4,6 +4,8 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import HttpResponse
 
+from django.contrib.auth.models import User
+
 from .models import Video
 from .models import Image
 from .models import Job
@@ -23,7 +25,12 @@ from SummaMLEngine.task_test import plot_all_test
 
 
 def index(request):
+    is_authenticated = request.user.is_authenticated()
+    username = request.user.username
+    print('index(request) : ',is_authenticated)
     ctx={
+       'is_authenticated': is_authenticated,
+        'username': username,
     }
     return render(request, 'AnalyzerDir/index.html', ctx)
 
@@ -31,6 +38,8 @@ def index(request):
 def ml_core(request):
     jobs = Job.objects.all()
     datafile_form = image_upload_model_form()
+    is_authenticated = request.user.is_authenticated()
+    username = request.user.username
 
     if request.method == 'POST':
         form = Form(request.POST, request.FILES)
@@ -54,6 +63,7 @@ def ml_core(request):
                 #print(type(result)) # Asyc.celery.result
                 #result = plot_raw_test(x, y)
                 result = plot_all_test(x, y)
+                print(result[2])
                 if isinstance(result, list):
                     return HttpResponse(json.dumps({
                         "consoles": result[0],
@@ -70,6 +80,8 @@ def ml_core(request):
     ctx={
         "jobs" : jobs,
         "datafile_form": datafile_form,
+        'is_authenticated': is_authenticated,
+        'username': username,
     }
     return render(request, 'AnalyzerDir/ml-core.html', ctx)
 

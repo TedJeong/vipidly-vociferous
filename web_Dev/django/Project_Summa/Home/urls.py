@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^$', index, name = "index"),
     # default template folder is registration
     url(r'^login/$', UserLogin, name="login"),
-    url(r'^signup/$', UserSignupView, name="signup"),
+    url(r'^signup/$', UserSignupView.as_view(), name="signup"),
     url(r'^logout/$', UserLogout, name='logout'),
     url(r'^analyzer/', include('Analyzer.urls'), name="analyzer"),
     url(r'^projectmanager/', include('ProjectManager.urls'), name="projectmanager"),

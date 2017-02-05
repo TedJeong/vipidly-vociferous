@@ -45,7 +45,7 @@
                                 <li><a id="login-button" href="{% url 'home:login' %}" type="button" class="fa fa-sign-in"\
                                     value="{{ is_authenticated }}"><span>login</span></a></li>
                                 {% elif is_authenticated == True %}
-                                <li><a id="logout-button" href="{% url 'home:logout' %}" type="button" class="fa fa-sign-in"\
+                                <li><a id="logout-button" href="{% url 'home:logout' %}" type="button" class="fa fa-sign-out"\
                                     value="{{ is_authenticated }}"><span>logout</span></a></li>
                                 {% endif %}
 								<li><a href="{% url 'analyzer:index' %}" class="fa fa-terminal"><span>Analyzer</span></a></li>

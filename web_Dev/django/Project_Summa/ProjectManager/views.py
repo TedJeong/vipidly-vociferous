@@ -96,7 +96,13 @@ def index(request):
 
     print('ctz')
 
+
+    is_authenticated = request.user.is_authenticated()
+    username = request.user.username
+
     ctx = {
+        'is_authenticated': is_authenticated,
+        'username': username,
         'projects': projects,
         'projects_workspace_names': psw_names,
         'projects_member_names': psm_names,

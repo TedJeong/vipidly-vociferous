@@ -20,12 +20,18 @@ class Progress(models.Model):
 class Task(models.Model):
     task_status = models.BooleanField(default=False)
     task_priority = models.IntegerField(default=1)
-    task_related = models.ManyToManyField('self', null=True, blank=True)
+    # if null=True is added,
+    # WARNINGS:
+    # ProjectManager.Task.task_related: (fields.W340) null has no effect on ManyToManyField.
+    task_related = models.ManyToManyField('self', blank=True)
     task_name = models.CharField(max_length=100, default="task_")
     task_description = models.CharField(max_length=300, null=True, blank=True)
     task_project = models.ForeignKey('Project')
     task_submitter = models.CharField(max_length=100, default="Anonymous", null=True, blank=True)
-    task_members = models.ManyToManyField('Member', null=True, blank=True)
+    # if null=True is added,
+    # WARNINGS:
+    # ProjectManager.Task.task_members: (fields.W340) null has no effect on ManyToManyField.
+    task_members = models.ManyToManyField('Member', blank=True)
     task_initiated_at = models.DateTimeField(auto_now=True)
     task_deadline = models.DateTimeField(null=True, blank=True)
     task_completed_at = models.DateTimeField(null=True, blank=True)

@@ -1,5 +1,9 @@
 from django.db import models
 
+from django.conf import settings
+
+from django.contrib.auth.models import User
+
 class Analyzer_core(models.Model):
     analyzer_name = models.CharField(max_length=50)
 
@@ -16,7 +20,6 @@ class Job(models.Model):
                                    )
     job_priority = models.IntegerField(default=1)
     job_name = models.CharField(max_length=50)
-    job_submitter = models.CharField(max_length=50)
     job_dataset_size = models.IntegerField(default=0) ## TODO: will be changed
     job_started_at = models.DateTimeField(auto_now=True)
     job_deadline = models.DateTimeField(null=True, blank=True)
@@ -24,7 +27,6 @@ class Job(models.Model):
 
     class Meta:
         ordering = ('-pk',)
-
 
     def __str__(self):
         return '{}-{} : {}'.format(self.job_name, self.job_submitter, self.job_status)
@@ -89,10 +91,13 @@ class PostProcessor(models.Model):
 class Datafile(models.Model):
     filename = models.CharField(max_length=100)
     filepath = models.FilePathField()
+    fileowner = models.ForeignKey(settings.AUTH_USER_MODEL)
+
 
 class Image(models.Model):
     image_name = models.CharField(max_length=100)
     image_file = models.ImageField(upload_to="images/")
+    image_owner = models.ForeignKey(settings.AUTH_USER_MODEL)
 
     def __str__(self):
         return '{}'.format(self.image_name)
@@ -102,6 +107,7 @@ class Video(models.Model):
     video_name = models.CharField(max_length=100)
     video_type = models.CharField(max_length=50)
     video_file = models.FileField(upload_to="videos/")
+    video_owner = models.ForeignKey(settings.AUTH_USER_MODEL)
 
     class Meta:
         pass
