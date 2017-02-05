@@ -36,7 +36,8 @@
 						<p>Data Analytics &nbsp;&bull;&nbsp; Deep Learning &nbsp;&bull;&nbsp; Django</p>
 						<nav>
 							<ul>
-								<li><a class="fa fa-sign-in" data-toggle="modal" data-target=".bs-modal-sm"><span>Login/Signin</span></a></li>
+<!--								<li><a href="#" class="fa fa-sign-in" data-toggle="modal" data-target=".bs-modal-sm"><span>Login/Signin</span></a></li>-->
+                                <li><a href="{% url 'home:login' %}" class="fa fa-sign-in" ><span>Login/Signin</span></a></li>
 								<li><a href="{% url 'analyzer:index' %}" class="fa fa-terminal"><span>Analyzer</span></a></li>
 								<li><a href="{% url 'projectmanager:index' %}" class="fa fa-group"><span>PM</span></a></li>
 								<li><a href="#" class="fa fa-download"><span>Download</span></a></li>
