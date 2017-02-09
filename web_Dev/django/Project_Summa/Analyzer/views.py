@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from .models import Video
 from .models import Image
 from .models import Job
+from UserProfile.models import UserMessage
 
 from .forms import ControllerForm
 from .forms import image_upload_model_form
@@ -25,13 +26,17 @@ from SummaMLEngine.task_test import plot_all_test
 
 
 def index(request):
+    ctx={}
     is_authenticated = request.user.is_authenticated()
     username = request.user.username
+    print(username)
     print('index(request) : ',is_authenticated)
-    ctx={
-       'is_authenticated': is_authenticated,
-        'username': username,
-    }
+    if is_authenticated == True:
+        messages = UserMessage.objects.filter(touser__user__username__exact=request.user.username)
+        ctx['messages'] = messages
+    ctx['is_authenticated'] = is_authenticated
+    ctx['username'] = username
+
     return render(request, 'AnalyzerDir/index.html', ctx)
 
 
@@ -68,13 +73,19 @@ def ml_core(request):
                     return HttpResponse(json.dumps({
                         "consoles": result[0],
                         "plots": result[1],
-                        "_3dplots": result[2]
+                        "_3dplots": result[2],
+                        "xlabel": result[3],
+                        "ylabel": result[4],
+                        "zlabel": result[5]
                     }))
                 else:
                     return HttpResponse(json.dumps({
                             "consoles": result.get()[0],
                             "plots": result.get()[1],
                             "_3dplots": result.get()[2],
+                            "xlabel": result[3],
+                            "ylabel": result[4],
+                            "zlabel": result[5]
                     })
                     )
     ctx={
@@ -83,6 +94,13 @@ def ml_core(request):
         'is_authenticated': is_authenticated,
         'username': username,
     }
+
+    if is_authenticated == True:
+        messages = UserMessage.objects.filter(touser__user__username__exact=request.user.username)
+        ctx['messages'] = messages
+    ctx['is_authenticated'] = is_authenticated
+    ctx['username'] = username
+
     return render(request, 'AnalyzerDir/ml-core.html', ctx)
 
 

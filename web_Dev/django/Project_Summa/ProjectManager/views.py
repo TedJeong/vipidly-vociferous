@@ -3,6 +3,8 @@ from django.shortcuts import redirect
 from django.shortcuts import HttpResponse
 from django.shortcuts import render_to_response
 
+from django.contrib.auth.decorators import login_required
+
 from django.template import RequestContext
 
 from django.http import HttpResponseRedirect
@@ -115,3 +117,15 @@ def index(request):
 
 
     return render(request, 'ProjectManagerDir/index.html', ctx)
+
+
+@login_required
+def user_profile(request):
+    current_user = request.user
+    profile = current_user.userprofile
+    ctx = {
+        'is_authenticated': True,
+        "username": current_user.username,
+        "user": profile,
+    }
+    return render(request, 'ProjectManagerDir/user-profile.html', ctx)

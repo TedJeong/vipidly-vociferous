@@ -967,7 +967,7 @@
 
         $(document).ready(function(){
 
-            var data_plot3d = null;
+            var data_plot3d = 1;
             function worker(){
             }
 
@@ -1019,7 +1019,7 @@
                         $('#anwser').append("<br/>");
                         $('#anwser').append(data.consoles);
                         $('#anwser-ml-report').append(data.plots);
-                        data_plot3d = data._3dplots.data;
+                        data_plot3d = data._3dplots;
                         console.log(data_plot3d);
                         //$('#anwser-ml-3d-report').append(data._3dplots);
                     },

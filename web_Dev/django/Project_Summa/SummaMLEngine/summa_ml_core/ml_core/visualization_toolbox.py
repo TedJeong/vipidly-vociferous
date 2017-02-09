@@ -164,13 +164,11 @@ class visualization_toolbox:
 
             plt.show()
         else:
-            return [cr, mpld3.fig_to_html(fig),
-                        json.dumps(
-                            {"data": Z.tolist(),
-                             "xlabel": feature_names[target_feature[0]],
-                             "ylabel": feature_names[target_feature[1]],
-                             "zlabel": 'partial dependence'
-                             })]
+            return [cr, mpld3.fig_to_html(fig), Z.tolist(),
+                             feature_names[target_feature[0]],
+                             feature_names[target_feature[1]],
+                             'partial dependence'
+                             ]
 
 
     #http://scikit-learn.org/stable/auto_examples/covariance/plot_sparse_cov.html#sphx-glr-auto-examples-covariance-plot-sparse-cov-py
