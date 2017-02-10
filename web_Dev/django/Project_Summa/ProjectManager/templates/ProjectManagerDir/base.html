@@ -56,7 +56,7 @@
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="{% static 'img/img.jpg' %}" alt="..." class="img-circle profile_img">
+                <img src="{% static "{{ user.username }}/info/profile-photo_{{ user.username }}_{{ user.pk }}.*" %}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -155,7 +155,7 @@
 
                        <li class="">
                          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                           <img src="{% static 'img/img.jpg' %}" alt="">{{ username }}
+                           <img src="{% static '{{ user.username }}/info/profile-photo_{{ user.username }}_{{ user.pk }}.jpg' %}" alt="">{{ username }}
                            <span class=" fa fa-angle-down"></span>
                          </a>
                          <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -181,7 +181,7 @@
                              {% for message in messages %}
                            <li>
                              <a>
-                               <span class="image"><img src="{% static 'img/img.jpg' %}" alt="Profile Image" /></span>
+                               <span class="image"><img src="{% static '{{ user.username }}/info/profile-photo_{{ user.username }}_{{ user.pk }}.*' %}" alt="Profile Image" /></span>
                                <span>
                                  <span>{{ message.fromuser }}</span>
                                  <span class="time">{{ message.created_at }}</span>

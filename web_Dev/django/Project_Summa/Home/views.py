@@ -4,6 +4,8 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
+from UserProfile.models import UserProfile
+
 from django.views.generic import View
 
 from .forms import LoginForm
@@ -84,6 +86,8 @@ class UserSignupView(View):
             password = form.cleaned_data['password']
             user.set_password(password)
             user.save()
+            profile = UserProfile.objects.create(user=user)
+            profile.save()
             user = authenticate(username = username, password = password)
         if user is not None:
             if user.is_active:

@@ -20,7 +20,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2> User Profile Card <small> user informations </small></h2>
+            <h2> User Profile Card <small> user information </small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -41,11 +41,6 @@
           <div class="x_content">
             {{ user.username }} <br/>
 
-
-
-
-
-
               <!-- Card contents -->
               <div class="container">
                 <div class="row">
@@ -53,7 +48,9 @@
                         <div class="well well-sm">
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
-                                    <img src={{ user.profile_photo_path }} alt="" class="img-rounded img-responsive" />
+                                    {% with ''|add:request.user.username|add:'/info/profile-photo_'|add:request.user.username|add:'_'|add:request.user.pk|add:'.*' as profile_photo_path %}
+                                    <img src={% static profile_photo_path %} alt="#" class="img-rounded img-responsive" />
+                                    {% endwith %}
                                 </div>
                                 <div class="col-sm-6 col-md-8">
                                     <h3>{{ user.projectinfo.member_name }}</h3>
@@ -131,22 +128,24 @@
                   <div class="profile_img">
                     <div id="crop-avatar">
                       <!-- Current avatar -->
-                      <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
+
+                      <img class="img-responsive avatar-view" src="{% static '' %}{{ user.user.username }}/info/profile-photo_joo_1.jpg" alt="Avatar" title="Change the avatar">
+
                     </div>
                   </div>
-                  <h3>Samuel Doe</h3>
+                  <h3>{{ user.user.username }}</h3>
 
                   <ul class="list-unstyled user_data">
-                    <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                    <li><i class="fa fa-map-marker user-profile-icon"></i> {{ user.profile_location }}
                     </li>
 
                     <li>
-                      <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                      <i class="fa fa-briefcase user-profile-icon"></i> {{ user.projectinfo.member_department }}
                     </li>
 
                     <li class="m-top-xs">
                       <i class="fa fa-external-link user-profile-icon"></i>
-                      <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                      <a href="fa fa-facebook-square" target="_blank">{{ user.profile_facebook }}</a>
                     </li>
                   </ul>
 
@@ -221,7 +220,9 @@
                         <!-- start recent activity -->
                         <ul class="messages">
                           <li>
-                            <img src="images/img.jpg" class="avatar" alt="Avatar">
+                              {% with ''|add:request.user.username|add:'/info/profile-photo_'|add:request.user.username|add:'_'|add:request.user.pk|add:'.*' as profile_photo_path %}
+                            <img src="{% static profile_photo_path %}" class="avatar" alt="Avatar">
+                              {% endwith %}
                             <div class="message_date">
                               <h3 class="date text-info">24</h3>
                               <p class="month">May</p>
@@ -233,54 +234,6 @@
                               <p class="url">
                                 <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
                                 <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                              </p>
-                            </div>
-                          </li>
-                          <li>
-                            <img src="images/img.jpg" class="avatar" alt="Avatar">
-                            <div class="message_date">
-                              <h3 class="date text-error">21</h3>
-                              <p class="month">May</p>
-                            </div>
-                            <div class="message_wrapper">
-                              <h4 class="heading">Brian Michaels</h4>
-                              <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                              <br />
-                              <p class="url">
-                                <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                <a href="#" data-original-title="">Download</a>
-                              </p>
-                            </div>
-                          </li>
-                          <li>
-                            <img src="images/img.jpg" class="avatar" alt="Avatar">
-                            <div class="message_date">
-                              <h3 class="date text-info">24</h3>
-                              <p class="month">May</p>
-                            </div>
-                            <div class="message_wrapper">
-                              <h4 class="heading">Desmond Davison</h4>
-                              <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                              <br />
-                              <p class="url">
-                                <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                              </p>
-                            </div>
-                          </li>
-                          <li>
-                            <img src="images/img.jpg" class="avatar" alt="Avatar">
-                            <div class="message_date">
-                              <h3 class="date text-error">21</h3>
-                              <p class="month">May</p>
-                            </div>
-                            <div class="message_wrapper">
-                              <h4 class="heading">Brian Michaels</h4>
-                              <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                              <br />
-                              <p class="url">
-                                <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                <a href="#" data-original-title="">Download</a>
                               </p>
                             </div>
                           </li>
@@ -456,6 +409,6 @@
     <script src="{% static 'vendor/bootstrap-select-master/dist/js/bootstrap-select.min.js' %}"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="{% static 'js/jquery.cookie.js' %}"></script>
-    <script src="{% static 'jsSumma/Summa-ProjectManager.js' %}"></script>
+
 
 {% endblock %}

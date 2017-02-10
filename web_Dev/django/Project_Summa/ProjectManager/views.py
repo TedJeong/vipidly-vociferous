@@ -115,7 +115,6 @@ def index(request):
         'taskform': taskform,
     }
 
-
     return render(request, 'ProjectManagerDir/index.html', ctx)
 
 

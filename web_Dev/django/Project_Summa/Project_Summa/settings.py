@@ -131,7 +131,7 @@ STATICFILES_DIRS=[
 ]
 
 MEDIA_URL = '/uploads/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles/')
 
 
 # TODO: change it to history(-1) page

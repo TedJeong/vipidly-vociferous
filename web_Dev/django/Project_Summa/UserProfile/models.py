@@ -7,15 +7,15 @@ from django.contrib.auth.models import User
 from ProjectManager.models import Member
 from ProjectManager.models import Task
 
-from .views import get_user_file_folder
+from .views import get_user_profile_folder_filename
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    projectinfo = models.OneToOneField(Member)
+    projectinfo = models.OneToOneField(Member, blank=True, null=True)
     profile_location = models.CharField(max_length=50, default="Seoul")
     profile_age = models.IntegerField(blank=True, null=True)
     profile_facebook = models.EmailField(blank=True, null=True) # TODO: social auth
-    profile_photo = models.FileField(upload_to=get_user_file_folder, blank=True, null=True)
+    profile_photo = models.FileField(upload_to=get_user_profile_folder_filename, blank=True, null=True)
 
     def __str__(self):
         return self.user.username
