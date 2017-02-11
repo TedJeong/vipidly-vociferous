@@ -34,6 +34,8 @@ urlpatterns = [
     url(r'^contact/', include('Contact.urls'), name="contact"),
 ]
 
+
+
 urlpatterns += static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT,
 )

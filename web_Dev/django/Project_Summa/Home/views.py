@@ -80,20 +80,25 @@ class UserSignupView(View):
 
     def post(self, request):
         form = self.form_class(request.POST)
+
         if form.is_valid():
-            user = form.save(commit=False)
+            # cleaned_data only counts after .is_valid() is called.
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
+
+            user = form.save(commit=False)
             user.set_password(password)
             user.save()
             profile = UserProfile.objects.create(user=user)
             profile.save()
             user = authenticate(username = username, password = password)
-        if user is not None:
-            if user.is_active:
-                login(request,user)
-                print(request.user.username)
-                #'namespace:function'
-                return redirect('home:index')
-        else:
-            return render(request, self.template_name, {'form':form})
+
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    print(request.user.username)
+                    #'namespace:function'
+                    return redirect('home:index')
+            else:
+                return render(request, self.template_name, {'form':form})
+        return render(request, self.template_name, {'form': form})

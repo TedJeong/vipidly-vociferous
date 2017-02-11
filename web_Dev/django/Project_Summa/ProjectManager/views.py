@@ -14,6 +14,7 @@ from .models import Task
 from .models import Member
 from .forms import ProjectForm
 from .forms import TaskForm
+from UserProfile.forms import UpdateUserProfileForm
 
 from django.core import serializers
 from rest_framework import serializers as drf_serializers
@@ -122,9 +123,16 @@ def index(request):
 def user_profile(request):
     current_user = request.user
     profile = current_user.userprofile
+    form = UpdateUserProfileForm(instance=current_user.userprofile)
+    if request.method == 'POST':
+        form = UpdateUserProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+
     ctx = {
         'is_authenticated': True,
         "username": current_user.username,
         "user": profile,
+        "user_profile_form": form,
     }
     return render(request, 'ProjectManagerDir/user-profile.html', ctx)

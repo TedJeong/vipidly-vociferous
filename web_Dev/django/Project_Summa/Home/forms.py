@@ -31,7 +31,7 @@ class LoginForm(forms.ModelForm):
 
 
 class SigninForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput, label=u'비밀번호')
     class Meta:
         model = get_user_model()
         fields = ['username', 'email', 'password']
