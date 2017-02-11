@@ -20,7 +20,7 @@ def get_user_imagefile_folder(instance, filename):
 
 @login_required
 def get_user_profile_folder_filename(instance, _):
-    return "%s/info/profile-photo_%s_%s" % (instance.user.username, instance.user.username, instance.user.pk)
+    return "%s/info/profile-photo_%s_%s.jpg" % (instance.user.username, instance.user.username, instance.user.pk)
 
 @login_required
 def get_user_upload_profile_photo_callback(instance, filename):
