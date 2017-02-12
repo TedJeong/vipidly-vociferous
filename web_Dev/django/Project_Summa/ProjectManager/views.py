@@ -72,6 +72,10 @@ def index(request):
     members = Member.objects.all()
 
     if request.method == 'POST':
+
+#        print(request.POST.keys())
+#        if 'taskform_submit' in request.POST.keys():
+#        if request.POST['taskform_submit'] == 'submit':
         print("post!")
         taskform = TaskForm(request.POST)
         print(taskform.is_valid())
@@ -79,23 +83,24 @@ def index(request):
 
             task = taskform.save(commit=False)
             task.save()
-
+#        if request.POST['delete_task'] == '1':
+        print("inside delete!")
         if request.is_ajax():
             print('index call')
             # print(request.POST['task_pks'])
-            delete_pks = request.POST.getlist('task_pks[]')
-            for ids in delete_pks:
-                print(ids, " deleted.")
-                task = Task.objects.get(pk=ids)
-                task.delete()
-                # data = serializers.serialize('json', request.POST["task_pks"])
-            #ctxes = index_ctx_call()
-            # return render(request, 'ProjectManagerDir/index.html', ctxes)
-            #taskform=TaskForm()
-            #render_to_response('ProjectManagerDir/index.html',{'taskform':taskform})
-        return redirect('projectmanager:index')
-
-
+            print(request.POST.get('ajax_differer'))
+            if request.POST['ajax_differer'] == '1':
+                delete_pks = request.POST.getlist('task_pks[]')
+                for ids in delete_pks:
+                    print(ids, " deleted.")
+                    task = Task.objects.get(pk=ids)
+                    task.delete()
+                    # data = serializers.serialize('json', request.POST["task_pks"])
+                #ctxes = index_ctx_call()
+                # return render(request, 'ProjectManagerDir/index.html', ctxes)
+                #taskform=TaskForm()
+                #render_to_response('ProjectManagerDir/index.html',{'taskform':taskform})
+                return HttpResponse("done!")
 
     tasks = Task.objects.all().order_by('-task_priority')
 
@@ -119,9 +124,11 @@ def index(request):
         'tasks': tasks,
         'members': members,
         'taskform': taskform,
-        'messages': messages,
-        'num_messages': num_messages,
     }
+
+    if is_authenticated == True:
+        ctx['messages'] =  messages
+        ctx['num_messages']= num_messages
 
     return render(request, 'ProjectManagerDir/index.html', ctx)
 
@@ -171,3 +178,10 @@ def user_send_message(request):
             new_message_form.save()
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+@login_required
+def delete_task(request):
+        if request.method == 'POST':
+            if request.yes == 1 :
+                return

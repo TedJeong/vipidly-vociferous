@@ -250,7 +250,7 @@
                                   <form action="/projectmanager/" method="post">
                                     {% csrf_token %}
                                     {% bootstrap_form taskform %}
-                                    <input type="submit" class="btn btn-primary" value="submit">
+                                    <input type="submit" class="btn btn-primary" name="taskform_submit1" value="submit">
                                   </form>
                                     <!--{% include 'ProjectManagerDir/task-form-django-admin.html' %}-->
                               </div>
@@ -433,7 +433,7 @@
                                       <form action="/projectmanager/" method="post">
                                         {% csrf_token %}
                                         {% bootstrap_form taskform %}
-                                        <input type="submit" class="btn btn-primary" value="submit">
+                                        <input type="submit" class="btn btn-primary" name="taskform_submit2" value="submit">
                                           <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
                                       </form>
                                         <!--{% include 'ProjectManagerDir/task-form-django-admin.html' %}-->
@@ -456,10 +456,10 @@
                                       <h4 class="modal-title">Task delete confirmation</h4>
                                     </div>
                                     <div class="modal-body">
-                                      <p> Are you sure to leave? </p>
+                                      <p> Are you sure to delete ?</p>
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-default delete_yes_button" data-dismiss="modal">Yes</button>
+                                      <button type="submit" class="btn btn-default delete_yes_button" data-dismiss="modal" name="delete_task" value="1">Yes</button>
                                       <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                                     </div>
                                   </div>
@@ -1829,6 +1829,7 @@
     </script>
     <!-- /FullCalendar -->
 
+
     <!-- Datatables -->
     <script src="{% static 'vendor/datatables.net/js/jquery.dataTables.min.js' %}"></script>
     <script src="{% static 'vendor/datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
@@ -1850,6 +1851,6 @@
     <script src="{% static 'vendor/bootstrap-select-master/dist/js/bootstrap-select.min.js' %}"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="{% static 'js/jquery.cookie.js' %}"></script>
-    <script src="{% static 'jsSumma/Summa-ProjectManager.js' %}"></script>
+    <script src="{% static 'js/Summa_ProjectManager.js' %}"></script>
 
 {% endblock %}

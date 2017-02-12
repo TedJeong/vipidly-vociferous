@@ -42,14 +42,14 @@ class Task(models.Model):
     task_progress = models.DecimalField(default=0, decimal_places=1, max_digits=3, editable=False)
 
     def progress_sum(self):
-        progresses = self.progress_set.objects.all()
+        progresses = self.progress_set.all()
         progresses_gauge = 0
         for progress in range(len(progresses)):
             progresses_gauge += progress.progress_gauge
         return progresses_gauge
 
     def save(self, *args, **kwargs):
-        self.task_progress = self.progress_sum(self)
+        self.task_progress = self.progress_sum()
         return super(Task, self).save(*args, **kwargs)
 
     def __str__(self):
