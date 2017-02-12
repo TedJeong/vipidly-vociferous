@@ -58,17 +58,16 @@ def index(request):
 
     # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    path = os.path.join(BASE_DIR, 'ProjectManager/templates/ProjectManagerDir/miserables.json')
+    path = os.path.join(BASE_DIR, 'static/graph_temp/miserables.json')
     task_graph_json = open(path)
     #task_graph_json = json.load(task_graph_json) # deserialises it
     task_graph_json = json.dumps(json.load(task_graph_json)) # json formatted string
 
-
     # if
-
     #print(tasks)
     #ctx['tasks'] = tasks
 
+    # Javascript sorting for member ranking
     members = Member.objects.all()
 
     if request.method == 'POST':
@@ -130,7 +129,7 @@ def index(request):
         ctx['messages'] =  messages
         ctx['num_messages']= num_messages
 
-    return render(request, 'ProjectManagerDir/index.html', ctx)
+    return render(request, 'ProjectManagerDir/index-native.html', ctx)
 
 
 @login_required

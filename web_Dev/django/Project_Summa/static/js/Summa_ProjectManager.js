@@ -11,14 +11,13 @@ $(document).ready(function(){
 
     $('#datatable-responsive').DataTable();
 
-
     var $datatable = $('.datatable-checkbox');
 
     $datatable.dataTable({
-      'order': [[ 1, 'asc' ]],
+      'order': [[ 1, 'desc' ]],
       'columnDefs': [
         { orderable: false, targets: [0] }
-      ]
+      ],
     });
     $datatable.on('draw.dt', function() {
       $('input').iCheck({
@@ -43,10 +42,13 @@ $(document).ready(function(){
     $('.delete_yes_button').on('click', function(){
         //alert('delete call');
         //var table = $(this).closest('div > .task-table-wrapper')
-        var selected_task_pk = $('.btn-task-delete').parent().siblings().children().find('tr.selected').find('td.task-pk');
+        var selected_row = $('.btn-task-delete').parent().siblings().children().find('tr.selected');
+        var selected_task_pk = selected_row.find('td.task-pk');
         var ajax_delete_differer = $(this).val();
-        alert(selected_task_pk);
-        alert(ajax_delete_differer);
+//        console.log(selected_row);
+//        alert(selected_row.index());
+//        alert(selected_task_pk);
+//        alert(ajax_delete_differer);
         var task_pk_array = [];
         for(var i=0;i<selected_task_pk.length;i++){
             console.log(selected_task_pk[i].innerHTML);
@@ -65,13 +67,21 @@ $(document).ready(function(){
                 if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
                     xhr.setRequestHeader("X-CSRFToken", csrftoken);
                 }
+
+
+ //               alert('ajax before send!');
+                // this code moved to index.html
+
+                var table = $('#task-table1').DataTable();
+
+                $('#delete_yes_button1').click( function () {
+                    alert('function called!');
+                    table.row('.selected').remove().draw( false );
+                } );
+
             }
         });
 
-        // TODO: add/delete juqery table with javascript
-        function delete_datatable_row(table, rownum){
-             table.row( $().children().parents('tr') ).remove().draw();
-        }
 
         $.ajax({
             type: 'POST',
@@ -79,9 +89,6 @@ $(document).ready(function(){
             data: {'task_pks[]': task_pk_array, 'ajax_differer': ajax_delete_differer},
             success: function(data){
                alert('DB deleted! and ' + data);
-                delte_datatable_row()
-               //not working
-               //$('.btn-task-delete').parent().siblings().html();
             },
         });
     });
@@ -91,8 +98,6 @@ $(document).ready(function(){
 
 
 $('#top-padding').css('padding-top',30)
-
-
 
 
 $(document).ready(function(){
@@ -108,7 +113,7 @@ $(document).ready(function(){
       .force("charge", d3.forceManyBody())
       .force("center", d3.forceCenter(width / 2, height / 2));
 
-  d3.json("/static/jsSumma/miserables.json", function(error, graph) {
+  d3.json("/static/graph_temp/miserables.json", function(error, graph) {
     if (error) throw error;
     var pretty = JSON.stringify(graph, null, 2);
     //console.log(pretty);
@@ -190,7 +195,7 @@ $(document).ready(function(){
   var stratify = d3.stratify()
       .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
 
-  d3.csv("/static/jsSumma/flare.csv", function(error, data) {
+  d3.csv("/static/graph_temp/flare.csv", function(error, data) {
     if (error) throw error;
     //console.log(data)
     var root = stratify(data)
@@ -226,17 +231,17 @@ $(document).ready(function(){
   });
 });
 
-    $(document).ready(function(){
-        $('#controller-task-post-form').on('submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                url: "/projectmanager/", //this is the submit URL
-                type: "POST", //or POST
-                data: $('#controller-task-post-form').serialize(),
-                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-                success: function(data){
-                     alert('successfully submitted');
-                }
-            });
+$(document).ready(function(){
+    $('#controller-task-post-form').on('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            url: "/projectmanager/", //this is the submit URL
+            type: "POST", //or POST
+            data: $('#controller-task-post-form').serialize(),
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            success: function(data){
+                 alert('successfully submitted');
+            }
         });
     });
+});
