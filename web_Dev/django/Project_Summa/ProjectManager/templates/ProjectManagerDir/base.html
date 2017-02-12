@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load profile_tag %}
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -53,10 +54,20 @@
 
             <div class="clearfix"></div>
 
+
+
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="/media/{{ request.user.username }}/info/profile-photo_{{ request.user.username }}_{{ request.user.pk }}.jpg" alt="..." class="img-circle profile_img">
+
+                 {% if request.user.userprofile.profile_photo|check_profile_photo_bool %}
+                    <span class="image">
+                    <img src="/media/{{ request.user.username }}/info/profile-photo_{{ request.user.username }}_{{ request.user.pk }}.jpg" class="img-circle profile_img">
+                    </span>
+                 {% else %}
+                    <span class="image"><img src="/media/common/info/avatar.jpg" alt="Profile Image" /></span>
+                 {% endif %}
+
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -155,7 +166,16 @@
 
                        <li class="">
                          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                           <img src="/media/{{ request.user.username }}/info/profile-photo_{{ request.user.username }}_{{ request.user.pk }}.jpg" alt="">{{ username }}
+
+                         {% if request.user.userprofile.profile_photo|check_profile_photo_bool %}
+                            <span class="image">
+                            <img src="/media/{{ request.user.username }}/info/profile-photo_{{ request.user.username }}_{{ request.user.pk }}.jpg">
+                            </span>
+                         {% else %}
+                            <span class="image"><img src="/media/common/info/avatar.jpg" alt="Profile Image" /></span>
+                         {% endif %}
+
+                             {{ username }}
                            <span class=" fa fa-angle-down"></span>
                          </a>
                          <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -174,20 +194,20 @@
                        <li role="presentation" class="dropdown">
                          <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                            <i class="fa fa-envelope-o"></i>
-                           <span class="badge bg-green">6</span>
+                           <span class="badge bg-green">{{ num_messages }}</span>
                          </a>
                          <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                              {% if is_authenticated == True %}
                              {% for message in messages %}
                            <li>
                              <a>
-                                 {% with "/media/{{ message.fromuser.user.username }}/info/profile-photo_{{ message.fromuser.user.username }}_{{ message.fromuser.user.pk }}.jpg" as message_profileimage %}
-                                     {% if message.fromuser.user.userprofile.profile_photo %}
-                                        <span class="image"><img src="{{ message_profileimage }}" alt="Profile Image" /></span>
+
+                                     {% if message.fromuser.user.userprofile.profile_photo|check_profile_photo_bool%}
+                                        <span class="image"><img src="/media/{{ message.fromuser.user.username }}/info/profile-photo_{{ message.fromuser.user.username }}_{{ message.fromuser.user.pk }}.jpg" alt="Profile Image" /></span>
                                      {% else %}
                                         <span class="image"><img src="/media/common/info/avatar.jpg" alt="Profile Image" /></span>
                                      {% endif %}
-                                 {% endwith %}
+
                                <span>
                                  <span>{{ message.fromuser }}</span>
                                  <span class="time">{{ message.created_at }}</span>
@@ -268,22 +288,26 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Send Message</h4>
           </div>
-          <div class="modal-body">
-            <p>Message Content</p>
-              {% if new_message_form %}
-              <form action="" method="POST">
-                  {% csrf_token %}
-                  <table>
-                    {{ new_message_form.as_table }}
-                  </table>
-              </form>
-              {% endif %}
 
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-default" data-dismiss="modal">Send</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+            {% if new_message_form %}
+              <form action="send-message" method="POST">
+                  {% csrf_token %}
+
+              <div class="modal-body">
+                <p>Message Content</p>
+
+                      <table>
+                        {{ new_message_form.as_table }}
+                      </table>
+
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-default" >Send</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+              </form>
+            {% endif %}
+
         </div>
 
       </div>

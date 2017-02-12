@@ -14,7 +14,6 @@ from .models import Task
 from .models import Member
 from UserProfile.models import UserMessage
 
-
 from .forms import ProjectForm
 from .forms import TaskForm
 from UserProfile.forms import UpdateUserProfileForm
@@ -106,7 +105,8 @@ def index(request):
     is_authenticated = request.user.is_authenticated()
     username = request.user.username
     if is_authenticated == True:
-        messages = UserMessage.objects.filter(touser__user__username__exact=request.user.username)
+        messages = UserMessage.objects.filter(touser__user__username__exact=request.user.username).all()
+        num_messages = messages.count()
 
     ctx = {
         'is_authenticated': is_authenticated,
@@ -120,6 +120,7 @@ def index(request):
         'members': members,
         'taskform': taskform,
         'messages': messages,
+        'num_messages': num_messages,
     }
 
     return render(request, 'ProjectManagerDir/index.html', ctx)
@@ -131,15 +132,21 @@ def user_profile(request):
     profile = current_user.userprofile
     form = UpdateUserProfileForm(instance=current_user.userprofile)
 
-    usr_msg = UserMessage(fromuser=request.user.userprofile)
-    new_message_form = SendUserMessageForm(usr_msg)
+    #TODO:
+    #modelform initialize with model : Not right!
+    #usr_msg = UserMessage(fromuser=request.user.userprofile)
+    #new_message_form = SendUserMessageForm(initial={'fromuser': request.user.userprofile})
+
+    #modelform initialize with argument
+    new_message_form = SendUserMessageForm(initial={'fromuser': request.user.userprofile})
 
     if request.method == 'POST':
         form = UpdateUserProfileForm(request.POST)
         if form.is_valid():
             form.save()
 
-    messages = UserMessage.objects.filter(touser__user__username__exact=request.user.username)
+    messages = UserMessage.objects.filter(touser__user__username__exact=request.user.username).all()
+    num_messages = messages.count()
 
     ctx = {
         'is_authenticated': True,
@@ -147,17 +154,20 @@ def user_profile(request):
         "user": profile,
         "user_profile_form": form,
         "messages": messages,
+        'num_messages': num_messages,
         'new_message_form': new_message_form,
+
     }
     return render(request, 'ProjectManagerDir/user-profile.html', ctx)
 
 
 @login_required
-def use_message_send(request):
-    usr_msg = UserMessage(fromuser=request.user.userprofile)
-    new_message_form = SendUserMessageForm(usr_msg)
+def user_send_message(request):
+    new_message_form = SendUserMessageForm()
     if request.method == 'POST':
+        print("user_send_message wtih post!")
+        new_message_form = SendUserMessageForm(request.POST)
         if new_message_form.is_valid():
             new_message_form.save()
-            return redirect('projectmanager:index')
-
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

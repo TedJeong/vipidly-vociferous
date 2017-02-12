@@ -134,6 +134,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
+# http://stackoverflow.com/questions/2882490/how-to-get-the-current-url-within-a-django-template
+# for use of current page in template in ProjectManager/views.py
+# deprecation warning (1_8.W001) The standalone TEMPLATE_* settings were deprecated in Django 1.8 and the TEMPLATES dictionary takes precedence. You must put the values of the following settings into your default TEMPLATES dict: TEMPLATE_CONTEXT_PROCESSORS.
+
+#TEMPLATE_CONTEXT_PROCESSORS = ('django.core.context_processors.request',)
+
 # TODO: change it to history(-1) page
 LOGIN_REDIRECT_URL = ''
 LOGOUT_REDIRECT_URL = ''

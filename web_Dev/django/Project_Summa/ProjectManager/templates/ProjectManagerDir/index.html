@@ -155,6 +155,7 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% block bodycontent %}
+        <p style="padding-top: 70px;"></p>
         <div class="">
             <div class="page-title">
               <div class="title_left">
@@ -163,7 +164,7 @@
                 <button class="btn btn-default btn-lg" value="">create category</button>
                 <button class="btn btn-warning btn-lg" value="">create project</button>
               </div>
-
+            <!--
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
@@ -174,6 +175,8 @@
                   </div>
                 </div>
               </div>
+            -->
+
             </div>
 
 
@@ -431,6 +434,7 @@
                                         {% csrf_token %}
                                         {% bootstrap_form taskform %}
                                         <input type="submit" class="btn btn-primary" value="submit">
+                                          <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
                                       </form>
                                         <!--{% include 'ProjectManagerDir/task-form-django-admin.html' %}-->
                                   </div>
@@ -497,9 +501,9 @@
 
                             <div class="">
                               <ul class="to_do">
-                                {% for task in tasks %}
+                                {% for member in members %}
                                   <li>
-                                  <p> user 1 <p>
+                                  <p> member <p>
                                 </li>
                                 {% endfor %}
                               </ul>
@@ -548,9 +552,15 @@
                         </li>
                         <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Previous Projects</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">current task Tree</a>
+                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Relation Directed Graph</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Project task graph</a>
+                        <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Task Feature abstraction</a>
+                        </li>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Member Categorization</a>
+                        </li>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Search available architecture Dependency tree</a>
                         </li>
                       </ul>
                       <div id="myTabContent" class="tab-content">

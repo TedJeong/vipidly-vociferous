@@ -7,12 +7,14 @@ class Progress(models.Model):
     progress_name = models.CharField(max_length=100, default="progress_")
     progress_project = models.ForeignKey('Project')
     # progress_task can be assigned to Project itself, or Task under project
-    progress_task = models.OneToOneField('Task', null=True, blank=True)
+    progress_task = models.ForeignKey('Task', null=True, blank=True)
+    progress_member = models.ForeignKey('Member', null=True, blank=True)
     # only takes 99.99?
-    progress_gauge = models.DecimalField(default=0.00, decimal_places=2, max_digits=4)
+    progress_gauge = models.DecimalField(default=0.00, decimal_places=1, max_digits=3)
 
     def __str__(self):
         return '{}-{}%'.format(self.progress_name, str(self.progress_gauge))
+
     class Meta:
         pass
 
@@ -36,6 +38,20 @@ class Task(models.Model):
     task_deadline = models.DateTimeField(null=True, blank=True)
     task_completed_at = models.DateTimeField(null=True, blank=True)
 
+    # cannot put progress_sum function to default with self argument.
+    task_progress = models.DecimalField(default=0, decimal_places=1, max_digits=3, editable=False)
+
+    def progress_sum(self):
+        progresses = self.progress_set.objects.all()
+        progresses_gauge = 0
+        for progress in range(len(progresses)):
+            progresses_gauge += progress.progress_gauge
+        return progresses_gauge
+
+    def save(self, *args, **kwargs):
+        self.task_progress = self.progress_sum(self)
+        return super(Task, self).save(*args, **kwargs)
+
     def __str__(self):
         return '{}-{} : {}'.format(self.task_name, self.task_project, self.task_members)
 
@@ -49,6 +65,7 @@ class Member(models.Model):
                                                   (u'backend programmer', u'backend programmer'),
                                                   (u'frontend programmer', u'frontend programmer')),
                                          default="undesignated")
+
     def __str__(self):
         return '{}-{}'.format(self.member_name, self.member_department)
 
