@@ -11,7 +11,7 @@ from .views import get_user_profile_folder_filename
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    projectinfo = models.OneToOneField(Member, blank=True, null=True)
+    projectinfo = models.OneToOneField(Member, blank=False, null=True)
     profile_location = models.CharField(max_length=50, default="Seoul")
     profile_age = models.IntegerField(blank=True, null=True)
     profile_facebook = models.EmailField(blank=True, null=True) # TODO: social auth

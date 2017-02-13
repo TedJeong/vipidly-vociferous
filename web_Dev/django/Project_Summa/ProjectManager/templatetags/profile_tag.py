@@ -29,3 +29,10 @@ def project_progress_sum(project):
     for gauges in Progress.objects.filter(progress_project__exact=project):
         val += gauges.progress_gauge
     return val
+
+
+# TODO: check contains function is also valid in list form
+@register.filter(name='member_project_check')
+def member_project_check(member, project):
+    name = member.member_name
+    return project.project_members.filter(member_name__contains=name).exists()

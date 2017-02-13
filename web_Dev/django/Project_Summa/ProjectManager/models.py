@@ -57,13 +57,17 @@ class Task(models.Model):
 
 
 class Member(models.Model):
-    member_name = models.CharField(max_length=100, default="member_")
+    """
+        TODO: currently this is not instantiated as UserProfile created. untied Member represents T.O.
+    """
+    member_name = models.CharField(max_length=100, default="member_", help_text="project member nickname")
     member_department = models.CharField(max_length=100 ,
                                          choices=((u'project manager',u'project manager'),
                                                   (u'team manager',u'team manager'),
                                                   (u'freelancer',u'freelancer'),
                                                   (u'backend programmer', u'backend programmer'),
-                                                  (u'frontend programmer', u'frontend programmer')),
+                                                  (u'frontend programmer', u'frontend programmer'),
+                                                  (u'undesignated', u'undesignated')),
                                          default="undesignated")
 
     def __str__(self):
@@ -71,6 +75,7 @@ class Member(models.Model):
 
 
 class Project(models.Model):
+    project_status = models.BooleanField(default=False, help_text='True: Done, False: Not Done')
     project_name = models.CharField(max_length=100, default="project_")
     project_members = models.ManyToManyField('Member')
     project_workspaces = models.ManyToManyField('Workspace')
