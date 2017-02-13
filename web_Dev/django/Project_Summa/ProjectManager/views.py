@@ -9,6 +9,7 @@ from django.template import RequestContext
 
 from django.http import HttpResponseRedirect
 
+from .models import Category
 from .models import Project
 from .models import Task
 from .models import Member
@@ -29,7 +30,7 @@ def index(request):
     # model form
     taskform = TaskForm()
 
-
+    # projects
     projects = Project.objects.all()
     psw_names = []
     pw_names = []
@@ -53,6 +54,8 @@ def index(request):
         psm_names += [pm_names]
         pm_names = []
 
+
+    # D3js graph representation in Category panel
     import json
     import os
 
@@ -63,55 +66,61 @@ def index(request):
     #task_graph_json = json.load(task_graph_json) # deserialises it
     task_graph_json = json.dumps(json.load(task_graph_json)) # json formatted string
 
-    # if
-    #print(tasks)
-    #ctx['tasks'] = tasks
-
     # Javascript sorting for member ranking
     members = Member.objects.all()
 
+
     if request.method == 'POST':
+        print(request.POST.keys())
+        # ctrl panel tasklist add
+        if 'taskform_submit' in request.POST.keys():
+            if request.POST['taskform_submit'] == 'submit':
+                print("post!")
+                taskform = TaskForm(request.POST)
+                print(taskform.is_valid())
+                if taskform.is_valid():
+                    task = taskform.save(commit=False)
+                    task.save()
+        # ctrl panel tasklist remove
+        if 'delete_task' in request.POST.keys():
+            if request.POST['delete_task'] == '1':
+                print("inside delete!")
+                if request.is_ajax():
+                    print('index call')
+                    # print(request.POST['task_pks'])
+                    print(request.POST.get('ajax_differer'))
 
-#        print(request.POST.keys())
-#        if 'taskform_submit' in request.POST.keys():
-#        if request.POST['taskform_submit'] == 'submit':
-        print("post!")
-        taskform = TaskForm(request.POST)
-        print(taskform.is_valid())
-        if taskform.is_valid():
+                    # ctr1-task-table1
+                    if request.POST['ajax_differer'] == '1':
+                        delete_pks = request.POST.getlist('task_pks[]')
+                        for ids in delete_pks:
+                            print(ids, " deleted.")
+                            task = Task.objects.get(pk=ids)
+                            task.delete()
+                            # data = serializers.serialize('json', request.POST["task_pks"])
+                        #ctxes = index_ctx_call()
+                        # return render(request, 'ProjectManagerDir/index.html', ctxes)
+                        #taskform=TaskForm()
+                        #render_to_response('ProjectManagerDir/index.html',{'taskform':taskform})
+                        return HttpResponse("done!")
 
-            task = taskform.save(commit=False)
-            task.save()
-#        if request.POST['delete_task'] == '1':
-        print("inside delete!")
-        if request.is_ajax():
-            print('index call')
-            # print(request.POST['task_pks'])
-            print(request.POST.get('ajax_differer'))
-            if request.POST['ajax_differer'] == '1':
-                delete_pks = request.POST.getlist('task_pks[]')
-                for ids in delete_pks:
-                    print(ids, " deleted.")
-                    task = Task.objects.get(pk=ids)
-                    task.delete()
-                    # data = serializers.serialize('json', request.POST["task_pks"])
-                #ctxes = index_ctx_call()
-                # return render(request, 'ProjectManagerDir/index.html', ctxes)
-                #taskform=TaskForm()
-                #render_to_response('ProjectManagerDir/index.html',{'taskform':taskform})
-                return HttpResponse("done!")
+                    if request.POST['ajax_differer'] == '2':
+                        return HttpResponse()
+
 
     tasks = Task.objects.all().order_by('-task_priority')
 
     print('ctz')
 
-
+    # Top navbar message view
     is_authenticated = request.user.is_authenticated()
     username = request.user.username
     if is_authenticated == True:
         messages = UserMessage.objects.filter(touser__user__username__exact=request.user.username).all()
         num_messages = messages.count()
 
+
+    categories = Category.objects.all()
     ctx = {
         'is_authenticated': is_authenticated,
         'username': username,
@@ -123,11 +132,27 @@ def index(request):
         'tasks': tasks,
         'members': members,
         'taskform': taskform,
+        'categories' : categories,
     }
+
+
 
     if is_authenticated == True:
         ctx['messages'] =  messages
         ctx['num_messages']= num_messages
+
+    # TODO: multiple selection
+    if request.method == 'POST':
+        if 'category-select' in request.POST.keys():
+            if request.POST['category-select'] == 'submit':
+                categories_selected = []
+                print(request.POST['category-open-select'])
+                print(type(request.POST['category-open-select']))
+                for pk in list(request.POST['category-open-select']):
+                    categories_selected.append(Category.objects.get(pk=int(pk)))
+                print(categories_selected)
+                ctx['categories_selected'] = categories_selected
+                return render(request, 'ProjectManagerDir/index-native.html', ctx)
 
     return render(request, 'ProjectManagerDir/index-native.html', ctx)
 
