@@ -30,6 +30,9 @@ def project_progress_sum(project):
         val += gauges.progress_gauge
     return val
 
+@register.filter(name='project_in_workspace')
+def projects_in_workspace(workspace):
+    return workspace.project_set.all()
 
 # TODO: check contains function is also valid in list form
 @register.filter(name='member_project_check')

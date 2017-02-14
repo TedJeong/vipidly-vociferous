@@ -165,6 +165,27 @@
             fill: none;
         }
 
+        /* collapsible-tree */
+        .node {
+          cursor: pointer;
+        }
+
+        .node circle {
+          fill: #fff;
+          stroke: steelblue;
+          stroke-width: 1.5px;
+        }
+
+        .node text {
+          font: 10px sans-serif;
+        }
+
+        .link {
+          fill: none;
+          stroke: #ccc;
+          stroke-width: 1.5px;
+        }
+
     </style>
 {% endblock %}
 
@@ -231,6 +252,9 @@
                         <li>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#category-choose-modal">Open Category</button>
                         </li>
+                        <li>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#workspace-choose-modal">Open Workspace</button>
+                        </li>
                     </ul>
 
 
@@ -262,7 +286,32 @@
                           </div>
                         </div>
 
+                  <!-- Choose Workspace Modal -->
+                      <div class="container">
+                          <!-- Post Modal -->
+                          <div class="modal fade" id="workspace-choose-modal" role="dialog">
+                            <div class="modal-dialog">
 
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Task Post</h4>
+                                </div>
+                                  <form action="/projectmanager/" method="post">
+                                    {% csrf_token %}
+                                  <select class="selectpicker" name="workspace-open-select" multiple>
+                                      {% for workspace in workspaces %}
+                                        <option name="{{ workspace.pk }}" value="{{ workspace.pk }}">{{ workspace.workspace_name }}</option>
+                                      {% endfor %}
+                                  </select>
+
+                                    <input type="submit" class="btn btn-primary" name="workspace-select" value="submit">
+                                  </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
 
 
@@ -572,15 +621,17 @@
                         </li>
                         <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Previous Projects</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Relation Directed Graph</a>
+                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Task Relation Directed Graph</a>
                         </li>
                         <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Task Feature abstraction</a>
                         </li>
                         </li>
-                        <li role="presentation" class=""><a href="#tab_content5" role="tab" id="profile-tab4" data-toggle="tab" aria-expanded="false">Member Categorization</a>
+                        <li role="presentation" class=""><a href="#tab_content5" role="tab" id="profile-tab4" data-toggle="tab" aria-expanded="false">Member/Resource Categorization</a>
                         </li>
                         </li>
                         <li role="presentation" class=""><a href="#tab_content6" role="tab" id="profile-tab5" data-toggle="tab" aria-expanded="false">Search available architecture Dependency tree</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab_content7" role="tab" id="profile-tab6" data-toggle="tab" aria-expanded="false">Collapsible tree</a>
                         </li>
                       </ul>
                       <div id="myTabContent" class="tab-content">
@@ -690,12 +741,24 @@
                             <p style="padding-top: 10px"></p>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                          <p style="padding-top: 10px"></p>
-                          <div id="category-tree"></div>
+                          <p style="padding-top: 10px">Task Relation Directed Graph</p>
+                          <div id="task-relation-graph"></div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
-                          <p> D3.js graph representation with JSON data format </p>
+                          <p style="padding-top: 10px">Task Feature abstraction</p>
                           <div id="member-categorization-graph"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content5" aria-labelledby="profile-tab">
+                          <p style="padding-top: 10px">Member/Resource Categorization</p>
+                          <div id="member-categorization-graph"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content6" aria-labelledby="profile-tab">
+                            <p style="padding-top: 10px"></p>
+                            <div id="search-able-architecture-graph"></div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content7" aria-labelledby="profile-tab">
+                            <p style="padding-top: 10px"></p>
+                            <div id="collapsible-tree"></div>
                         </div>
                       </div>
                     </div>
@@ -789,6 +852,442 @@
             <!-- end category -->
         {% endfor %}
 
+        {% for selected_workspace in workspaces_selected %}
+            <!-- start workspace -->
+            <div class="workspace">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> {{ selected_workspace.workspace_name }} <small>workspace name</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="reload-link"><i class="fa fa-refresh"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                      <!-- start project detail containers-->
+                      <div class="project-detail-container">
+                        <!-- start project detail -->
+                        {% for project_in_workspace in selected_workspace|project_in_workspace %}
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                              <div class="x_title">
+                                <h2> {{ project_in_workspace.project_name }} - {{ project_in_workspace.project_category.category_name }} </h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                  </li>
+                                  <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                      <li><a href="#">Settings 1</a>
+                                      </li>
+                                      <li><a href="#">Settings 2</a>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                  </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                              </div>
+
+                              <div class="x_content">
+
+                                <!-- start project-detail sidebar -->
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+
+                                  <section class="panel">
+
+                                    <div class="x_title">
+                                      <h2>Project Description</h2>
+                                      <div class="clearfix"></div>
+                                    </div>
+                                    <div class="panel-body">
+                                      <h3 class="green"><i class="fa fa-paint-brush"></i> {{ project_in_workspace.project_name }}</h3>
+                                      <p></p>
+                                      <br />
+
+                                      <div class="project_detail">
+
+                                        <p class="title">Client Company</p>
+                                        <p>Deveint Inc</p>
+                                        <p class="title">Project Leader</p>
+                                        <p>Tony Chicken</p>
+                                      </div>
+
+                                      <br />
+                                      <h5>Project files</h5>
+                                      <ul class="list-unstyled project_files">
+                                        <li><a href=""><i class="fa fa-file-word-o"></i> Functional-requirements.docx</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-file-pdf-o"></i> UAT.pdf</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-mail-forward"></i> Email-from-flatbal.mln</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-picture-o"></i> Logo.png</a>
+                                        </li>
+                                        <li><a href=""><i class="fa fa-file-word-o"></i> Contract-10_12_2014.docx</a>
+                                        </li>
+                                      </ul>
+                                      <br />
+
+                                      <div class="text-center mtop20">
+                                        <a href="#" class="btn btn-sm btn-primary">Add files</a>
+                                        <a href="#" class="btn btn-sm btn-warning">Report contact</a>
+                                      </div>
+                                    </div>
+
+                                  </section>
+
+                                </div>
+                                <!-- end project-detail sidebar -->
+
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <!-- start top resource panel -->
+                                  <ul class="stats-overview">
+                                    <li>
+                                      <span class="name"> Estimated budget </span>
+                                      <span class="value text-success"> 2300 </span>
+                                    </li>
+                                    <li>
+                                      <span class="name"> Total amount spent </span>
+                                      <span class="value text-success"> 2000 </span>
+                                    </li>
+                                    <li class="hidden-phone">
+                                      <span class="name"> Estimated project duration </span>
+                                      <span class="value text-success"> 20 </span>
+                                    </li>
+                                  </ul>
+                                  <!-- end top resource panel -->
+                                  <br />
+
+                                  <div id="mainb" style="height:350px;"></div>
+
+                                  <!-- start task lists -->
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <div class="x_panel">
+                                        <div class="x_title">
+                                          <h2><i class="fa fa-align-left"></i> Task lists <small>Sessions</small></h2>
+                                          <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                            <li class="dropdown">
+                                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                              <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Settings 1</a>
+                                                </li>
+                                                <li><a href="#">Settings 2</a>
+                                                </li>
+                                              </ul>
+                                            </li>
+                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                            </li>
+                                          </ul>
+                                          <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+
+                                          <!-- start task list element arccordion -->
+                                          <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                                            <div class="panel">
+                                              <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <div>
+                                                  <h4 class="panel-title">Collapsible Group Items #1</h4>
+                                                  <i class="fa fa-pencil-square-o"></i>
+                                                </div>
+                                                <div class="project_progress">
+                                                  <div class="progress progress_sm">
+                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57"></div>
+                                                  </div>
+                                                  <small>57% Complete</small>
+                                                </div>
+
+                                              </a>
+                                              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                <div class="panel-body">
+                                                  <table class="table table-bordered">
+                                                    <thead>
+                                                      <tr>
+                                                        <th>#</th>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Username</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Mark</td>
+                                                        <td>Otto</td>
+                                                        <td>@mdo</td>
+                                                      </tr>
+                                                      <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Jacob</td>
+                                                        <td>Thornton</td>
+                                                        <td>@fat</td>
+                                                      </tr>
+                                                      <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Larry</td>
+                                                        <td>the Bird</td>
+                                                        <td>@twitter</td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="panel">
+                                              <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                <h4 class="panel-title">Collapsible Group Items #2</h4>
+                                              </a>
+                                              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                <div class="panel-body">
+                                                  <p><strong>Collapsible Item 2 data</strong>
+                                                  </p>
+                                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="panel">
+                                              <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                <h4 class="panel-title">Collapsible Group Items #3</h4>
+                                              </a>
+                                              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                <div class="panel-body">
+                                                  <p><strong>Collapsible Item 3 data</strong>
+                                                  </p>
+                                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="text-center">
+                                              <ul class="pagination">
+                                                <li><a href="">1</a></li>
+                                                <li><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                                <li><a href="#">4</a></li>
+                                                <li><a href="#">5</a></li>
+                                              </ul>
+                                            </div>
+                                          </div>
+                                          <!-- end of accordion -->
+
+
+                                        </div>
+                                      </div>
+                                    </div>
+
+
+                                  </div>
+                                  <!-- end task lists -->
+                                  <div class="clearfix"></div>
+
+
+                                  <!-- start project to do list -->
+                                  <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="x_panel">
+                                      <div class="x_title">
+                                        <h2>TODO List <small>pre task lists under current project</small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                          </li>
+                                          <li><a class="">
+                                            <i class="fa fa-pencil-square-o"></i></a>
+                                          </li>
+                                          <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                              <li><a href="#">Settings 1</a>
+                                              </li>
+                                              <li><a href="#">Settings 2</a>
+                                              </li>
+                                            </ul>
+                                          </li>
+                                          <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                          </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                      </div>
+                                      <div class="x_content">
+                                        <div class="">
+                                          <ul class="to_do">
+                                            <li>
+                                              <p>
+                                                <input type="checkbox" class="flat"> "reload-link" class </p>
+                                            </li>
+                                            <li>
+                                              <p>
+                                                <input type="checkbox" class="flat"> "to-do-list-edit "</p>
+                                            </li>
+                                            <li>
+                                              <p>
+                                                <input type="checkbox" class="flat"> Have IT fix the network printer</p>
+                                            </li>
+                                            <li>
+                                              <p>
+                                                <input type="checkbox" class="flat"> Copy backups to offsite location</p>
+                                            </li>
+                                            <li>
+                                              <p>
+                                                <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
+                                            </li>
+                                            <li>
+                                              <p>
+                                                <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                        <div id="project-to-do-list-state-button-sets">
+                                          <button class="btn btn-primary btn-sm">POST</button>
+                                          <button class="btn btn-danger btn-sm">DELET</button>
+                                        </div>
+                                        <div class="text-center">
+                                          <ul class="pagination">
+                                            <li><a href="">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- end project to do list -->
+
+                                  <!-- start calendar -->
+
+                                  <div class="col-md-6">
+                                    <div class="x_panel">
+                                      <div class="x_title">
+                                        <h2>Calendar Events <small>Sessions</small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                          </li>
+                                          <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                              <li><a href="#">Settings 1</a>
+                                              </li>
+                                              <li><a href="#">Settings 2</a>
+                                              </li>
+                                            </ul>
+                                          </li>
+                                          <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                          </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                      </div>
+                                      <div class="x_content">
+
+                                        <div id='calendar'></div>
+
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <!-- end calendar -->
+
+
+
+                                  <div class="clearfix"></div>
+                                  <!-- Recent Activity -->
+                                  <div>
+
+                                    <h4>Recent Activity</h4>
+
+                                    <!-- end of user messages -->
+                                    <ul class="messages">
+                                      <li>
+                                        <img src="{% static 'img/img.jpg' %}" class="avatar" alt="Avatar">
+                                        <div class="message_date">
+                                          <h3 class="date text-info">24</h3>
+                                          <p class="month">May</p>
+                                        </div>
+                                        <div class="message_wrapper">
+                                          <h4 class="heading">Desmond Davison</h4>
+                                          <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                          <br />
+                                          <p class="url">
+                                            <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                            <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
+                                          </p>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <img src="{% static 'img/img.jpg' %}" class="avatar" alt="Avatar">
+                                        <div class="message_date">
+                                          <h3 class="date text-error">21</h3>
+                                          <p class="month">May</p>
+                                        </div>
+                                        <div class="message_wrapper">
+                                          <h4 class="heading">Brian Michaels</h4>
+                                          <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                          <br />
+                                          <p class="url">
+                                            <span class="fs1" aria-hidden="true" data-icon=""></span>
+                                            <a href="#" data-original-title="">Download</a>
+                                          </p>
+                                        </div>
+                                      </li>
+                                      <li>
+                                        <img src="{% static 'img/img.jpg' %}" class="avatar" alt="Avatar">
+                                        <div class="message_date">
+                                          <h3 class="date text-info">24</h3>
+                                          <p class="month">May</p>
+                                        </div>
+                                        <div class="message_wrapper">
+                                          <h4 class="heading">Desmond Davison</h4>
+                                          <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                          <br />
+                                          <p class="url">
+                                            <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
+                                            <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
+                                          </p>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                    <!-- end of user messages -->
+
+
+                                  </div>
+                                  <!-- end Recent Activity -->
+
+                                </div>
+
+                              </div>
+
+
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                        <!-- end project detail -->
+                      </div>
+                      <!-- end project detail containers-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end workspace -->
+        {% endfor %}
         </div>
 
 {% endblock %}
@@ -865,7 +1364,8 @@
       });
     </script>
 
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+{#    <script src="https://d3js.org/d3.v4.min.js"></script>#}
+    <script src="https://d3js.org/d3.v3.min.js"></script>
     <!-- Crash with vendor jquery -->
 {#    <script src="{% static 'js/jquery-1.24.js' %}"></script>#}
     <script src="{% static 'js/jquery.cookie.js' %}"></script>

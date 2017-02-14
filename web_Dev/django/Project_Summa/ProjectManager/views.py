@@ -13,6 +13,7 @@ from .models import Category
 from .models import Project
 from .models import Task
 from .models import Member
+from .models import Workspace
 from UserProfile.models import UserMessage
 
 from .forms import ProjectForm
@@ -121,10 +122,12 @@ def index(request):
 
 
     categories = Category.objects.all()
+    workspaces = Workspace.objects.all()
     ctx = {
         'is_authenticated': is_authenticated,
         'username': username,
         'projects': projects,
+        'workspaces': workspaces,
         'projects_workspace_names': psw_names,
         'projects_member_names': psm_names,
         'task_graph_json': task_graph_json,
@@ -152,6 +155,27 @@ def index(request):
                     categories_selected.append(Category.objects.get(pk=int(pk)))
                 print(categories_selected)
                 ctx['categories_selected'] = categories_selected
+
+        if 'workspace-select' in request.POST.keys():
+            if request.POST['workspace-select'] == 'submit':
+                workspaces_selected = []
+                print(request.POST['workspace-open-select'])
+                print(type(request.POST['workspace-open-select']))
+                for pk in list(request.POST['workspace-open-select']):
+                    workspaces_selected.append(Workspace.objects.get(pk=int(pk)))
+                print(workspaces_selected)
+                ctx['workspaces_selected'] = workspaces_selected
+
+        if 'project-select' in request.POST.keys():
+            if request.POST['project-select'] == 'submit':
+                projects_selected = []
+                print(request.POST['project-open-select'])
+                print(type(request.POST['project-open-select']))
+                for pk in list(request.POST['project-open-select']):
+                    projects_selected.append(Project.objects.get(pk=int(pk)))
+                print(projects_selected)
+                ctx['projects_selected'] = projects_selected
+
                 return render(request, 'ProjectManagerDir/index-native.html', ctx)
 
     return render(request, 'ProjectManagerDir/index-native.html', ctx)

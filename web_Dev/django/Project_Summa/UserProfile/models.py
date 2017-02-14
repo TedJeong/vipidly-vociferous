@@ -4,10 +4,12 @@ from django.conf import settings
 
 from django.contrib.auth.models import User
 
+from ProjectManager.models import Project
 from ProjectManager.models import Member
 from ProjectManager.models import Task
 
 from .views import get_user_profile_folder_filename
+from .views import get_user_uploadfile_folder
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
@@ -33,3 +35,11 @@ class UserMessage(models.Model):
 
     def __str__(self):
         return '{} : {} to {}'.format(self.title, self.fromuser.user.username, self.touser.user.username)
+
+
+class UserFile(models.Model):
+    file_name = models.CharField(max_length=50)
+    file_path = models.FileField(upload_to=get_user_uploadfile_folder, blank=False, null=False)
+    file_owner = models.ForeignKey(settings.AUTH_USER_MODEL)
+    file_project = models.ForeignKey(Project, blank=True, null=True)
+    file_task = models.ForeignKey(Task, blank=True, null=True)
