@@ -44,11 +44,19 @@ def get_members_in_task(task):
 
 @register.filter(name='get_member_gauge_in_task')
 def get_member_gauge_in_task(task, member):
-    return task.progress_set.get(progress_member__exact=member).progress_gauge
+    # get function query does not exist error if query is empty
+    #task.progress_set.get(progress_member__exact=member).progress_gauge
+    if task.progress_set.filter(progress_member__exact=member).exists():
+        return task.progress_set.get(progress_member__exact=member).progress_gauge
+    else:
+        return 0
 
 @register.filter(name='get_member_opendate_in_task')
 def get_member_opendate_in_task(task, member):
-    return task.progress_set.get(progress_member__exact=member).progress_open_date
+    if task.progress_set.filter(progress_member__exact=member).exists():
+        return task.progress_set.get(progress_member__exact=member).progress_open_date
+    else:
+        return None
 
 # TODO: check contains function is also valid in list form
 @register.filter(name='member_project_check')

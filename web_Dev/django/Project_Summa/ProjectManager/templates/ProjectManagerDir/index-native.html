@@ -11,6 +11,10 @@
     <!-- responsive : category-workspace-table -->
     <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.dataTables.min.css" rel="stylesheet">
 
+    <!-- FullCalendar -->
+    <link href="{% static 'vendor/fullcalendar/dist/fullcalendar.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/fullcalendar/dist/fullcalendar.print.css' %}" rel="stylesheet" media="print">
+
 
     <style>
 .controller-form-table > th, td{
@@ -1017,9 +1021,9 @@
                                                   <i class="fa fa-pencil-square-o"></i>
                                                 </div>
                                                   <div class="progress">
-                                                      <div class="progress-bar .progress-bar-success" role="progressbar" aria-valuenow="70"
-                                                      aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                                        {{ task_in_project_in_workspace.task_gauge }}
+                                                      <div class="progress-bar .progress-bar-success" role="progressbar" aria-valuenow="{{ task_in_project_in_workspace.task_progress }}"
+                                                      aria-valuemin="0" aria-valuemax="100" style="width:{{ task_in_project_in_workspace.task_progress }}%">
+                                                        {{ task_in_project_in_workspace.task_progress }}
                                                       </div>
                                                     </div>
 
@@ -1106,30 +1110,12 @@
                                       <div class="x_content">
                                         <div class="">
                                           <ul class="to_do">
+                                            {% for task in project_in_workspace|get_tasks_in_project %}
                                             <li>
                                               <p>
-                                                <input type="checkbox" class="flat"> "reload-link" class </p>
+                                                <input type="checkbox" class="flat"> {{ task.task_name }} - {{ task.task_description }} </p>
                                             </li>
-                                            <li>
-                                              <p>
-                                                <input type="checkbox" class="flat"> "to-do-list-edit "</p>
-                                            </li>
-                                            <li>
-                                              <p>
-                                                <input type="checkbox" class="flat"> Have IT fix the network printer</p>
-                                            </li>
-                                            <li>
-                                              <p>
-                                                <input type="checkbox" class="flat"> Copy backups to offsite location</p>
-                                            </li>
-                                            <li>
-                                              <p>
-                                                <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
-                                            </li>
-                                            <li>
-                                              <p>
-                                                <input type="checkbox" class="flat"> Food truck fixie locavors mcsweeney</p>
-                                            </li>
+                                            {% endfor %}
                                           </ul>
                                         </div>
                                         <div id="project-to-do-list-state-button-sets">
@@ -1175,13 +1161,88 @@
                                       </div>
                                       <div class="x_content">
 
-                                        <div id='calendar'></div>
+                                        <div id="calender{{ forloop.counter0 }}"></div>
 
                                       </div>
                                     </div>
                                   </div>
 
                                   <!-- end calendar -->
+
+                                  <!-- calendar modal -->
+                                    <div id="CalenderModalNew{{ forloop.counter0 }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel">New Calendar Entry</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                            <div id="testmodal{{ forloop.counter0 }}" style="padding: 5px 20px;">
+                                              <form id="antoform" class="form-horizontal calender" role="form">
+                                                <div class="form-group">
+                                                  <label class="col-sm-3 control-label">Title</label>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="title{{ forloop.counter0 }}" name="title{{ forloop.counter0 }}">
+                                                  </div>
+                                                </div>
+                                                <div class="form-group">
+                                                  <label class="col-sm-3 control-label">Description</label>
+                                                  <div class="col-sm-9">
+                                                    <textarea class="form-control" style="height:55px;" id="descr{{ forloop.counter0 }}" name="descr{{ forloop.counter0 }}"></textarea>
+                                                  </div>
+                                                </div>
+                                              </form>
+                                            </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary antosubmit">Save changes</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div id="CalenderModalEdit{{ forloop.counter0 }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
+                                          </div>
+                                          <div class="modal-body">
+
+                                            <div id="testmodal{{ forloop.counter0 }}" style="padding: 5px 20px;">
+                                              <form id="antoform{{ forloop.counter0 }}" class="form-horizontal calender" role="form">
+                                                <div class="form-group">
+                                                  <label class="col-sm-3 control-label">Title</label>
+                                                  <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="title{{ forloop.counter0 }}" name="title{{ forloop.counter0 }}">
+                                                  </div>
+                                                </div>
+                                                <div class="form-group">
+                                                  <label class="col-sm-3 control-label">Description</label>
+                                                  <div class="col-sm-9">
+                                                    <textarea class="form-control" style="height:55px;" id="descr{{ forloop.counter0 }}" name="descr{{ forloop.counter0 }}"></textarea>
+                                                  </div>
+                                                </div>
+
+                                              </form>
+                                            </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary antosubmit">Save changes</button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div id="fc_create{{ forloop.counter0 }}" data-toggle="modal" data-target="#CalenderModalNew{{ forloop.counter0 }}"></div>
+                                    <div id="fc_edit{{ forloop.counter0 }}" data-toggle="modal" data-target="#CalenderModalEdit{{ forloop.counter0 }}"></div>
+                                <!-- /calendar modal -->
 
 
 
@@ -1267,6 +1328,10 @@
             <!-- end workspace -->
         {% endfor %}
         </div>
+
+
+
+
 
 {% endblock %}
 {% block jsimport %}
@@ -1355,6 +1420,9 @@
     <!-- responsive : category-workspace-table -->
     <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
 
+    <!-- FullCalendar -->
+    <script src="{% static 'vendor/moment/min/moment.min.js' %}"></script>
+    <script src="{% static 'vendor/fullcalendar/dist/fullcalendar.min.js' %}"></script>
 
     <script src="{% static 'js/jquery.cookie.js' %}"></script>
     <script src="{% static 'js/Summa_ProjectManager_tmp.js' %}"></script>

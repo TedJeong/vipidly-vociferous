@@ -1,5 +1,9 @@
 from __future__ import unicode_literals
+
 from django.db import models
+from django.db.models.signals import post_save
+from django.db.models.signals import post_init
+from django.dispatch import receiver
 
 # Progress is determined when unitest problem is passed.
 # each problem is assigned a value and it is summed up to progress.
@@ -47,16 +51,28 @@ class Task(models.Model):
     def progress_sum(self):
         progresses = self.progress_set.all()
         progresses_gauge = 0
-        for progress in range(len(progresses)):
+        for progress in progresses:
             progresses_gauge += progress.progress_gauge
         return progresses_gauge
 
+    """
+    this calls error!
     def save(self, *args, **kwargs):
-        self.task_progress = self.progress_sum()
-        return super(Task, self).save(*args, **kwargs)
+        if not self.task_progress:
+            self.task_progress = self.progress_sum()
+            print(self.task_progress)
+        super().save(*args, **kwargs)
+    """
 
     def __str__(self):
         return '{}-{} : {}'.format(self.task_name, self.task_project, self.task_members)
+
+
+@receiver(post_save, sender=Task)
+def post_save_task(sender, **kwargs):
+    instance = kwargs.pop('instance')
+    instance.task_progress = instance.progress_sum()
+    instance.save(update_fields=["task_progress"])
 
 
 class Member(models.Model):
