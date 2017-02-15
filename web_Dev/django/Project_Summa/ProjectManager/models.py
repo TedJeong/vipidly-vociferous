@@ -12,6 +12,9 @@ class Progress(models.Model):
     # only takes 99.99?
     progress_gauge = models.DecimalField(default=0.00, decimal_places=1, max_digits=3)
 
+    progress_open_date = models.DateTimeField(auto_now=True)
+    progress_closed_date = models.DateTimeField(blank=True, null=True)
+
     def __str__(self):
         return '{}-{}%'.format(self.progress_name, str(self.progress_gauge))
 

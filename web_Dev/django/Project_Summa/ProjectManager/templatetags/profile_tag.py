@@ -34,6 +34,22 @@ def project_progress_sum(project):
 def projects_in_workspace(workspace):
     return workspace.project_set.all()
 
+@register.filter(name='get_tasks_in_project')
+def get_tasks_in_project(project):
+    return project.task_set.all()
+
+@register.filter(name='get_members_in_task')
+def get_members_in_task(task):
+    return task.task_members.all()
+
+@register.filter(name='get_member_gauge_in_task')
+def get_member_gauge_in_task(task, member):
+    return task.progress_set.get(progress_member__exact=member).progress_gauge
+
+@register.filter(name='get_member_opendate_in_task')
+def get_member_opendate_in_task(task, member):
+    return task.progress_set.get(progress_member__exact=member).progress_open_date
+
 # TODO: check contains function is also valid in list form
 @register.filter(name='member_project_check')
 def member_project_check(member, project):

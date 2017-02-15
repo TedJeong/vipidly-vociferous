@@ -976,7 +976,9 @@
                                   <!-- end top resource panel -->
                                   <br />
 
-                                  <div id="mainb" style="height:350px;"></div>
+                                  <div id="mainb" style="height:350px;">
+                                      <div id="resource-pie-graph" style="min-width: 310px; max-width: 400px; height: 400px; margin: 0 auto"></div>
+                                  </div>
 
                                   <!-- start task lists -->
                                   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -1002,81 +1004,56 @@
                                         </div>
                                         <div class="x_content">
 
-                                          <!-- start task list element arccordion -->
+                                          <!-- start task list contained in a project : arccordion -->
                                           <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+
+                                            {% for task_in_project_in_workspace in project_in_workspace|get_tasks_in_project %}
                                             <div class="panel">
-                                              <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+
+                                              <a class="panel-heading" role="tab" id="heading{{ forloop.counter0 }}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter0 }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter0 }}">
                                                 <div>
-                                                  <h4 class="panel-title">Collapsible Group Items #1</h4>
+                                                  <h4 class="panel-title">{{ task_in_project_in_workspace.task_name }}</h4>
                                                   <i class="fa fa-pencil-square-o"></i>
                                                 </div>
-                                                <div class="project_progress">
-                                                  <div class="progress progress_sm">
-                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57"></div>
-                                                  </div>
-                                                  <small>57% Complete</small>
-                                                </div>
+                                                  <div class="progress">
+                                                      <div class="progress-bar .progress-bar-success" role="progressbar" aria-valuenow="70"
+                                                      aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                                        {{ task_in_project_in_workspace.task_gauge }}
+                                                      </div>
+                                                    </div>
 
                                               </a>
-                                              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                <!-- heading down -->
+                                              <div id="collapse{{ forloop.counter0 }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{ forloop.counter0 }}">
                                                 <div class="panel-body">
+                                                    <p>contributor table</p>
                                                   <table class="table table-bordered">
                                                     <thead>
                                                       <tr>
                                                         <th>#</th>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Username</th>
+                                                        <th>Name</th>
+                                                        <th>progress</th>
+                                                        <th>opendate</th>
                                                       </tr>
                                                     </thead>
                                                     <tbody>
+                                                    {% for member_in_task_in_project_in_workspace in task_in_project_in_workspace|get_members_in_task %}
                                                       <tr>
                                                         <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
+                                                        <td>{{ member_in_task_in_project_in_workspace.member_name }}</td>
+                                                        <td>{{ task_in_project_in_workspace|get_member_gauge_in_task:member_in_task_in_project_in_workspace }}</td>
+                                                        <td>{{ task_in_project_in_workspace|get_member_opendate_in_task:member_in_task_in_project_in_workspace }}</td>
                                                       </tr>
-                                                      <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                      </tr>
-                                                      <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                      </tr>
+                                                    {% endfor %}
                                                     </tbody>
                                                   </table>
                                                 </div>
                                               </div>
+
                                             </div>
-                                            <div class="panel">
-                                              <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                <h4 class="panel-title">Collapsible Group Items #2</h4>
-                                              </a>
-                                              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                <div class="panel-body">
-                                                  <p><strong>Collapsible Item 2 data</strong>
-                                                  </p>
-                                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="panel">
-                                              <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                <h4 class="panel-title">Collapsible Group Items #3</h4>
-                                              </a>
-                                              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                                <div class="panel-body">
-                                                  <p><strong>Collapsible Item 3 data</strong>
-                                                  </p>
-                                                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor
-                                                </div>
-                                              </div>
-                                            </div>
+                                            {% endfor %}
+
                                             <div class="text-center">
                                               <ul class="pagination">
                                                 <li><a href="">1</a></li>
@@ -1086,6 +1063,7 @@
                                                 <li><a href="#">5</a></li>
                                               </ul>
                                             </div>
+
                                           </div>
                                           <!-- end of accordion -->
 
@@ -1366,9 +1344,11 @@
 
 {#    <script src="https://d3js.org/d3.v4.min.js"></script>#}
     <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <!-- Crash with vendor jquery -->
 {#    <script src="{% static 'js/jquery-1.24.js' %}"></script>#}
-    <script src="{% static 'js/jquery.cookie.js' %}"></script>
 
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
@@ -1376,6 +1356,7 @@
     <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
 
 
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
     <script src="{% static 'js/Summa_ProjectManager_tmp.js' %}"></script>
 
 
