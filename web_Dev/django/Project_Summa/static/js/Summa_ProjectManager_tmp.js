@@ -709,6 +709,135 @@
 
     });
 
+    // Workspace panel 에서 project strength 를 spider map 으로 보여줍니다.
+    $(document).ready(function(){
+        Highcharts.chart('project-strength-spider-map', {
+
+            chart: {
+                polar: true
+            },
+
+            title: {
+                text: 'Highcharts Polar Chart'
+            },
+
+            pane: {
+                startAngle: 0,
+                endAngle: 360
+            },
+
+            xAxis: {
+                tickInterval: 45,
+                min: 0,
+                max: 360,
+                labels: {
+                    formatter: function () {
+                        return this.value + '°';
+                    }
+                }
+            },
+
+            yAxis: {
+                min: 0
+            },
+
+            plotOptions: {
+                series: {
+                    pointStart: 0,
+                    pointInterval: 45
+                },
+                column: {
+                    pointPadding: 0,
+                    groupPadding: 0
+                }
+            },
+
+            series: [{
+                type: 'column',
+                name: 'Column',
+                data: [8, 7, 6, 5, 4, 3, 2, 1],
+                pointPlacement: 'between'
+            }, {
+                type: 'line',
+                name: 'Line',
+                data: [1, 2, 3, 4, 5, 6, 7, 8]
+            }, {
+                type: 'area',
+                name: 'Area',
+                data: [1, 8, 2, 7, 3, 6, 4, 5]
+            }]
+        });
+    });
+
+    // Workspace panel 에서 task-try-open-date 를 보여줍니다.
+    $(document).ready(function(){
+
+        Highcharts.chart('task-try-open-date-duration', {
+
+            chart: {
+                type: 'columnrange',
+                inverted: true
+            },
+
+            title: {
+                text: 'task try open date duration'
+            },
+
+            subtitle: {
+                text: 'Observed in Vik i Sogn, Norway'
+            },
+
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+
+            yAxis: {
+                title: {
+                    text: 'Temperature ( °C )'
+                }
+            },
+
+            tooltip: {
+                valueSuffix: '°C'
+            },
+
+            plotOptions: {
+                columnrange: {
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function () {
+                            return this.y + '°C';
+                        }
+                    }
+                }
+            },
+
+            legend: {
+                enabled: false
+            },
+
+            series: [{
+                name: 'Temperatures',
+                data: [
+                    [-9.7, 9.4],
+                    [-8.7, 6.5],
+                    [-3.5, 9.4],
+                    [-1.4, 19.9],
+                    [0.0, 22.6],
+                    [2.9, 29.5],
+                    [9.2, 30.7],
+                    [7.3, 26.5],
+                    [4.4, 18.0],
+                    [-3.1, 11.4],
+                    [-5.2, 10.4],
+                    [-13.5, 9.8]
+                ]
+            }]
+
+        });
+
+    });
+
     // Controller panel 에서 view category modal 로부터 cateo .. 보류중..
     $(document).ready(function(){
         var ajax_differer = 2;
