@@ -63,3 +63,55 @@ def get_member_opendate_in_task(task, member):
 def member_project_check(member, project):
     name = member.member_name
     return project.project_members.filter(member_name__contains=name).exists()
+
+
+# TODO: single workspace only
+@register.filter(name='length_range')
+def length_range(workspace):
+    print("length_range!")
+    print(type(workspace))
+    print(workspace)
+    if hasattr(workspace, '__iter__'):
+        print("list!")
+        strings=""
+        for idx in range(len(workspace[0].project_set.all())):
+            strings += str(idx)
+        return strings
+    else:
+        return "0"
+
+
+@register.assignment_tag
+def alias(obj):
+    """
+    Alias Tag
+    """
+    return obj
+
+
+class SetVarNode(template.Node):
+
+    def __init__(self, var_name, var_value):
+        self.var_name = var_name
+        self.var_value = var_value
+
+    def render(self, context):
+        try:
+            value = template.Variable(self.var_value).resolve(context)
+        except template.VariableDoesNotExist:
+            value = ""
+        context[self.var_name] = value
+
+        return u""
+
+
+@register.tag(name='set')
+def set_var(parser, token):
+    """
+    {% set some_var = '123' %}
+    """
+    parts = token.split_contents()
+    if len(parts) < 4:
+        raise template.TemplateSyntaxError("'set' tag must be of the form: {% set <var_name> = <var_value> %}")
+
+    return SetVarNode(parts[1], parts[3])

@@ -1171,7 +1171,7 @@
                                       </div>
                                       <div class="x_content">
 
-                                        <div id="calender{{ forloop.counter0 }}"></div>
+                                        <div id="calendar{{ forloop.counter0 }}"></div>
 
                                       </div>
                                     </div>
@@ -1437,6 +1437,7 @@
     <script src="{% static 'js/jquery.cookie.js' %}"></script>
     <script src="{% static 'js/Summa_ProjectManager_tmp.js' %}"></script>
 
+    {% include 'ProjectManagerDir/calender.html' %}
 
 
 {% endblock %}
