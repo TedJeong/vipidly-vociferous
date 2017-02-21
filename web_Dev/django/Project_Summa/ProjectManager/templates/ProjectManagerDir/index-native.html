@@ -1031,9 +1031,9 @@
                                                   <i class="fa fa-pencil-square-o"></i>
                                                 </div>
                                                   <div class="progress">
-                                                      <div class="progress-bar .progress-bar-success" role="progressbar" aria-valuenow="{{ task_in_project_in_workspace.task_progress }}"
-                                                      aria-valuemin="0" aria-valuemax="100" style="width:{{ task_in_project_in_workspace.task_progress }}%">
-                                                        {{ task_in_project_in_workspace.task_progress }}
+                                                      <div class="progress-bar .progress-bar-success" role="progressbar" aria-valuenow="{{ task_in_project_in_workspace.task_progress|mul_100 }}"
+                                                      aria-valuemin="0" aria-valuemax="100" style="width:{{ task_in_project_in_workspace.task_progress|mul_100 }}%">
+                                                        {{ task_in_project_in_workspace.task_progress|mul_100 }}
                                                       </div>
                                                     </div>
 

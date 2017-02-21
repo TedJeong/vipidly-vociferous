@@ -5,6 +5,8 @@ from django.db.models.signals import post_save
 from django.db.models.signals import post_init
 from django.dispatch import receiver
 
+from decimal import Decimal
+
 # Progress is determined when unitest problem is passed.
 # each problem is assigned a value and it is summed up to progress.
 class Progress(models.Model):
@@ -14,7 +16,7 @@ class Progress(models.Model):
     progress_task = models.ForeignKey('Task', null=True, blank=True)
     progress_member = models.ForeignKey('Member', null=True, blank=True)
     # only takes 99.99?
-    progress_gauge = models.DecimalField(default=0.00, decimal_places=1, max_digits=3)
+    progress_gauge = models.DecimalField(default=0.00, decimal_places=2, max_digits=3)
 
     progress_open_date = models.DateTimeField(auto_now=True)
     progress_closed_date = models.DateTimeField(blank=True, null=True)
@@ -24,6 +26,8 @@ class Progress(models.Model):
 
     class Meta:
         pass
+
+
 
 
 class Task(models.Model):
@@ -46,13 +50,15 @@ class Task(models.Model):
     task_completed_at = models.DateTimeField(null=True, blank=True)
 
     # cannot put progress_sum function to default with self argument.
-    task_progress = models.DecimalField(default=0, decimal_places=1, max_digits=3, editable=False)
+    task_progress = models.DecimalField(default=0.00, decimal_places=2, max_digits=3, editable=True)
 
     def progress_sum(self):
         progresses = self.progress_set.all()
+        print(progresses)
         progresses_gauge = 0
         for progress in progresses:
             progresses_gauge += progress.progress_gauge
+        print(progresses_gauge)
         return progresses_gauge
 
     """
@@ -69,10 +75,11 @@ class Task(models.Model):
 
 
 @receiver(post_save, sender=Task)
-def post_save_task(sender, **kwargs):
-    instance = kwargs.pop('instance')
-    instance.task_progress = instance.progress_sum()
-    instance.save(update_fields=["task_progress"])
+def post_save_task(sender, instance, created, **kwargs):
+    if created:
+        instance = kwargs.pop('instance')
+        instance.task_progress = instance.progress_sum()
+        instance.save(update_fields=["task_progress"])
 
 
 class Member(models.Model):

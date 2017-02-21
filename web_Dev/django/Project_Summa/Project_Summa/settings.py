@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'UserProfile',
     'SummaMLEngine',
     'bootstrap3',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -106,6 +107,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/

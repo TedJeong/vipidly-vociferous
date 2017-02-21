@@ -80,6 +80,22 @@ def length_range(workspace):
     else:
         return "0"
 
+# TODO: single project only : currently only return 0
+@register.filter(name='length_project_range')
+def length_project_range(projects):
+
+    if hasattr(projects, '__iter__'):
+        print("list!")
+        strings=""
+        for idx in range(len(projects)):
+            strings += str(idx)
+        return strings
+    else:
+        return "0"
+
+@register.filter(name='mul_100')
+def mul_100(nums):
+    return nums*100
 
 @register.assignment_tag
 def alias(obj):
