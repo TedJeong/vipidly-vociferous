@@ -177,3 +177,41 @@ def plot_all_test(x, y):
     zlabel = result[5]
 
     return [aws, fig , fig3d, xlabel, ylabel, zlabel]
+
+
+@app.task
+def plot_user_input(x, y):
+    aws = ''
+    fig = ''
+
+    print("User input plot")
+
+    result = [aws, fig]
+
+
+    dh1 = data_holder()
+    dh1.read_data()
+
+    aws += dh1.print_data_table_info("brain_size.csv")
+
+    vt1 = visualization_toolbox(dh1, 'brain_size.csv')
+    result = vt1.raw_data_plot(['11','21'])
+
+    aws += result[0]
+    fig += result[1]
+
+
+    dh1 = data_holder()
+    dh1.read_data()
+
+    aws += dh1.print_data_table_info("brain_size.csv")
+
+    vt1 = visualization_toolbox(dh1, 'brain_size.csv')
+    result = vt1.raw_data_plot(['11','21'])
+
+    aws += result[0]
+    fig += result[1]
+
+    return [aws, fig]
+
+

@@ -20,7 +20,7 @@ class data_holder:
 
     def __init__(self, *args):
         self.datatable_names = list(args)
-        self.dataset_num=0
+        self.dataset_num = len(self.datatable_names)
         self.datatables = []
         self.native_flag = False
 
@@ -44,22 +44,45 @@ class data_holder:
         currently implemented only for csv file
         in ./raw_data directory
         """
+
+        # if user didn't specify a dataset folder
         # select all dataset in ./raw_data
         if self.dataset_num == 0:
-            if self.native_flag == True:
-                path = os.path.join('raw_data'+'/*.csv')
-            else:
-                path = os.path.dirname(os.path.abspath(__file__))
-                path += '/raw_data/*.csv'
-            datatable_names = glob.glob(path)
+            # csv data input
+            path = os.path.abspath(".")
+            path += "/raw_data/"
+
+            datatable_names = glob.glob(path + "*.csv")
+
 
             for table_name in datatable_names:
                 # table name registration
-                table_base_name = os.path.basename(table_name)
-                self.datatable_names.append(os.path.basename(table_base_name))
+                table_name = os.path.basename(table_name)
+                self.datatable_names.append(table_name)
+
                 # table data registration
-                df = pd.read_csv(table_name, sep=';', na_values='.')
+                df = pd.read_csv("./raw_data/" + table_name, sep=';', na_values='.')
                 self.datatables.append(df)
+
+
+            # json data input
+            # excluding trailing data \n for nested json structure
+            datatable_names = glob.glob(path + "*.json")
+
+            for table_name in datatable_names:
+                # table name registration
+                table_name = os.path.basename(table_name)
+                self.datatable_names.append(table_name)
+
+                # table data registration
+                with open("./raw_data/" + table_name, 'rb') as f:
+                    data = f.readlines()
+                data = map(lambda x : x.decode("utf-8").strip(), data)
+                data_str = "[" + ",".join(data) + "]"
+                df_json = pd.read_json(data_str)
+                self.datatables.append(df_json)
+        else:
+            print("user specified folder/file")
 
 
     def col_exclude(self, table, ex_col_names):
@@ -72,9 +95,10 @@ class data_holder:
         """
         return 1
 
+
     def categorize_data(self, table_name):
         """
-        differentiate data with categorical and continuous data columns
+        differ data with categorical and continuous data columns
 
         input : (self, table_name):
         return : categorical_data_columns, continuous_data_columns
@@ -149,7 +173,6 @@ class data_holder:
             cr += '='*50 + delim
 
         return cr
-
 
 
     def print_data_table_statistic_info(self, table_name):
