@@ -109,7 +109,7 @@
                     </form>
                 </div>
 
-                <p class="anwser-console col-md-12 col-sm-12 col-xs-12" id="anwser" style="
+                <p class="answer-console col-md-12 col-sm-12 col-xs-12" id="answer" style="
                     height: 200px;
                     white-space: nowrap;
                     overflow: scroll;
@@ -250,7 +250,7 @@
 
                           <p>Simple table with project listing with progress and editing options</p>
                             <!-- ml report plot canvas -->
-                            <div id="anwser-ml-report" style="max-width: 100%">
+                            <div id="answer-ml-report" style="max-width: 100%">
                             </div>
                             <!-- ml report plot canvas end -->
                         </div>
@@ -261,6 +261,12 @@
                     <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
                       <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
                         booth letterpress, commodo enim craft beer mlkshk aliquip</p>
+
+                        <!-- ml report plot canvas -->
+                            <div id="answer-ml-pre-report" style="max-width: 100%">
+                            </div>
+                        <!-- ml report plot canvas end -->
+
                         <!-- surface3d plot -->
                         <div id="feature-3d"></div>
                         <!-- surface3d plot end -->
@@ -1016,12 +1022,12 @@
                     method: 'post',
                     data: {'x':x, 'y':y},
                     success: function(data){
-                        $('#anwser').append("<br/>");
-                        $('#anwser').append(data.consoles);
-                        $('#anwser-ml-report').append(data.plots);
+                        $('#answer').append("<br/>");
+                        $('#answer').append(data.consoles);
+                        $('#answer-ml-pre-report').append(data.plots);
                         data_plot3d = data._3dplots;
                         console.log(data_plot3d);
-                        //$('#anwser-ml-3d-report').append(data._3dplots);
+                        //$('#answer-ml-3d-report').append(data._3dplots);
                     },
                     complete: function(data){
                         //setTimeout(worker, 5000);
