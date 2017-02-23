@@ -28,9 +28,26 @@ class visualization_toolbox:
     -Post_Analysis_plot
       |_Univariate Feature visualization
       |_Pairwise Feature visualization
+
+      raw_data_plot
+      feature_pair_comparision
+      feature_covariance_matrix_plot
+      feature_importance_plot1d
+      feature_importance_plot2d
+      feature_selection_plot
+      feature_dim_reduction_plot
+
+      :plot issue:
+      -Embedding Seaborn plot in WxPython panel
+      http://stackoverflow.com/questions/31758391/embedding-seaborn-plot-in-wxpython-panel
+      -Plotting with seaborn using the matplotlib object-oriented interface
+      http://stackoverflow.com/questions/23969619/plotting-with-seaborn-using-the-matplotlib-object-oriented-interface
+      -seaborn produces separate figures in subplots
+      http://stackoverflow.com/questions/33925494/seaborn-produces-separate-figures-in-subplots
+
     """
     def __init__(self, dataholder, table_name):
-        #TODO: really needed?
+        #TODO: really need?
         self.dh = dataholder
         self.dh.read_data()
         self.table_name = table_name
@@ -95,6 +112,22 @@ class visualization_toolbox:
             if self.native_flag == True:
                 plt.show()
             else:
+                pr += mpld3.fig_to_html(fig) + delim
+
+
+        import itertools
+
+        if '22' in plot_option:
+            for col_pair in itertools.combinations(con_cols, 2):
+                if self.native_flag == True:
+                    print(col_pair)
+                else:
+                    cr += str(col_pair)
+                fig, ax = plt.subplots()
+
+                ax.set_title(col_pair[0]+" vs. "+col_pair[1])
+                sns.jointplot(col_pair[0], col_pair[1], data=self.table, kind="kde", ax=ax)
+
                 pr += mpld3.fig_to_html(fig) + delim
 
         return [cr, pr]
@@ -175,6 +208,9 @@ class visualization_toolbox:
     def feature_covariance_matrix_plot(self, X=None, y=None):
         """ Covariance matrix plot with Empirical(MSE), shrunk, sparse inverse covariance.
         """
+        cr = ''
+        delim = '<br/>'
+
         prng = np.random.RandomState(1)
 
         if X is None or y is None:
@@ -211,7 +247,9 @@ class visualization_toolbox:
         lw_cov_, _ = ledoit_wolf(X)
         lw_prec_ = linalg.inv(lw_cov_)
 
-        plt.figure(figsize=(10, 6))
+
+
+        fig = plt.figure(figsize=(10, 6))
         plt.subplots_adjust(left=0.02, right=0.98)
 
 
@@ -231,7 +269,7 @@ class visualization_toolbox:
             ('GraphLasso', cov_), ('True', cov)]
         vmax = cov_.max()
         for i, (name, this_cov) in enumerate(covs):
-            plt.subplot(2, 4, i + 1)
+            fig, plt.subplot(2, 4, i + 1)
             plt.imshow(this_cov, interpolation='nearest', vmin=-vmax, vmax=vmax,
                    cmap=plt.cm.RdBu_r)
             plt.xticks(())
@@ -254,6 +292,7 @@ class visualization_toolbox:
             ax.set_axis_bgcolor('.7')
 
         # plot the model selection metric
+        """
         plt.figure(figsize=(4, 3))
         plt.suptitle('selected shrinkage coeff(regularization) : {}'.format(model.alpha_), y=1.0)
         plt.axes([.2, .15, .75, .7])
@@ -270,8 +309,12 @@ class visualization_toolbox:
         plt.title('Model selection')
         plt.ylabel('Cross-validation score')
         plt.xlabel('alpha')
+        """
+        if self.native_flag == True:
+            plt.show()
 
-        plt.show()
+        else:
+            return [cr, mpld3.fig_to_html(fig)]
 
 
 

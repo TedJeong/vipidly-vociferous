@@ -103,16 +103,18 @@ def plot_ols(x, y):
 
 @app.task
 def plot_raw_test(x, y):
+    print("plot_raw_test called")
     aws = ''
     fig = ''
-    print("test")
+
     dh1 = data_holder()
     dh1.read_data()
 
     aws += dh1.print_data_table_info("brain_size.csv")
 
     vt1 = visualization_toolbox(dh1, 'brain_size.csv')
-    result = vt1.raw_data_plot(['11','21'])
+    #result = vt1.raw_data_plot(['11', '21', '22'])
+    result = vt1.raw_data_plot(['22'])
 
     aws += result[0]
     fig += result[1]
@@ -156,6 +158,23 @@ def plot_feature_pair_comparision(x, y):
 
 
 @app.task
+def plot_feature_covariance_matrix_plot(x, y):
+    print("feature covariance matrix plot")
+    aws = ''
+    fig = ''
+
+    dh1 = data_holder()
+    dh1.read_data()
+
+    vt1 = visualization_toolbox(dh1, 'brain_size.csv')
+    result = vt1.feature_covariance_matrix_plot()
+    aws += result[0]
+    fig += result[1]
+
+    return [aws, fig]
+
+
+@app.task
 def plot_all_test(x, y):
     aws = ''
     fig = ''
@@ -163,11 +182,15 @@ def plot_all_test(x, y):
     print("all test")
 
     ## plot_raw
+    fig += "<h3 class='report-title'>Raw data plot</h3>" \
+           "<p>This represents ... </p>"
     result = plot_raw_test(x, y)
     aws += result[0]
     fig += result[1]
 
     ## feature_pair_comparision
+    fig += "<h3 class='report-title'>pair partial dependence plot</h3>" \
+           "<p>This represents ... </p>"
     result = plot_feature_pair_comparision(x, y)
     aws += result[0]
     fig += result[1]
@@ -175,6 +198,13 @@ def plot_all_test(x, y):
     xlabel = result[3]
     ylabel = result[4]
     zlabel = result[5]
+
+    fig += "<h3 class='report-title'>covariance matrix plot</h3>" \
+           "<p>This represents ... </p>"
+    result = plot_feature_covariance_matrix_plot(x, y)
+    aws += result[0]
+    fig += result[1]
+
 
     return [aws, fig , fig3d, xlabel, ylabel, zlabel]
 
@@ -187,19 +217,6 @@ def plot_user_input(x, y):
     print("User input plot")
 
     result = [aws, fig]
-
-
-    dh1 = data_holder()
-    dh1.read_data()
-
-    aws += dh1.print_data_table_info("brain_size.csv")
-
-    vt1 = visualization_toolbox(dh1, 'brain_size.csv')
-    result = vt1.raw_data_plot(['11','21'])
-
-    aws += result[0]
-    fig += result[1]
-
 
     dh1 = data_holder()
     dh1.read_data()

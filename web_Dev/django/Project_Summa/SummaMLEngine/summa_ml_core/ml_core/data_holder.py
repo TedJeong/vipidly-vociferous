@@ -22,7 +22,7 @@ class data_holder:
         self.datatable_names = list(args)
         self.dataset_num = len(self.datatable_names)
         self.datatables = []
-        self.native_flag = False
+        self.native_flag = False # on interactive mode
 
         print('='*50)
         print('data_holder is created..')
@@ -49,7 +49,10 @@ class data_holder:
         # select all dataset in ./raw_data
         if self.dataset_num == 0:
             # csv data input
+            # caution with django framework : "." directory is in manage.py file
             path = os.path.abspath(".")
+
+            path += "/SummaMLEngine/summa_ml_core/ml_core"
             path += "/raw_data/"
 
             datatable_names = glob.glob(path + "*.csv")
@@ -61,7 +64,7 @@ class data_holder:
                 self.datatable_names.append(table_name)
 
                 # table data registration
-                df = pd.read_csv("./raw_data/" + table_name, sep=';', na_values='.')
+                df = pd.read_csv("./SummaMLEngine/summa_ml_core/ml_core/raw_data/" + table_name, sep=',', na_values=';')
                 self.datatables.append(df)
 
 
@@ -75,7 +78,7 @@ class data_holder:
                 self.datatable_names.append(table_name)
 
                 # table data registration
-                with open("./raw_data/" + table_name, 'rb') as f:
+                with open("./SummaMLEngine/summa_ml_core/ml_core/raw_data/" + table_name, 'rb') as f:
                     data = f.readlines()
                 data = map(lambda x : x.decode("utf-8").strip(), data)
                 data_str = "[" + ",".join(data) + "]"
@@ -83,6 +86,8 @@ class data_holder:
                 self.datatables.append(df_json)
         else:
             print("user specified folder/file")
+
+        print(self.datatable_names)
 
 
     def col_exclude(self, table, ex_col_names):
@@ -103,6 +108,7 @@ class data_holder:
         input : (self, table_name):
         return : categorical_data_columns, continuous_data_columns
         """
+        #TODO: currently only works for csv file
         categorical_data_columns=[]
         continuous_data_columns=[]
         table_index = self.datatable_names.index(str(table_name))
@@ -118,8 +124,10 @@ class data_holder:
 
 
     def print_data_table_info(self, table_name):
+        print("print_data_table_info call")
         cr = ''
         delim = '<br/>'
+        print(self.datatable_names)
         table_index = self.datatable_names.index(str(table_name))
         table = self.datatables[table_index]
         if self.native_flag == True:

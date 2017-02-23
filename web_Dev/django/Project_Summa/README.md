@@ -6,6 +6,7 @@
 - rabbitmq-server
 - celery -A SummaMLEngine worker -E
 - python3 quiver_test
+- python3 manage.py graph_models --pygraphviz -a -o test.png
 
 # function description
 - machine learning reporting with image, table data input.

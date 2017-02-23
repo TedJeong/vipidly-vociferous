@@ -14,6 +14,7 @@
 ## web_Dev
 ### django project
 - Project_Summa
+
 ### spring project
 - MyPlace/Taste Web
 
