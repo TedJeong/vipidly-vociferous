@@ -317,7 +317,6 @@ class visualization_toolbox:
             return [cr, mpld3.fig_to_html(fig)]
 
 
-
     # http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html#sphx-glr-auto-examples-ensemble-plot-forest-importances-py
     def feature_importance_plot1d(self, X, y, modelclass):
         if hasattr(modelclass, 'feature_importances_'):
@@ -559,8 +558,6 @@ class visualization_toolbox:
     ###############################
     # overfit-underfit plot for single estimator
     # http://scikit-learn.org/stable/auto_examples/model_selection/plot_validation_curve.html#sphx-glr-auto-examples-model-selection-plot-validation-curve-py
-
-
     def cv_score_compare_plot1d(self, train, target, param_name, param_range, model):
         """ Cross validation score comparision plot
         Single/Multi Features
@@ -587,6 +584,8 @@ class visualization_toolbox:
         test_scores_mean = np.mean(test_scores, axis=1)
         test_scores_std = np.std(test_scores, axis=1)
 
+        fig, ax = plt.subplots()
+
         plt.title("Validation Curve with "+param_name)
         #plt.xlabel("$\gamma$")
         plt.xlabel(str(param_name))
@@ -605,7 +604,11 @@ class visualization_toolbox:
                  test_scores_mean + test_scores_std, alpha=0.2,
                  color="navy", lw=lw)
         plt.legend(loc="best")
-        plt.show()
+        if self.native_flag == True:
+            plt.show()
+        else:
+            return ['', mpld3.fig_to_html(fig)]
+
 
 
     #http://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html#sphx-glr-auto-examples-model-selection-plot-underfitting-overfitting-py

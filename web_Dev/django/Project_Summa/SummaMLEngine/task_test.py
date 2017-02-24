@@ -32,7 +32,6 @@ def xsum(numbers):
     return sum(numbers)
 
 
-
 @app.task
 def plot_ols(x, y):
     """
@@ -50,8 +49,6 @@ def plot_ols(x, y):
     calculated.
 
     """
-
-
     # Code source: Jaques Grobler
     # License: BSD 3 clause
 
@@ -123,7 +120,7 @@ def plot_raw_test(x, y):
 
 
 @app.task
-def plot_feature_pair_comparision(x, y):
+def plot_feature_pair_comparision_test(x, y):
     aws = ''
     fig = ''
 
@@ -153,13 +150,12 @@ def plot_feature_pair_comparision(x, y):
     ylabel = result[4]
     zlabel = result[5]
 
-
     return [aws, fig, fig3d, xlabel, ylabel, zlabel]
 
 
 @app.task
-def plot_feature_covariance_matrix_plot(x, y):
-    print("feature covariance matrix plot")
+def plot_feature_covariance_matrix_plot_test(x, y):
+    print("feature covariance matrix plot test call")
     aws = ''
     fig = ''
 
@@ -175,23 +171,95 @@ def plot_feature_covariance_matrix_plot(x, y):
 
 
 @app.task
-def plot_all_test(x, y):
+def plot_model_cv_score_compare_plot1d_test():
+    print("plot_model_cv_score_compare_plot1d test call")
     aws = ''
     fig = ''
 
-    print("all test")
+    dh1 = data_holder()
+    dh1.read_data()
+    vt1 = visualization_toolbox(dh1, 'brain_size.csv')
+
+
+    # Build a classification task using 3 informative features
+    X, y = make_classification(n_samples=1000,
+                   n_features=10,
+                   n_informative=3,
+                   n_redundant=0,
+                   n_repeated=0,
+                   n_classes=2,
+                   random_state=0,
+                   shuffle=False)
+
+    rf = RandomForestClassifier()
+
+    param_name_svc="gamma"
+    param_range_svc=np.logspace(-6, -1, 5)
+
+    param_name_rf="n_estimators"
+    param_range_rf=np.array([1,5,20,50,100,200])
+
+    result = vt1.cv_score_compare_plot1d(X, y, param_name_rf, param_range_rf, rf)
+
+    aws += result[0]
+    fig += result[1]
+
+    return [aws, fig]
+
+
+@app.task
+def plot_feature_all_test(x, y):
+    """
+    plot feature engineering
+    :param x:
+    :param y:
+    :return:
+    """
+    aws = ''
+    fig = ''
+
+    print("plot feature all test call")
 
     ## plot_raw
-    fig += "<h3 class='report-title'>Raw data plot</h3>" \
-           "<p>This represents ... </p>"
+
+    fig +="""
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Raw data plot</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Settings 1</a>
+                    </li>
+                    <li><a href="#">Settings 2</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+              <p>This represents ... </p>
+          """
     result = plot_raw_test(x, y)
     aws += result[0]
     fig += result[1]
 
+    fig += """
+            </div>
+          </div>
+          """
+
     ## feature_pair_comparision
     fig += "<h3 class='report-title'>pair partial dependence plot</h3>" \
            "<p>This represents ... </p>"
-    result = plot_feature_pair_comparision(x, y)
+    result = plot_feature_pair_comparision_test(x, y)
     aws += result[0]
     fig += result[1]
     fig3d = result[2]
@@ -201,13 +269,101 @@ def plot_all_test(x, y):
 
     fig += "<h3 class='report-title'>covariance matrix plot</h3>" \
            "<p>This represents ... </p>"
-    result = plot_feature_covariance_matrix_plot(x, y)
+    result = plot_feature_covariance_matrix_plot_test(x, y)
     aws += result[0]
     fig += result[1]
 
-
     return [aws, fig , fig3d, xlabel, ylabel, zlabel]
 
+
+@app.task
+def plot_model_all_test():
+    """
+        plot model tuning
+    :return:
+    """
+    print("plot model all test call")
+    aws = ''
+    fig = ''
+
+    fig += "<h3 class='report-title'>Score with Cross validation and without</h3>" \
+           "<p>This represents ... </p>"
+    fig += """<script>alert("hi!")</script>"""
+
+
+    fig += "<div class='x_panel'>" \
+                        "<div class='x_title'>" \
+                            "<h2>Score with Cross validation and without</h2>" \
+           "<ul class='nav navbar-right panel_toolbox'>" \
+           "<li><a class='collapse-link'><i class='fa fa-chevron-up'></i></a>" \
+           "</li>" \
+           "<li class='dropdown'>" \
+           "<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'><i class='fa fa-wrench'></i></a>" \
+           "<ul class='dropdown-menu' role='menu'>" \
+           "<li><a href='#'>Settings 1</a>" \
+           "</li>" \
+           "<li><a href='#'>Settings 2</a>" \
+           "</li>" \
+           "</ul>" \
+           "</li>" \
+           "<li><a class='close-link'><i class='fa fa-close'></i></a>" \
+           "</li>" \
+           "</ul>" \
+           "<div class='clearfix'></div>" \
+           "</div>" \
+           "<div class='x_content' style='display: block;'>"\
+
+    "<p>Simple table with project listing with progress and editing options</p>"\
+
+    "</div>" \
+    "</div>" \
+    "<!-- Prediction Results panel end -->"
+
+
+
+    result = plot_model_cv_score_compare_plot1d_test()
+
+    aws += result[0]
+    fig += result[1]
+
+    return [aws, fig]
+
+
+@app.task
+def plot_report_all_test():
+    fig = """
+                             <!-- Prediction Results panel -->
+                      <div class='x_panel'>
+                        <div class='x_title'>
+                          <h2>Model Tuning</h2>
+                          <ul class='nav navbar-right panel_toolbox'>
+                            <li><a class='collapse-link"><i class="fa fa-chevron-up'></i></a>
+                            </li>
+                            <li class='dropdown'>
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Settings 1</a>
+                                </li>
+                                <li><a href="#">Settings 2</a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                          </ul>
+                          <div class="clearfix"></div>
+
+                        </div>
+
+                        <div class="x_content" style="display: block;">
+                          <p>Simple table with project listing with progress and editing options</p>
+
+                        </div>
+                      </div>
+                      <!-- Prediction Results panel end -->
+    """
+
+    return [fig]
 
 @app.task
 def plot_user_input(x, y):

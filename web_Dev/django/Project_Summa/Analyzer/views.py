@@ -22,7 +22,9 @@ from django.views.generic.edit import FormView
 
 from SummaMLEngine.task_test import plot_ols
 from SummaMLEngine.task_test import plot_raw_test
-from SummaMLEngine.task_test import plot_all_test
+from SummaMLEngine.task_test import plot_feature_all_test
+from SummaMLEngine.task_test import plot_model_all_test
+from SummaMLEngine.task_test import plot_report_all_test
 
 
 def index(request):
@@ -67,7 +69,9 @@ def ml_core(request):
                 #result = plot_ols.delay(x, y)
                 #print(type(result)) # Asyc.celery.result
                 #result = plot_raw_test(x, y)
-                result = plot_all_test(x, y)
+                result = plot_feature_all_test(x, y)
+                model_result = plot_model_all_test()
+                report_result = plot_report_all_test()
                 print(result[2])
                 if isinstance(result, list):
                     return HttpResponse(json.dumps({
@@ -76,16 +80,22 @@ def ml_core(request):
                         "_3dplots": result[2],
                         "xlabel": result[3],
                         "ylabel": result[4],
-                        "zlabel": result[5]
+                        "zlabel": result[5],
+                        "model_consoles": model_result[0],
+                        "model_plots": model_result[1],
+                        "report_stack": report_result[0],
                     }))
                 else:
+                    #TODO: currently not using
                     return HttpResponse(json.dumps({
                             "consoles": result.get()[0],
                             "plots": result.get()[1],
                             "_3dplots": result.get()[2],
                             "xlabel": result[3],
                             "ylabel": result[4],
-                            "zlabel": result[5]
+                            "zlabel": result[5],
+                            "model_consoles": model_result[0],
+                            "model_plots": model_result[1],
                     })
                     )
     ctx={
@@ -102,8 +112,6 @@ def ml_core(request):
     ctx['username'] = username
 
     return render(request, 'AnalyzerDir/ml-core.html', ctx)
-
-
 
 
 def kdsfddp(request):
@@ -141,7 +149,6 @@ def ktsfmcp(request):
 
 
 def image_analysis(request):
-
     if request.method == "GET":
         form = image_upload_model_form()
 
