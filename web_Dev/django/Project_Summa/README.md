@@ -6,17 +6,17 @@
 * ProjectManager : manages projects and visualize task lists.
 
 
-# ERD
+## ERD
 ![alt tag](test.png)
 
 
-# under debug mode
+## under debug mode
 - rabbitmq-server
 - celery -A SummaMLEngine worker -E
 - python3 quiver_test
 - python3 manage.py graph_models --pygraphviz -a -o test.png
 
-# function description
+## function description
 - machine learning reporting with image, table data input.
 
 ## requirements
@@ -28,11 +28,11 @@
 - https://html5up.net/aerial
 - https://github.com/jakebian/quiver
 
-# Author
+## Author
 free to change under MIT license.
 TedJeong
 
-# upto/todo
+## upto/todo
 anaylzer:
 file upload - user profile
 job to job list
