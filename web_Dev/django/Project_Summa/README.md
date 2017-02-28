@@ -1,7 +1,7 @@
 # Project Summa
 [under construction]
 - a python web framework django based machine learning analysis reporting service.
-- main apps
+### main apps
 * Analyzer : reports on preprocessing, feature engineering, classification/regression results for user-input datasets.
 * ProjectManager : manages projects and visualize task lists.
 
