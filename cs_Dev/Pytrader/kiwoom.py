@@ -71,12 +71,11 @@ class Kiwoom(QAxWidget):
 
         pass_ctrl = dlg.Edit2
         pass_ctrl.SetFocus()
-        pass_ctrl.TypeKeys('dldu05')
+        pass_ctrl.TypeKeys('*')
 
         #cert_ctrl = dlg.Edit3
         #cert_ctrl.SetFocus()
-        #cert_ctrl.TypeKeys('tkfkddldu0523!')
-
+        #cert_ctrl.TypeKeys('*비밀번호')
         btn_ctrl = dlg.Button0
         btn_ctrl.Click()
 
@@ -342,13 +341,13 @@ if __name__ == "__main__":
     account = kiwoom.GetLoginInfo(("ACCNO")).rstrip(';')
     kiwoom.SetInputValue("계좌번호", account)
 
-    kiwoom.SetInputValue("비밀번호", "dldu05")
+    kiwoom.SetInputValue("비밀번호", "*")
     kiwoom.CommRqData("opw00018_req", "opw00018", 0, "2000")
 
     while kiwoom.prev_next == '2':
         time.sleep(0.2)
         kiwoom.SetInputValue("계좌번호", account)
-        kiwoom.SetInputValue("비밀번호", "dldu05")
+        kiwoom.SetInputValue("비밀번호", "*")
         kiwoom.CommRqData("opw00018_req", "opw00018", 2, "2000")
 
     print(kiwoom.data_opw00018['single'])
