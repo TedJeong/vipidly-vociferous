@@ -4,7 +4,7 @@
 
 
 # ERD
-![alt tag](https://github.com/TedJeong/vipidly-vociferous/edit/master/web_Dev/django/Project_Summa/test.png)
+[<img src="https://github.com/TedJeong/vipidly-vociferous/edit/master/web_Dev/django/Project_Summa/test.png">]
 
 
 # under debug mode
