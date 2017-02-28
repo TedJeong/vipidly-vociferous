@@ -4,7 +4,7 @@
 
 
 # ERD
-![alt tag]("test.png")
+![alt tag](test.png)
 
 
 # under debug mode
