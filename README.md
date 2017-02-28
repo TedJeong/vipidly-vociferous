@@ -1,5 +1,5 @@
 # vipidly-vociferous
-- portfolio projects
+- most of the projects are under dev.
 
 ## android_Dev
 - MyPlace/Taste App
@@ -18,7 +18,7 @@
 ### spring project
 - MyPlace/Taste Web
 
-## notes
-### notes on machinelearning
-### notes on algorithm
-### notes on distributed computing
+### notes
+- notes on machinelearning
+- notes on algorithm
+- notes on distributed computing
