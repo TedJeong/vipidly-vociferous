@@ -2,6 +2,11 @@
 [under construction]
 - a python web framework django based machine learning analysis reporting service.
 
+
+# ERD
+![alt tag](https://github.com/TedJeong/vipidly-vociferous/edit/master/web_Dev/django/Project_Summa/test.png)
+
+
 # under debug mode
 - rabbitmq-server
 - celery -A SummaMLEngine worker -E
