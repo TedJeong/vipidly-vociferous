@@ -6,6 +6,9 @@
 * ProjectManager : manages projects and visualize task lists.
 
 
+## architecture
+![alt tag](summa_architecture.pdf)
+
 ## ERD
 ![alt tag](test.png)
 
