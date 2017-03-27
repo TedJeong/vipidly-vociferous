@@ -6,12 +6,8 @@
 * ProjectManager : manages projects and visualize task lists.
 
 
-## architecture
-![alt tag](summa_architecture.pdf)
-
 ## ERD
 ![alt tag](test.png)
-
 
 ## under debug mode
 - rabbitmq-server
@@ -30,10 +26,6 @@
 ## css templates and reference
 - https://html5up.net/aerial
 - https://github.com/jakebian/quiver
-
-## Author
-free to change under MIT license.
-TedJeong
 
 ## upto/todo
 anaylzer:
