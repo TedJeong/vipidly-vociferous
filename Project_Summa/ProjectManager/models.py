@@ -72,12 +72,33 @@ class Task(models.Model):
         return '{}-{} : {}'.format(self.task_name, self.task_project, self.task_members)
 
 
+import json
+def UpdateGraph():
+    catdics = {}
+    with open('pmgraph.json', 'w') as fp:
+        categories = Category.objects.all()
+        for category in categories:
+            catdics['name'] = category.category_name
+            catdics['children'] =
+            projects = category.project_set.all()
+            for project in projects:
+                prodics['name'] =
+                prodics['children'] =
+                tasks = project.task_set.all()
+                for task in tasks:
+
+
+
+
 @receiver(post_save, sender=Task)
 def post_save_task(sender, instance, created, **kwargs):
     if created:
         #instance = kwargs.pop('instance')
         instance.task_progress = instance.progress_sum()
         instance.save(update_fields=["task_progress"])
+
+
+
 
 
 class Member(models.Model):
